@@ -3,7 +3,7 @@ import Fullpage,  {FullPageSections, FullpageSection, FullpageNavigation } from 
 import Grid from "@material-ui/core/Grid";
 import './Screen.css'
 import video from './factory/v1.mp4'
-import ButtonHover from "./ReadMoreButton";
+import ReadMoreButton from "./ReadMoreButton";
 
 export function Screen() {
     return (
@@ -22,7 +22,7 @@ export function Screen() {
                     <h1 style={{color: "white", fontSize: 80, margin: 0, float: "right"}}>CNTEX</h1>
                     <h1 style={{color: "white", fontSize: 60, margin: 0, float: "right"}}>JJANGJANG MAN</h1>
                     <h1 style={{color: "white", fontSize: 40, marginTop: 0, fontVariant: "small-caps", float: "right"}}>
-                      <ButtonHover label="read more"/>
+                      <ReadMoreButton label="read more"/>
                     </h1>
 
                   </div>

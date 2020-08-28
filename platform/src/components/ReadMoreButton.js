@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./ReadMoreButton.css";
 
-export function ButtonHover(props) {
+export default function ReadMoreButton(props) {
     const {
         className, onClick, label, isDisabled
     } = props;
@@ -19,18 +19,16 @@ export function ButtonHover(props) {
     )
 };
 
-ButtonHover.propTypes = {
+ReadMoreButton.propTypes = {
     className: PropTypes.string,
     onClick: PropTypes.func,
     label: PropTypes.string,
     isDisabled: PropTypes.bool
 };
 
-ButtonHover.defaultProps = {
+ReadMoreButton.defaultProps = {
     className: "cta",
     onClick: null,
     label: "Click Me",
     isDisabled: false
 };
-
-export default ButtonHover;
