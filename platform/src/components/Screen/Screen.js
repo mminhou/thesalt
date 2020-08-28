@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import Fullpage,  {FullPageSections, FullpageSection, FullpageNavigation } from '@ap.cx/react-fullpage'
 import Grid from "@material-ui/core/Grid";
 import './Screen.css'
-import video from './factory/v1.mp4'
-import ReadMoreButton from "./ReadMoreButton";
+import video from '../factory/v1.mp4'
+import ReadMoreButton from "../ReadMoreButton/ReadMoreButton";
 
 export function Screen() {
     return (
