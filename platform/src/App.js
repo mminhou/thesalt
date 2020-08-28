@@ -19,7 +19,7 @@ const App = () => {
     console.log(deviceSize)
     return (
         <div>
-        { deviceSize == 'lg' | deviceSize == 'md' ?
+        { deviceSize == 'lg' | deviceSize == 'md' | deviceSize == 'xl' ?
             (
                 <Screen></Screen>
             ):
@@ -85,7 +85,7 @@ function getBreakPoint(windowWidth) {
         } else if (windowWidth < 1200) {
             return "lg";
         } else {
-            return "xlg";
+            return "xl";
         }
     } else {
         return undefined;
