@@ -9,26 +9,28 @@ import Login from './containers/Login';
 import Search from './containers/Search';
 import NoMatch from './containers/NoMatch';
 import Header from './components/Header';
+import {Screen} from "./components/Screen";
 //import Profile from './containers/Profile';
 
 const App = () => {
     return (
-        <Router>
-            <div>
-                <Header/>
-                <div>
-                    <Switch>
-                        <Route exact path="/" component={Home}/>
-                        <Route path="/about/:username" component={About}/>
-                        <Route path="/Product" component={Product}/>
-                        <Route path="/Login" component={Login}/>
-                        <Route path="/me" component={MyPage}/>
-                        <Route path="/search" component={Search}/>
-                        <Route component={NoMatch}/>
-                    </Switch>
-                </div>
-            </div>
-        </Router>
+        <Screen></Screen>
+        // <Router>
+        //     <div>
+        //         <Header/>
+        //         <div>
+        //             <Switch>
+        //                 <Route exact path="/" component={Home}/>
+        //                 <Route path="/about/:username" component={About}/>
+        //                 <Route path="/Product" component={Product}/>
+        //                 <Route path="/Login" component={Login}/>
+        //                 <Route path="/me" component={MyPage}/>
+        //                 <Route path="/search" component={Search}/>
+        //                 <Route component={NoMatch}/>
+        //             </Switch>
+        //         </div>
+        //     </div>
+        // </Router>
     );
 };
 
