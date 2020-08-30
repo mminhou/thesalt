@@ -1,7 +1,6 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
-
+hm and mh project. branch create and merge test
 ### What is this repository for? ###
 
 * Quick summary
