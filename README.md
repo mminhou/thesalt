@@ -28,3 +28,18 @@ hm and mh project. branch create and merge test
 * Other community or team contact
 
 ### Backend
+```
+$ python -m venv venv
+```
+```
+$ source venv/bin/activate
+```
+```
+$ pip install -r requirements.txt
+```
+```
+$ cd backend
+```
+```
+$ python manage.py runserver
+```
