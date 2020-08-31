@@ -10,6 +10,7 @@ import Search from './containers/Search';
 import NoMatch from './containers/NoMatch';
 import Header from './components/Header';
 import {Screen} from "./components/Screen/Screen";
+import Nav from "./components/Nav/Nav";
 //import Profile from './containers/Profile';
 
 const App = () => {
@@ -21,7 +22,10 @@ const App = () => {
         <div>
         { deviceSize == 'lg' | deviceSize == 'md' | deviceSize == 'xl' ?
             (
+                <div>
+                <Nav></Nav>
                 <Screen></Screen>
+                </div>
             ):
             (
                 <div></div>

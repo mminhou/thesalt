@@ -1,0 +1,14 @@
+ .navLink {
+    textDecoration: 'none';
+  }
+
+ .list {
+    width : 200px;
+ }
+.navLink {
+    textDecoration: none;
+    color: white;
+  }
+.selected {
+    border: 1px solid white;
+  }
