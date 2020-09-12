@@ -1,11 +1,25 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Fullpage,  {FullPageSections, FullpageSection, FullpageNavigation } from '@ap.cx/react-fullpage'
 import Grid from "@material-ui/core/Grid";
 import './Screen.css'
 import video from '../factory/v1.mp4'
 import ReadMoreButton from "../ReadMoreButton/ReadMoreButton";
 
+
+import { useSelector, useDispatch } from 'react-redux';
+import {fetchProducts} from "../../reducers/reducer_products";
+
+
 export function Screen() {
+    const dispatch = useDispatch()
+    const product = useSelector(state => state.productList.productList)
+    useEffect(() => {
+        if (product) return;
+        dispatch(fetchProducts());
+    }, []);
+    console.log(product)
+
+
     return (
         <Fullpage>
           <FullpageNavigation></FullpageNavigation>
@@ -31,16 +45,29 @@ export function Screen() {
 
             </FullpageSection>
 
-
             <FullpageSection style={{
             backgroundColor: 'rgb(235, 234, 229)',
             padding: '1em',}}>
+              <div style={{height: 300}}></div>
+                {product.map(p => <div><p>{p.id}</p></div>)}
+
+              sd
+              a
+              a
               {/*<SecondSection></SecondSection>*/}
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+
+              <p></p>
             </FullpageSection>
 
             <FullpageSection style={{
             backgroundColor: 'rgb(38, 107, 140)',
             padding: '1em',}}>
+              asd
             </FullpageSection>
 
           </FullPageSections>

@@ -33,13 +33,13 @@ router = routers.DefaultRouter()
 router.register(r'accounts', UserViewSet)
 router.register(r'maincategory', MainCategoryViewSet)
 router.register(r'subcategory', SubCategoryViewSet)
-router.register(r'product', ProductViewSet)
+router.register(r'products', ProductViewSet)
 
 # Authentication credentials were not provided
 # http -a email:password GET http://127.0.0.1:8000/api/
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('api/', include(router.urls)),
     # curl -X POST -d "email=...&password=..." http://localhost:8000/api-token-auth/
     path('api-token-auth/', obtain_jwt_token),
     path('admin/', admin.site.urls),

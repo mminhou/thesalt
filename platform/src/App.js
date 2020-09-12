@@ -17,7 +17,6 @@ const App = () => {
     const size = useWindowSize();
     // lg(1200), md(1024), sm(480)
     const deviceSize = getBreakPoint(size.width)
-    console.log(deviceSize)
     return (
         <div>
         { deviceSize == 'lg' | deviceSize == 'md' | deviceSize == 'xl' ?
