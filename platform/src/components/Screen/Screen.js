@@ -4,6 +4,7 @@ import Grid from "@material-ui/core/Grid";
 import './Screen.css'
 import video from '../factory/v1.mp4'
 import ReadMoreButton from "../ReadMoreButton/ReadMoreButton";
+import Footer from "../Footer";
 
 export function Screen() {
     return (
@@ -33,14 +34,15 @@ export function Screen() {
 
 
             <FullpageSection style={{
-            backgroundColor: 'rgb(235, 234, 229)',
+            backgroundColor: 'white',
             padding: '1em',}}>
               {/*<SecondSection></SecondSection>*/}
             </FullpageSection>
 
             <FullpageSection style={{
-            backgroundColor: 'rgb(38, 107, 140)',
+            backgroundColor: 'white',
             padding: '1em',}}>
+
             </FullpageSection>
 
           </FullPageSections>

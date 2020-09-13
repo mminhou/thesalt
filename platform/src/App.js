@@ -11,6 +11,7 @@ import NoMatch from './containers/NoMatch';
 import Header from './components/Header';
 import {Screen} from "./components/Screen/Screen";
 import Nav from "./components/Nav/Nav";
+import Footer from "./components/Footer";
 //import Profile from './containers/Profile';
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
                 <div>
                 <Nav></Nav>
                 <Screen></Screen>
+                    <Footer></Footer>
                 </div>
             ):
             (
