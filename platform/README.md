@@ -17,3 +17,7 @@
 ``````
 npm install package.json
 ``````
+* proxy
+```
+npm i --save http-proxy-middleware
+```

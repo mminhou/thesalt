@@ -34,7 +34,7 @@ const styleSheet = {
   }
 }
 
-class ResAppBar extends Component{
+class Nav extends Component{
   constructor(props){
     super(props);
     this.state = {drawerActivate:false, drawer:false, color: 'transparent', height: '13%', imgHeight: 80};
@@ -155,10 +155,10 @@ class ResAppBar extends Component{
   }
 }
 
-ResAppBar.propTypes = {
+Nav.propTypes = {
   classes : PropTypes.object.isRequired
 };
 
 
 
-export default withStyles(styleSheet)(ResAppBar);
+export default withStyles(styleSheet)(Nav);
