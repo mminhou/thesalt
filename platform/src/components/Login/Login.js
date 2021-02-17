@@ -32,7 +32,7 @@ const Login = () => {
                mode === 1 ? <SignUp/> :
                             <Forget/>}
               <footer>
-                <a href='' target='_blank'>Original design with animations by M_M</a>
+                <a href='https://github.com/mminhou/cntex' target='_blank'>Copyright © 2021 All Rights Reserved by CMM</a>
               </footer>
             </div>
           </Grid>
