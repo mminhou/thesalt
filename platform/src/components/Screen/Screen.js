@@ -6,8 +6,6 @@ import video from '../../factory/v1.mp4'
 import ReadMoreButton from "../ReadMoreButton/ReadMoreButton";
 import {  useSelector, useDispatch } from 'react-redux';
 import { fetchProducts } from "../../reducers/reducer_products";
-import Footer from "../Footer";
-
 
 
 export function Screen() {

@@ -2,37 +2,32 @@ import React, {useEffect, useState} from 'react';
 
 import {Screen} from "./components/Screen/Screen";
 import Nav from "./components/Nav/Nav";
-import {BrowserRouter as Router, Link, Redirect, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import About from "./containers/About";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import Login from "./components/Login/Login";
 import MediaCardDetail from "./components/MediaCard/MediaCardDetail";
 import Home from "./components/Home/Home";
 import Funding from "./components/Pages/Funding";
-import Footer from "./components/Footer";
-//import Profile from './containers/Profile';
 
 const App = () => {
     const size = useWindowSize();
     // lg(1200), md(1024), sm(480)
     const deviceSize = getBreakPoint(size.width)
 
-
     return (
+        <Router>
         <div>
             { deviceSize == 'lg' | deviceSize == 'md' | deviceSize == 'xl' ?
                 (
                     <div>
-                        <Router>
                             <ScrollToTop />
                             <Nav />
                             <Route exact path="/" component={Screen} />
                             <Route path="/home" component={Home} />
-                            <Route path="/funding" component={Funding} />
                             <Route path="/about" component={About} />
                             <Route path="/login" component={Login}/>
                             <Route path="/detail" component={MediaCardDetail}/>
-                        </Router>
                     </div>
                 ):
                 (
@@ -40,19 +35,8 @@ const App = () => {
                 )
             }
 
-        { deviceSize == 'lg' | deviceSize == 'md' | deviceSize == 'xl' ?
-            (
-                <div>
-                <Nav></Nav>
-                <Screen></Screen>
-                    <Footer></Footer>
-                </div>
-            ):
-            (
-                <div></div>
-            )
-        }
         </div>
+        </Router>
 
     );
 };
