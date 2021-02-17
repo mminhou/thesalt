@@ -17,10 +17,11 @@ const App = () => {
 
     return (
         <Router>
-        <div>
-            { deviceSize == 'lg' | deviceSize == 'md' | deviceSize == 'xl' ?
-                (
-                    <div>
+            <Switch>
+            <div>
+                { deviceSize == 'lg' | deviceSize == 'md' | deviceSize == 'xl' ?
+                    (
+                        <div>
                             <ScrollToTop />
                             <Nav />
                             <Route exact path="/" component={Screen} />
@@ -28,46 +29,47 @@ const App = () => {
                             <Route path="/about" component={About} />
                             <Route path="/login" component={Login}/>
                             <Route path="/detail" component={MediaCardDetail}/>
-                    </div>
-                ):
-                (
-                    <div></div>
-                )
-            }
+                        </div>
+                    ):
+                    (
+                        <div></div>
+                    )
+                }
 
-        </div>
+            </div>
+                </Switch>
         </Router>
 
     );
 };
 
 function useWindowSize() {
-  const [windowSize, setWindowSize] = useState({
-    width: undefined,
-    height: undefined,
-  });
+    const [windowSize, setWindowSize] = useState({
+        width: undefined,
+        height: undefined,
+    });
 
-  useEffect(() => {
-    // Handler to call on window resize
-    function handleResize() {
-      // Set window width/height to state
-      setWindowSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    }
+    useEffect(() => {
+        // Handler to call on window resize
+        function handleResize() {
+            // Set window width/height to state
+            setWindowSize({
+                width: window.innerWidth,
+                height: window.innerHeight,
+            });
+        }
 
-    // Add event listener
-    window.addEventListener("resize", handleResize);
+        // Add event listener
+        window.addEventListener("resize", handleResize);
 
-    // Call handler right away so state gets updated with initial window size
-    handleResize();
+        // Call handler right away so state gets updated with initial window size
+        handleResize();
 
-    // Remove event listener on cleanup
-    return () => window.removeEventListener("resize", handleResize);
-  }, []); // Empty array ensures that effect is only run on mount
+        // Remove event listener on cleanup
+        return () => window.removeEventListener("resize", handleResize);
+    }, []); // Empty array ensures that effect is only run on mount
 
-  return windowSize;
+    return windowSize;
 }
 
 function getBreakPoint(windowWidth) {
