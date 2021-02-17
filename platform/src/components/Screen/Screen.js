@@ -4,23 +4,8 @@ import Grid from "@material-ui/core/Grid";
 import './Screen.css'
 import video from '../../factory/v1.mp4'
 import ReadMoreButton from "../ReadMoreButton/ReadMoreButton";
-import {  useSelector, useDispatch } from 'react-redux';
-import { fetchProducts } from "../../reducers/reducer_products";
-
 
 export function Screen() {
-    const dispatch = useDispatch()
-    const productsArray = useSelector(state => state.productReducer.productList)
-    // const productsArray = useSelector(state => state.productReducer.productList)
-    const products = JSON.stringify(productsArray)
-    // const products = productsArray ?? [];
-
-    useEffect(() => {
-        if (products) return;
-        dispatch(fetchProducts());
-    }, []);
-    console.log(products)
-
     return (
         <Fullpage>
           <FullpageNavigation></FullpageNavigation>
