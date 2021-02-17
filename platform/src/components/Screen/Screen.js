@@ -6,6 +6,7 @@ import video from '../../factory/v1.mp4'
 import ReadMoreButton from "../ReadMoreButton/ReadMoreButton";
 import {  useSelector, useDispatch } from 'react-redux';
 import { fetchProducts } from "../../reducers/reducer_products";
+import Footer from "../Footer";
 
 
 
@@ -48,7 +49,7 @@ export function Screen() {
             </FullpageSection>
 
             <FullpageSection style={{
-            backgroundColor: 'rgb(235, 234, 229)',
+            backgroundColor: 'white',
             padding: '1em',}}>
 
                 <div style={{height: 300}} ></div>
@@ -59,13 +60,14 @@ export function Screen() {
             </FullpageSection>
 
             <FullpageSection style={{
-            backgroundColor: 'rgb(38, 107, 140)',
+            backgroundColor: 'white',
             padding: '1em',}}>
                 <div style={{height: 600}}> sadf</div>
                 asdfasdf
                 <div style={{}}>
                     asdfafd
                 </div>
+asd
             </FullpageSection>
 
           </FullPageSections>

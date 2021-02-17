@@ -9,6 +9,8 @@ import Login from "./components/Login/Login";
 import MediaCardDetail from "./components/MediaCard/MediaCardDetail";
 import Home from "./components/Home/Home";
 import Funding from "./components/Pages/Funding";
+import Footer from "./components/Footer";
+//import Profile from './containers/Profile';
 
 const App = () => {
     const size = useWindowSize();
@@ -38,6 +40,18 @@ const App = () => {
                 )
             }
 
+        { deviceSize == 'lg' | deviceSize == 'md' | deviceSize == 'xl' ?
+            (
+                <div>
+                <Nav></Nav>
+                <Screen></Screen>
+                    <Footer></Footer>
+                </div>
+            ):
+            (
+                <div></div>
+            )
+        }
         </div>
 
     );
