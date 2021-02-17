@@ -1,15 +1,13 @@
 import React, {useCallback} from "react";
-import {Link, useHistory} from 'react-router-dom'
 import PropTypes from "prop-types";
 import "./ReadMoreButton.css";
 
 export default function ReadMoreButton(props) {
-    const {
-        className, onClick, label, isDisabled
-    } = props;
+    const {className, label, isDisabled} = props;
+
     return (
-        <Link to='/home' onClick={() => window.location.reload()}>
-        <button onClick>
+        // <Link to='/home'>
+        <button onClick={() => window.location.replace("/home")}>
             <span className={className} disabled={isDisabled}>
                 <span style={{color: 'ghostwhite'}}>{label}</span>
                 <svg width="13px" height="10px" viewBox="0 0 13 10">
@@ -18,7 +16,7 @@ export default function ReadMoreButton(props) {
                 </svg>
             </span>
         </button>
-        </Link>
+        // </Link>
     )
 };
 
