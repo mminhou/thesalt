@@ -3,19 +3,28 @@ import ReactDOM from 'react-dom';
 
 // create store & rootReducer
 import { createStore, applyMiddleware, compose } from 'redux'
-import rootReducer from "./reducers";
+import rootReducer from "./modules/reducers";
 // Provider
 import { Provider } from 'react-redux'
-// Thunk
-import thunk from 'redux-thunk';
+// Saga
+import createSagaMiddleware from 'redux-saga';
+import rootSaga from './modules/sagas';
+// import thunk from 'redux-thunk';
 
 import * as serviceWorker from './serviceWorker';
 import App from './App';
 import './index.css';
 
-// define store
-const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(rootReducer, composeEnhancer(applyMiddleware(thunk)));
+// define saga & store
+const sagaMiddleware = createSagaMiddleware();
+const store = createStore(
+  rootReducer,
+  compose(
+    applyMiddleware(sagaMiddleware),
+    // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
+);
+sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
     <Provider store={store}>
