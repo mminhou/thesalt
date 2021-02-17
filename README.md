@@ -43,3 +43,12 @@ $ cd backend
 ```
 $ python manage.py runserver
 ```
+
+Fix:
+Feat:
+Refactor:
+Style:
+Init:
+Fix:
+Duild:
+Dependency:
