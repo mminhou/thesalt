@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import introduce from '../factory/images/introduce.jpg'
 import {Grid} from "@material-ui/core";
 import MediaCard from "../components/MediaCard/MediaCard";
 
+// ---------
+import { useDispatch, useSelector } from 'react-redux';
+import allAction from '../modules/actions/index';
 
 const About = () => {
+    const result = useSelector(state => state.products);
+    const dispatch = useDispatch();
 
+    useEffect(() => {
+    dispatch(allAction.loadProduct());
+    // console.log(result)
+  }, []);
 
     return (
         <div style={{height: 2000, backgroundColor: 'rgb(235, 234, 229)'}}>
