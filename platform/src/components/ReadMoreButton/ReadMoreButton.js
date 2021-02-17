@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useCallback} from "react";
+import {Link, useHistory} from 'react-router-dom'
 import PropTypes from "prop-types";
 import "./ReadMoreButton.css";
 
@@ -7,7 +8,8 @@ export default function ReadMoreButton(props) {
         className, onClick, label, isDisabled
     } = props;
     return (
-        <button onClick={onClick}>
+        <Link to='/home' onClick={() => window.location.reload()}>
+        <button onClick>
             <span className={className} disabled={isDisabled}>
                 <span style={{color: 'ghostwhite'}}>{label}</span>
                 <svg width="13px" height="10px" viewBox="0 0 13 10">
@@ -16,6 +18,7 @@ export default function ReadMoreButton(props) {
                 </svg>
             </span>
         </button>
+        </Link>
     )
 };
 

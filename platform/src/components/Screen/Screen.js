@@ -2,23 +2,25 @@ import React, {useEffect} from "react";
 import Fullpage,  {FullPageSections, FullpageSection, FullpageNavigation } from '@ap.cx/react-fullpage'
 import Grid from "@material-ui/core/Grid";
 import './Screen.css'
-import video from '../factory/v1.mp4'
+import video from '../../factory/v1.mp4'
 import ReadMoreButton from "../ReadMoreButton/ReadMoreButton";
+import {  useSelector, useDispatch } from 'react-redux';
+import { fetchProducts } from "../../reducers/reducer_products";
 
-
-import { useSelector, useDispatch } from 'react-redux';
-import {fetchProducts} from "../../reducers/reducer_products";
 
 
 export function Screen() {
     const dispatch = useDispatch()
-    const product = useSelector(state => state.productList.productList)
+    const productsArray = useSelector(state => state.productReducer.productList)
+    // const productsArray = useSelector(state => state.productReducer.productList)
+    const products = JSON.stringify(productsArray)
+    // const products = productsArray ?? [];
+
     useEffect(() => {
-        if (product) return;
+        if (products) return;
         dispatch(fetchProducts());
     }, []);
-    console.log(product)
-
+    console.log(products)
 
     return (
         <Fullpage>
@@ -48,26 +50,22 @@ export function Screen() {
             <FullpageSection style={{
             backgroundColor: 'rgb(235, 234, 229)',
             padding: '1em',}}>
-              <div style={{height: 300}}></div>
-                {product.map(p => <div><p>{p.id}</p></div>)}
 
-              sd
-              a
-              a
-              {/*<SecondSection></SecondSection>*/}
-              <br/>
-              <br/>
-              <br/>
-              <br/>
-              <br/>
+                <div style={{height: 300}} ></div>
 
-              <p></p>
+
+
+
             </FullpageSection>
 
             <FullpageSection style={{
             backgroundColor: 'rgb(38, 107, 140)',
             padding: '1em',}}>
-              asd
+                <div style={{height: 600}}> sadf</div>
+                asdfasdf
+                <div style={{}}>
+                    asdfafd
+                </div>
             </FullpageSection>
 
           </FullPageSections>
