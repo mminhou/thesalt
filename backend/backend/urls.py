@@ -42,5 +42,7 @@ urlpatterns = [
     path('api/', include(router.urls)),
     # curl -X POST -d "email=...&password=..." http://localhost:8000/api-token-auth/
     path('api-token-auth/', obtain_jwt_token),
+    # Editor summernote
+    path('summernote/', include('django_summernote.urls')),
     path('admin/', admin.site.urls),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -39,12 +39,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'django_summernote',
     'corsheaders',
     'accounts',
     'category',
     'products',
 
 ]
+
+# Summernote Editor
+# X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 # corsheaders
 CORS_ORIGIN_ALLOW_ALL = True

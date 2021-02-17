@@ -1,52 +1,45 @@
 import React, {useEffect, useState} from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import Home from './containers/Home';
-import About from './containers/About';
-import Product from './containers/Product';
-import MyPage from './containers/MyPage';
-import Login from './containers/Login';
-import Search from './containers/Search';
-import NoMatch from './containers/NoMatch';
-import Header from './components/Header';
 import {Screen} from "./components/Screen/Screen";
 import Nav from "./components/Nav/Nav";
-//import Profile from './containers/Profile';
+import {BrowserRouter as Router, Link, Redirect, Route} from 'react-router-dom';
+import About from "./containers/About";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+import Login from "./components/Login/Login";
+import MediaCardDetail from "./components/MediaCard/MediaCardDetail";
+import Home from "./components/Home/Home";
+import Funding from "./components/Pages/Funding";
 
 const App = () => {
     const size = useWindowSize();
     // lg(1200), md(1024), sm(480)
     const deviceSize = getBreakPoint(size.width)
+
+
     return (
         <div>
-        { deviceSize == 'lg' | deviceSize == 'md' | deviceSize == 'xl' ?
-            (
-                <div>
-                <Nav></Nav>
-                <Screen></Screen>
-                </div>
-            ):
-            (
-                <div></div>
-            )
-        }
+            { deviceSize == 'lg' | deviceSize == 'md' | deviceSize == 'xl' ?
+                (
+                    <div>
+                        <Router>
+                            <ScrollToTop />
+                            <Nav />
+                            <Route exact path="/" component={Screen} />
+                            <Route path="/home" component={Home} />
+                            <Route path="/funding" component={Funding} />
+                            <Route path="/about" component={About} />
+                            <Route path="/login" component={Login}/>
+                            <Route path="/detail" component={MediaCardDetail}/>
+                        </Router>
+                    </div>
+                ):
+                (
+                    <div></div>
+                )
+            }
+
         </div>
-        // <Router>
-        //     <div>
-        //         <Header/>
-        //         <div>
-        //             <Switch>
-        //                 <Route exact path="/" component={Home}/>
-        //                 <Route path="/about/:username" component={About}/>
-        //                 <Route path="/Product" component={Product}/>
-        //                 <Route path="/Login" component={Login}/>
-        //                 <Route path="/me" component={MyPage}/>
-        //                 <Route path="/search" component={Search}/>
-        //                 <Route component={NoMatch}/>
-        //             </Switch>
-        //         </div>
-        //     </div>
-        // </Router>
+
     );
 };
 
