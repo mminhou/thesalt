@@ -26,6 +26,7 @@ from rest_framework_jwt.views import obtain_jwt_token
 
 # Viewsets
 from accounts.views import UserViewSet
+# from accounts.views import login
 from category.views import MainCategoryViewSet, SubCategoryViewSet
 from products.views import ProductViewSet
 
@@ -42,6 +43,7 @@ urlpatterns = [
     path('api/', include(router.urls)),
     # curl -X POST -d "email=...&password=..." http://localhost:8000/api-token-auth/
     path('api-token-auth/', obtain_jwt_token),
+    # path('login/', login),
     # Editor summernote
     path('summernote/', include('django_summernote.urls')),
     path('admin/', admin.site.urls),
