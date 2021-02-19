@@ -2,6 +2,7 @@ import { takeEvery, put, call, delay } from 'redux-saga/effects';
 import api from '../../api/index';
 import allAction from '../actions/index';
 
+
 function* getProduct() {
     console.log("제품 가져오기 성공");
     try{
@@ -15,13 +16,12 @@ function* getProduct() {
 function* signIn({ payload }) {
     console.log("로그인 성공");
     try{
-        console.log(payload.signInData)
         const result = yield call(api.signIn, payload.signInData);
-        console.log(result.token)
-        yield delay(2000)
-        yield put({
-            type: allAction.signInSuccess,
-        });
+        // token
+        // console.log(result.data)
+        // console.log(result)
+        yield delay(500)
+        yield put(allAction.signInSuccess());
     }catch(error){
         yield put({
             type: allAction.signInFail,
