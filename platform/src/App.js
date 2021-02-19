@@ -26,7 +26,7 @@ const App = () => {
                             <Nav />
                             <Route exact path="/" component={Screen} />
                             <Route path="/home" component={Home} />
-                            <Route path="/about" component={About} />
+                            <Route exact path="/about" component={About} />
                             <Route path="/login" component={Login}/>
                             <Route path="/detail" component={MediaCardDetail}/>
                         </div>
