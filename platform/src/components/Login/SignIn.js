@@ -1,22 +1,23 @@
 import React from "react";
-import UserService from '../../service/UserService';
 import './SignIn.sass';
+import {useDispatch} from "react-redux";
+import { signIn } from "../../modules/actions/authAction";
 
 
 const SignIn = () => {
+    const dispatch = useDispatch();
 
-    const service = new UserService();
 
     const signInEvent=(e)=>{
         e.preventDefault();
         const signInData = {
-            userEmail: e.target.email.value,
-            userPassword: e.target.password.value
+            email: e.target.email.value,
+            password: e.target.password.value
         }
-        // console.log(signInData.userEmail);
+        // console.log(signInData.email);
         // console.log(signInData.userPassword);
-
-        service.fetchUserByEmailANDPassword(signInData)
+        dispatch(signIn(signInData))
+        // service.fetchUserByEmailANDPassword(signInData)
         /* TODO
         1) 세션 또는 쿠키 관리
         2) 페이지 이동(컴포넌트 unmount인지 ??)
