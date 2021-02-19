@@ -1,4 +1,4 @@
-import React, {useCallback} from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import "./ReadMoreButton.css";
 
@@ -6,7 +6,6 @@ export default function ReadMoreButton(props) {
     const {className, label, isDisabled} = props;
 
     return (
-        // <Link to='/home'>
         <button onClick={() => window.location.replace("/home")}>
             <span className={className} disabled={isDisabled}>
                 <span style={{color: 'ghostwhite'}}>{label}</span>
@@ -16,7 +15,6 @@ export default function ReadMoreButton(props) {
                 </svg>
             </span>
         </button>
-        // </Link>
     )
 };
 
