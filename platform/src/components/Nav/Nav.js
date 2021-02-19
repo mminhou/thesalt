@@ -11,6 +11,7 @@ import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
 import logo from '../../factory/images/logotem2.png'
 import './Nav.css'
 import {useSelector} from "react-redux";
+import {signOut} from "../../modules/actions/authAction";
 
 
 const styleSheet = {
@@ -43,6 +44,10 @@ const styleSheet = {
 const mapStateToProps = state => ({
     isLoggedIn: state.signIn
 });
+const mapDispatchToProps = {
+  signOut: signOut
+};
+
 
 class Nav extends Component {
 
@@ -140,6 +145,7 @@ class Nav extends Component {
         const {classes} = this.props
         const pathname = window.location.pathname
         const { isLoggedIn } = this.props.isLoggedIn
+        const signOut = this.props.signOut
         // const [dummy, reload] = useState(false);
 
         return (
@@ -179,15 +185,9 @@ class Nav extends Component {
                     <Typography variant="" className={classes.padding} color="inherit"
                                 style={{display: pathname == '/' ? 'none' : null}}>
                         {isLoggedIn ?
-                            (<Link to="/" className={classes.navLink}
-                                   // onClick={this.state.isLoggedIn = false}
-                            >logout</Link>)
+                            (<Link to="/login" className={classes.navLink} onClick={signOut}>logout</Link>)
                             :
-                            (<div>
-                                <a href="/login" className={classes.navLink}
-                                >login</a>
-                                {/*<SignIn isOpen={this.state.isModalOpen} close={this.closeModal} />*/}
-                            </div>)
+                            (<a href="/login" className={classes.navLink}>login</a>)
                         }
                     </Typography>
 
@@ -222,4 +222,4 @@ Nav.propTypes = {
     classes: PropTypes.object.isRequired
 };
 
-export default connect(mapStateToProps)(withStyles(styleSheet)(Nav));
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styleSheet)(Nav));
