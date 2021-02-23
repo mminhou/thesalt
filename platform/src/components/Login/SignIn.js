@@ -1,22 +1,23 @@
 import React from "react";
 import './SignIn.sass';
-import {useDispatch} from "react-redux";
-import { signIn } from "../../modules/actions/authAction";
-
+import {useDispatch, useSelector} from "react-redux";
+import {signIn, signOut} from "../../modules/actions/authAction";
+import {useHistory} from "react-router-dom";
 
 const SignIn = () => {
     const dispatch = useDispatch();
+    const history = useHistory();
+    const { isLoggedIn } = useSelector(state => state.signIn)
+    // console.log(isLoggedIn)
 
-
-    const signInEvent=(e)=>{
+    const signInEvent = (e) => {
         e.preventDefault();
         const signInData = {
             email: e.target.email.value,
             password: e.target.password.value
-        }
-        // console.log(signInData.email);
-        // console.log(signInData.userPassword);
-        dispatch(signIn(signInData))
+        };
+        dispatch(signIn(signInData));
+        history.push('/home');
         // service.fetchUserByEmailANDPassword(signInData)
         /* TODO
         1) 세션 또는 쿠키 관리
@@ -24,8 +25,16 @@ const SignIn = () => {
         */
     }
 
+    // signOut test
+    // const signOutEvent = (e) => {
+    //     dispatch(signOut());
+    //     history.push('/login');
+    // }
+
     return (
         <form className='account-from' onSubmit={signInEvent}>
+            {/*{isLoggedIn? <p>true</p> : <p>false</p>}*/}
+            {/*<button onClick={signOutEvent}>logout</button>*/}
             <div className='account-form-fields sign-in'>
                 <input id='email' name='email' type='email' placeholder='E-mail' required/>
                 <input id='password' name='password' type='password' placeholder='Password' required/>

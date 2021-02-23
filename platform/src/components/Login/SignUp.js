@@ -10,9 +10,9 @@ const SignUp = () =>{
     e.preventDefault();
 
     const signUpData = {
-      userEmail: e.target.email.value,
-      userPassword: e.target.password.value,
-      userName: e.target.name.value
+      email: e.target.email.value,
+      password: e.target.password.value,
+      username: e.target.name.value
     }
 
     service.createUser(signUpData);
