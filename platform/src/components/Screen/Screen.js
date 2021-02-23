@@ -21,10 +21,9 @@ export function Screen() {
                   <div style={{paddingRight: '15%'}}>
                     <h1 style={{color: "white", fontSize: 80, margin: 0, float: "right"}}>CNTEX</h1>
                     <h1 style={{color: "white", fontSize: 60, margin: 0, float: "right"}}>JJANGJANG MAN</h1>
-                    <h1 style={{color: "white", fontSize: 40, marginTop: 0, fontVariant: "small-caps", float: "right"}}>
+                    <h1 style={{color: "white", fontSize: 40, marginTop: 0, marginBottom: 0, fontVariant: "small-caps", float: "right"}}>
                       <ReadMoreButton label="read more"/>
                     </h1>
-
                   </div>
                 </Grid>
               </Grid>
