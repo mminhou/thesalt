@@ -25,4 +25,4 @@ $ python manage.py runserver
 * Style: CSS 업데이트
 * Init: Initializing
 * Build: Build 작업
-* Dependency: 의존성 추가
+* Dependency: 의존성 추가 g
