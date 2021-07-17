@@ -2,35 +2,54 @@ import { takeEvery, put, call, delay } from 'redux-saga/effects';
 import api from '../../api/index';
 import allAction from '../actions/index';
 
-
-function* getProduct() {
-    console.log("제품 가져오기 성공");
-    try{
-        const { data } = yield call(api.searchProduct);
-        yield put(allAction.loadProductSuccess(data));
-    }catch(error){
-        yield put(allAction.loadProductFail(error));
-    }
+function* getProductsSaga() {
+  try {
+    const products = yield call(api.getProducts); // call 을 사용하면 특정 함수를 호출하고, 결과물이 반환 될 때까지 기다려줄 수 있습니다.
+    yield put({
+      type: allAction.GET_PRODUCTS_SUCCESS,
+      payload: products.data
+    }); // 성공 액션 디스패치
+  } catch (e) {
+    yield put({
+      type: allAction.GET_PRODUCTS_ERROR,
+      error: true,
+      payload: e
+    }); // 실패 액션 디스패치
+  }
 }
 
+
+
+
+// function* getProduct() {
+//     console.log("제품 가져오기 성공");
+//     try{
+//         const { data } = yield call(api.searchProduct);
+//         yield put(allAction.loadProductSuccess(data));
+//     }catch(error){
+//         yield put(allAction.loadProductFail(error));
+//     }
+// }
+
 function* signIn({ payload }) {
-    console.log("로그인 성공");
     try{
         const result = yield call(api.signIn, payload.signInData);
-        // token
-        // console.log(result.data)
+        // tokens
+        console.log(result.data)
         // console.log(result)
         yield delay(500)
         yield put(allAction.signInSuccess());
+        console.log("login 성공")
+        alert("환영합니다.")
     }catch(error){
-        yield put({
-            type: allAction.signInFail,
-        });
+        console.log("login 실패");
+        alert("로그인에 실패하셨습니다. 다시 입력해주시기 바랍니다.");
+        yield put(allAction.signInFail(error));
     }
 }
 
 function* rootSaga(){
-    yield takeEvery("LOAD_PRODUCT", getProduct);
+    yield takeEvery("GET_PRODUCTS", getProductsSaga);
     yield takeEvery("SIGN_IN_REQUEST", signIn);
 }
 
