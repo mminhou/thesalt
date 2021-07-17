@@ -4,8 +4,8 @@ import axios from 'axios';
 const BASE_URL = 'http://localhost:8000/api';
 const AUTH_URL = 'http://localhost:8000/api-token-auth';
 
-const searchProduct = () => {
-    return axios.get(`${BASE_URL}/products`);
+const getProducts = () => {
+    return axios.get(`${BASE_URL}/products/`);
 };
 
 const signIn = (signInData) => {
@@ -13,7 +13,7 @@ const signIn = (signInData) => {
 };
 
 const api = {
-    searchProduct,
+    getProducts,
     signIn
 };
 
