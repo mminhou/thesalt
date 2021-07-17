@@ -37,7 +37,7 @@ export const signInFail = error => {
     return{
         type: SIGN_IN_FAIL,
         // payload: {
-            // signInData: data,
+        //     error: error,
         // },
     };
 };
