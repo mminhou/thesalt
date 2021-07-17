@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react';
 import {Screen} from "./components/Screen/Screen";
 import Nav from "./components/Nav/Nav";
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import About from "./containers/About";
+import Products from "./components/Products/Products";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import Login from "./components/Login/Login";
 import MediaCardDetail from "./components/MediaCard/MediaCardDetail";
@@ -26,9 +26,10 @@ const App = () => {
                             <Nav />
                             <Route exact path="/" component={Screen} />
                             <Route path="/home" component={Home} />
-                            <Route exact path="/about" component={About} />
+                            <Route exact path="/product" component={Products} />
                             <Route path="/login" component={Login}/>
-                            <Route path="/detail" component={MediaCardDetail}/>
+                            <Route path="/productDetail/:path" component={MediaCardDetail}/>
+                            {/*<Route path="/detail" component={MediaCardDetail}/>*/}
                         </div>
                     ):
                     (
