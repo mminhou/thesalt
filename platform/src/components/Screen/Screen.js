@@ -19,8 +19,8 @@ export function Screen() {
                 <Grid item xs={6}></Grid>
                 <Grid item xs={6}>
                   <div style={{paddingRight: '15%'}}>
-                    <h1 style={{color: "white", fontSize: 80, margin: 0, float: "right"}}>CNTEX</h1>
-                    <h1 style={{color: "white", fontSize: 60, margin: 0, float: "right"}}>JJANGJANG MAN</h1>
+                    <h1 style={{color: "white", fontSize: 80, margin: 0, float: "right"}}>THE SALT</h1>
+                    <h1 style={{color: "white", fontSize: 40, margin: 0, float: "right"}}>High Quality Select Shop</h1>
                     <h1 style={{color: "white", fontSize: 40, marginTop: 0, marginBottom: 0, fontVariant: "small-caps", float: "right"}}>
                       <ReadMoreButton label="read more"/>
                     </h1>
