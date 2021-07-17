@@ -1,6 +1,5 @@
 import {SIGN_IN_REQUEST, SIGN_IN_SUCCESS, SIGN_IN_FAIL, SIGN_OUT, initialState} from '../actions/authAction';
 
-
 const signIn = (state = [], action) => {
     switch(action.type){
         case SIGN_IN_REQUEST:
