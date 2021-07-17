@@ -7,8 +7,7 @@ import {connect} from 'react-redux'
 // import Modal from '@material-ui/core/Modal';
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
 
-// import logo from '../factory/images/flooop2.png'
-import logo from '../../factory/images/logotem2.png'
+import logo from '../../factory/images/theSalt.png'
 import './Nav.css'
 import {useSelector} from "react-redux";
 import {signOut} from "../../modules/actions/authAction";
@@ -127,10 +126,11 @@ class Nav extends Component {
                             this.setState({drawer: false})
                         }}>
 
-                        <List className={this.props.classes.list}>
-                            <ListItem key={1} button divider> Option 1 </ListItem>
-                            <ListItem key={2} button divider> Option 2 </ListItem>
-                            <ListItem key={3} button divider> Option 3 </ListItem>
+                        <List className={this.props.classes.list} style={{width: 500}}>
+                            <ListItem key={1} button divider>HOME</ListItem>
+                            <ListItem key={2} button divider>PRODUCT</ListItem>
+                            <ListItem key={3} button divider>CONTACT</ListItem>
+                            <ListItem key={4} button divider>LOGIN</ListItem>
                         </List>
 
                     </div>
@@ -165,6 +165,7 @@ class Nav extends Component {
                         </a>
                     </Typography>
 
+
                     <Typography variant="" className={classes.padding} color="inherit"
                                 style={{display: pathname == '/' || pathname == '/login' ? 'none' : null}}>
                         <Link to="/home" className={classes.navLink} activeClassName="selected">home</Link>
@@ -176,7 +177,7 @@ class Nav extends Component {
                     </Typography>
                     <Typography variant="" className={classes.padding} color="inherit"
                                 style={{display: pathname == '/' || pathname == '/login' ? 'none' : null}}>
-                        <Link to="/about" className={classes.navLink}>about</Link>
+                        <Link to="/product" className={classes.navLink}>product</Link>
                     </Typography>
                     <Typography variant="" className={classes.padding} color="inherit"
                                 style={{display: pathname == '/' || pathname == '/login' ? 'none' : null}}>
