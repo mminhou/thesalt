@@ -19,7 +19,7 @@ const Footer = () => {
         <Grid container style={{width: '80%', margin: "auto"}}>
             <Grid container direction="row">
                 <Grid md={7} sm={12}>
-                    <Typography variant="h6" align="left">About</Typography>
+                    <Typography variant="h6" align="left">Products</Typography>
                     <Typography variant="body1" align="left" style={{marginTop: 11, marginRight: 20}} lineHeight={100}>
                         Nicole Kidman, Hugh Grant, and Donald Sutherland star in this psychological thriller about a woman whose seemingly perfect life is upended by a very public disaster. Nicole Kidman, Hugh Grant, and Donald Sutherland star in this psychological thriller about a woman whose seemingly perfect life is upended by a very public disaster.
                     </Typography>
