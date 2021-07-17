@@ -8,7 +8,7 @@ const SignIn = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const { isLoggedIn } = useSelector(state => state.signIn)
-    // console.log(isLoggedIn)
+    console.log(isLoggedIn)
 
     const signInEvent = (e) => {
         e.preventDefault();
@@ -17,7 +17,8 @@ const SignIn = () => {
             password: e.target.password.value
         };
         dispatch(signIn(signInData));
-        history.push('/home');
+        history.push('/');
+
         // service.fetchUserByEmailANDPassword(signInData)
         /* TODO
         1) 세션 또는 쿠키 관리
