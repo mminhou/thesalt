@@ -19,29 +19,22 @@ const Footer = () => {
         <Grid container style={{width: '80%', margin: "auto"}}>
             <Grid container direction="row">
                 <Grid md={7} sm={12}>
-                    <Typography variant="h6" align="left">Products</Typography>
-                    <Typography variant="body1" align="left" style={{marginTop: 11, marginRight: 20}} lineHeight={100}>
-                        Nicole Kidman, Hugh Grant, and Donald Sutherland star in this psychological thriller about a woman whose seemingly perfect life is upended by a very public disaster. Nicole Kidman, Hugh Grant, and Donald Sutherland star in this psychological thriller about a woman whose seemingly perfect life is upended by a very public disaster.
-                    </Typography>
+                    <Typography variant="h6" align="left">The Salt</Typography>
                 </Grid>
 
                 <Grid md={2} sm={6} xs={6}>
                     <Typography variant="h6" align="left">Quick Links</Typography>
                     <List>
-                        <ListItemLink href="#home" style={{padding: 0}}><ListItemText primary="Home" /></ListItemLink>
-                        <ListItemLink href="#home" style={{padding: 0}}><ListItemText primary="Abuot Us" /></ListItemLink>
-                        <ListItemLink href="#home" style={{padding: 0}}><ListItemText primary="Products" /></ListItemLink>
-                        <ListItemLink href="#home" style={{padding: 0}}><ListItemText primary="Contact Us" /></ListItemLink>
-                        <ListItemLink href="#home" style={{padding: 0}}><ListItemText primary="Login" /></ListItemLink>
+                        <ListItemLink href="/home" style={{padding: 0}}><ListItemText primary="Home" /></ListItemLink>
+                        <ListItemLink href="/product" style={{padding: 0}}><ListItemText primary="Products" /></ListItemLink>
+                        {/*<ListItemLink href="/login" style={{padding: 0}}><ListItemText primary="Login" /></ListItemLink>*/}
                     </List>
                 </Grid>
 
                 <Grid md={3} sm={6} xs={6}>
                     <Typography variant="h6" align="left">Contact Us</Typography>
                     <List>
-                        <ListItem button style={{padding: 0}}><ListItemText primary="010-0000-0000 (Choi Yeongu)" /></ListItem>
-                        <ListItem button style={{padding: 0}}><ListItemText primary="010-1111-1111 (Yu Jisang)" /></ListItem>
-                        <ListItem button style={{padding: 0}}><ListItemText primary="010-2222-2222 (Choi Minho)" /></ListItem>
+                        <ListItem button style={{padding: 0}}><ListItemText primary="010-2895-1359 (Choi Minho)" /></ListItem>
                     </List>
                 </Grid>
             </Grid>
@@ -50,7 +43,7 @@ const Footer = () => {
 
         <Grid container style={{width: '80%', margin: "auto"}} alignItems="center">
             <Grid item md={8}>
-                <Typography variant="body1" align="left">Copyright &copy; 2021 All Rights Reserved by <a href="#">Daegimansung</a>.</Typography>
+                <Typography variant="body1" align="left">Copyright &copy; 2021 All Rights Reserved by <a href="#">CMM</a>.</Typography>
             </Grid>
 
             <Grid item md={3} sm={6} xs={12} alignItems="center" justify="center">
@@ -66,7 +59,7 @@ const Footer = () => {
                 {/*</List>*/}
 
                 <ul className="social-icons" style={{float: "right"}}>
-                    <li><a className="facebook" href="#"><Facebook className="fa fa-facebook"  /></a></li>
+                    <li><a className="facebook" href="#"><Facebook className="fa fa-facebook" style={{height: '1.5rem !important'}}  /></a></li>
                     <li><a className="instagram" href="#"><Instagram className="fa-instagram" /></a></li>
                     <li><a className="twitter" href="#"><Twitter className="fa-twitter" /></a></li>
                     <li><a className="linkedin" href="#"><LinkedIn className="fa-linkedin"></LinkedIn></a></li>
