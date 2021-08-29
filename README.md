@@ -1,3 +1,5 @@
+</br>
+
 # *THE SALT Project Site* #
 ![logo](./platform/src/factory/images/theSalt.png)
 
