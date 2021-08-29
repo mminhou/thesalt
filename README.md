@@ -1,6 +1,6 @@
 </br>
 
-# *THE SALT Project Site* #
+# *THE SALT* Project #
 ![logo](./platform/src/factory/images/theSalt.png)
 
 ### What is this project site? ###
