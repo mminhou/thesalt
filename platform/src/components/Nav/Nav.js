@@ -172,11 +172,6 @@ class Nav extends Component {
                     </Typography>
                     <Typography variant="" className={classes.padding} color="inherit"
                                 style={{display: pathname == '/' || pathname == '/login' ? 'none' : null}}>
-                        <Link to="/funding" className={classes.navLink}
-                              activeClassName={classes.selected}>funding</Link>
-                    </Typography>
-                    <Typography variant="" className={classes.padding} color="inherit"
-                                style={{display: pathname == '/' || pathname == '/login' ? 'none' : null}}>
                         <Link to="/product" className={classes.navLink}>product</Link>
                     </Typography>
                     <Typography variant="" className={classes.padding} color="inherit"
