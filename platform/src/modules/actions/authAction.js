@@ -24,12 +24,12 @@ export const signIn = (data) => {
     };
 };
 
-export const signInSuccess = () => {
+export const signInSuccess = (token) => {
     return{
         type: SIGN_IN_SUCCESS,
-        // payload: {
-            // signInData: data,
-        // },
+        payload: {
+            signInData: token,
+        },
     };
 };
 
