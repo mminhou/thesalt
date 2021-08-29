@@ -8,7 +8,6 @@ import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import Login from "./components/Login/Login";
 import MediaCardDetail from "./components/MediaCard/MediaCardDetail";
 import Home from "./components/Home/Home";
-import Funding from "./components/Pages/Funding";
 
 const App = () => {
     const size = useWindowSize();
