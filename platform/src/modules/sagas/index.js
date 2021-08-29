@@ -1,6 +1,9 @@
 import { takeEvery, put, call, delay } from 'redux-saga/effects';
 import api from '../../api/index';
 import allAction from '../actions/index';
+import {persistConfig} from "../reducers";
+// import storage from "redux-persist/lib/storage";
+
 
 function* getProductsSaga() {
   try {
@@ -35,15 +38,17 @@ function* signIn({ payload }) {
     try{
         const result = yield call(api.signIn, payload.signInData);
         // tokens
-        console.log(result.data)
-        // console.log(result)
+        // console.log(result.data)
+        persistConfig.storage.setItem("token", result.data)
+        // console.log(persistConfig.storage.setItem(token, result.data))
         yield delay(500)
-        yield put(allAction.signInSuccess());
-        console.log("login 성공")
+        yield put(allAction.signInSuccess(result.data));
+        // console.log("login 성공")
         alert("환영합니다.")
     }catch(error){
-        console.log("login 실패");
+        // console.log("login 실패");
         alert("로그인에 실패하셨습니다. 다시 입력해주시기 바랍니다.");
+        window.location.reload();
         yield put(allAction.signInFail(error));
     }
 }
