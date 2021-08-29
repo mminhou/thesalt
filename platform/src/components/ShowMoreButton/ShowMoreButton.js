@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./ReadMoreButton.css";
+import "./ShowMoreButton.css";
 
-export default function ReadMoreButton(props) {
+export default function ShowMoreButton(props) {
     const {className, label, isDisabled} = props;
 
     return (
@@ -18,14 +18,14 @@ export default function ReadMoreButton(props) {
     )
 };
 
-ReadMoreButton.propTypes = {
+ShowMoreButton.propTypes = {
     className: PropTypes.string,
     onClick: PropTypes.func,
     label: PropTypes.string,
     isDisabled: PropTypes.bool
 };
 
-ReadMoreButton.defaultProps = {
+ShowMoreButton.defaultProps = {
     className: "cta",
     onClick: null,
     label: "Click Me",
