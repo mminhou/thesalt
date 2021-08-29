@@ -4,11 +4,11 @@
 ![logo](./platform/src/factory/images/theSalt.png)
 
 ### What is this project site? ###
-'The Salt' is a shopping mall that sells a high quality selected products.
+'The Salt' is a shopping mall that sells a selected high quality products.
 
 <br/>
 
-### Services ### 
+## Services ### 
 - site url ==> updating
 - test id >> test@gmail.com
 - test password >> test1234 
@@ -16,10 +16,12 @@
 <br/>
 
 ### Architecture ###
-***
+
+<br/>
+
 ### 
 
-### Backend
+### Backend ###
 #### / Based on django, djangorestframework /
 ```
 $ python -m venv venv
