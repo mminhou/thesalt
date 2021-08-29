@@ -1,14 +1,11 @@
 # *THE SALT Project Site* #
 ![logo](./platform/src/factory/images/theSalt.png)
-### What is this project site? ###
 
----
+### What is this project site? ###
 'The Salt' is a shopping mall that sells a high quality selected products.
 
 
-### Services
-
---- 
+### Services ### 
 - site url ==> updating
 - test id >> test@gmail.com
 - test password >> test1234 
@@ -42,4 +39,4 @@ $ python manage.py runserver
 * Style: CSS 업데이트
 * Init: Initializing
 * Build: Build 작업
-* Dependency: 의존성 추가 g
+* Dependency: 의존성 추가 
