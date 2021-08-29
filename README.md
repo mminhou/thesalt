@@ -1,6 +1,23 @@
-# README #
+# *THE SALT Project Site* #
+![logo](./platform/src/factory/images/theSalt.png)
+### What is this project site? ###
 
-### What is this repository for? ###
+---
+'The Salt' is a shopping mall that sells a high quality selected products.
+
+
+### Services
+
+--- 
+- site url ==> updating
+- test id >> test@gmail.com
+- test password >> test1234 
+
+
+### Architecture
+
+--- 
+### 
 
 ### Backend
 #### / Based on django, djangorestframework /
