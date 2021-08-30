@@ -8,6 +8,8 @@ import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import Login from "./components/Login/Login";
 import MediaCardDetail from "./components/MediaCard/MediaCardDetail";
 import Home from "./components/Home/Home";
+import Profile from "./components/Profile/Profile";
+import AuthRoute from "./AuthRoute";
 
 const App = () => {
     const size = useWindowSize();
@@ -17,27 +19,28 @@ const App = () => {
     return (
         <Router>
             <Switch>
-            <div>
-                { deviceSize == 'lg' | deviceSize == 'md' | deviceSize == 'xl' ?
-                    (
-                        <div>
-                            <ScrollToTop />
-                            <Nav />
-                            <Route exact path="/" component={Screen} />
-                            <Route path="/home" component={Home} />
-                            <Route exact path="/product" component={Products} />
-                            <Route path="/login" component={Login}/>
-                            <Route path="/productDetail/:path" component={MediaCardDetail}/>
-                            {/*<Route path="/detail" component={MediaCardDetail}/>*/}
-                        </div>
-                    ):
-                    (
-                        <div></div>
-                    )
-                }
+                <div>
+                    {deviceSize == 'lg' | deviceSize == 'md' | deviceSize == 'xl' ?
+                        (
+                            <div>
+                                <ScrollToTop/>
+                                <Nav/>
+                                <Route exact path="/" component={Screen}/>
+                                <Route path="/home" component={Home}/>
+                                <Route path="/login" component={Login}/>
+                                <Route path="/profile" component={Profile}/>
+                                <Route exact path="/product" component={Products}/>
+                                <Route path="/productDetail/:path" component={MediaCardDetail}/>
+                                {/*<Route path="/detail" component={MediaCardDetail}/>*/}
+                            </div>
+                        ) :
+                        (
+                            <div></div>
+                        )
+                    }
 
-            </div>
-                </Switch>
+                </div>
+            </Switch>
         </Router>
 
     );
