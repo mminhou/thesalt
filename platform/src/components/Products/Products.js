@@ -1,10 +1,9 @@
 import React, {useEffect} from 'react';
-import introduce from '../../factory/images/introduce3.png'
 import {Grid, Tabs, Tab, Box, Typography} from "@material-ui/core";
-import MediaCard from "../MediaCard/MediaCard";
-
+import ProductCard from "../ProductCard/ProductCard";
 import {useDispatch, useSelector} from 'react-redux';
 import allAction from '../../modules/actions';
+import Footer from "../Footer/Footer";
 
 function TabPanel(props) {
     const {children, value, index, ...other} = props;
@@ -55,9 +54,9 @@ const Products = () => {
         <Grid container justifyContent="center" style={{textAlign: 'center'}}>
             {/*<img src={introduce} width="100%" style={{filter: 'brightness(60%)'}}></img>*/}
             <Grid item xs={12}>
-                <div style={{backgroundColor: 'rgb(235, 234, 229)', height: 120}}></div>
-                <h1 style={{marginTop: 30, marginBottom: 5}}>세일 / 여성 컬렉션</h1>
-                <p style={{fontSize: 17, marginTop: 0, marginBottom: 30}}>보웬 & 더솔트 협력업체와 함께하는 상품을 소개합니다.</p>
+                <div style={{backgroundColor: 'rgb(25,25,25)', height: 120}}></div>
+                <h1 style={{marginTop: 30, marginBottom: 5}}>Sales / Collection</h1>
+                <p style={{fontSize: 17, marginTop: 0, marginBottom: 30}}>New in: hand-picked daily from the bowen’s best goods and boutiques</p>
             </Grid>
             <Grid item xs={2}>
                 <p>CATEGORY</p>
@@ -84,14 +83,25 @@ const Products = () => {
                           alignItems="center" style={{marginTop: 30}}>
                         {data && data.map((item) =>
                             <Grid key={item.style_code} xs={3} style={{marginRight: 30, marginBottom: 20}}>
-                                <MediaCard item={item}></MediaCard>
+                                <ProductCard item={item}></ProductCard>
                             </Grid>
                         )}
 
                     </Grid>
                 </TabPanel>
                 <TabPanel value={value} index={1}>
-                    Item Two
+                    <Grid container direction="row" justify="center" alignItems="center" style={{marginTop: 30}}>
+                        {data && data.map(item =>
+                            item.mainCategory === 'OUTER' ? (
+                                <Grid xs={3} style={{marginRight: 30, marginBottom: 20}}>
+                                    <ProductCard item={item}></ProductCard>
+                                    {item.mainCategory}
+                                </Grid>
+                            ) : (
+                                <div></div>
+                            )
+                        )}
+                    </Grid>
                 </TabPanel>
                 <TabPanel value={value} index={2}>
                     Item Three
@@ -108,6 +118,9 @@ const Products = () => {
                 <TabPanel value={value} index={6}>
                     Item Seven
                 </TabPanel>
+            </Grid>
+            <Grid item xs={12} style={{marginTop: '5%'}}>
+                <Footer/>
             </Grid>
         </Grid>
     );
