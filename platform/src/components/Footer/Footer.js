@@ -2,11 +2,8 @@ import React from 'react';
 import './Footer.css';
 import {Divider, Grid, Icon, List, Typography} from "@material-ui/core";
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import {Facebook, Instagram, LinkedIn, Twitter} from "@material-ui/icons";
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import Avatar from '@material-ui/core/Avatar';
 
 function ListItemLink(props) {
   return <ListItem button component="a" {...props} />;
@@ -20,6 +17,7 @@ const Footer = () => {
             <Grid container direction="row">
                 <Grid md={7} sm={12}>
                     <Typography variant="h6" align="left">The Salt</Typography>
+                    <Typography variant="h6" align="left">High Quality Select Shop</Typography>
                 </Grid>
 
                 <Grid md={2} sm={6} xs={6}>
@@ -32,9 +30,9 @@ const Footer = () => {
                 </Grid>
 
                 <Grid md={3} sm={6} xs={6}>
-                    <Typography variant="h6" align="left">Contact Us</Typography>
+                    <Typography variant="h6" align="right">Contact Us</Typography>
                     <List>
-                        <ListItem button style={{padding: 0}}><ListItemText primary="010-2895-1359 (Choi Minho)" /></ListItem>
+                        <ListItem button style={{padding: 0, textAlign: 'right'}}><ListItemText primary="010-2895-1359"/></ListItem>
                     </List>
                 </Grid>
             </Grid>
@@ -46,23 +44,12 @@ const Footer = () => {
                 <Typography variant="body1" align="left">Copyright &copy; 2021 All Rights Reserved by <a href="#">CMM</a>.</Typography>
             </Grid>
 
-            <Grid item md={3} sm={6} xs={12} alignItems="center" justify="center">
-                {/*<List className="social-icons" style={{display: "inline-block"}}>*/}
-                {/*    <ListItem button>*/}
-                {/*        /!*<ListItemAvatar>*!/*/}
-                {/*            <a className="facebook" href="#" style={{alignItems: "center"}}><Facebook className="fa fa-facebook"  style={{alignItems: "center"}}/></a>*/}
-                {/*        /!*</ListItemAvatar>*!/*/}
-                {/*    </ListItem>*/}
-                {/*    <ListItem button><a className="dribbble" href="#"><Instagram className="fa-instagram" /></a></ListItem>*/}
-                {/*    <ListItem button><a className="twitter" href="#"><Twitter className="fa-twitter" /></a></ListItem>*/}
-                {/*    <ListItem button><a className="linkedin" href="#"><LinkedIn className="fa-linkedin" /></a></ListItem>*/}
-                {/*</List>*/}
-
-                <ul className="social-icons" style={{float: "right"}}>
-                    <li><a className="facebook" href="#"><Facebook className="fa fa-facebook" style={{height: '1.5rem !important'}}  /></a></li>
-                    <li><a className="instagram" href="#"><Instagram className="fa-instagram" /></a></li>
-                    <li><a className="twitter" href="#"><Twitter className="fa-twitter" /></a></li>
-                    <li><a className="linkedin" href="#"><LinkedIn className="fa-linkedin"></LinkedIn></a></li>
+            <Grid item md={4} sm={6} xs={12} alignItems="center" justify="center">
+                <ul className="social-icons">
+                    <li><a className="facebook" href="https://www.facebook.com"><Facebook className="fa fa-facebook" style={{height: '1.5rem !important'}}  /></a></li>
+                    <li><a className="instagram" href="https://www.instagram.com"><Instagram className="fa-instagram" /></a></li>
+                    <li><a className="twitter" href="https://twitter.com"><Twitter className="fa-twitter" /></a></li>
+                    <li><a className="linkedin" href="https://kr.linkedin.com"><LinkedIn className="fa-linkedin"></LinkedIn></a></li>
                 </ul>
             </Grid>
         </Grid>
