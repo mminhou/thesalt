@@ -12,29 +12,13 @@ const products = (state = initialProductState, action) => {
     case allAction.GET_PRODUCTS_SUCCESS:
     case allAction.GET_PRODUCTS_ERROR:
       return handleAsyncActions("GET_PRODUCTS", 'products', true)(state, action);
-    // case GET_POST:
-    // case GET_POST_SUCCESS:
-    // case GET_POST_ERROR:
-    //   return handleAsyncActionsById(GET_POST, 'post', true)(state, action);
+    case allAction.GET_PRODUCT:
+    case allAction.GET_PRODUCT_SUCCESS:
+    case allAction.GET_PRODUCT_ERROR:
+      return handleAsyncActionsById("GET_PRODUCT", 'product', true)(state, action);
     default:
       return state;
   }
 }
-
-// const products = (state = [], action) => {
-//     switch(action.type){
-//         case LOAD_PRODUCT_SUCCESS:
-//             return [...state, ...action.products];
-//         case LOAD_PRODUCT_FAIL:
-//             return [...state, action.error];
-//         case "LOADED_PRODUCT":
-//             return {
-//                 status: "complete",
-//                 products: action.products,
-//             };
-//         default:
-//             return state;
-//     }
-// };
 
 export default products;
