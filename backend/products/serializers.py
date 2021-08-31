@@ -14,11 +14,15 @@ class ProductSerializer(serializers.ModelSerializer):
         slug_field='name'
     )
     # Product subImage
-    product_subImage = serializers.ImageField(required=False)
-    product_subImage2 = serializers.ImageField(required=False)
+    subImage = serializers.ImageField(required=False)
+    subImage2 = serializers.ImageField(required=False)
+    subImage3 = serializers.ImageField(required=False)
+    subImage4 = serializers.ImageField(required=False)
+
+
     class Meta:
         model = Product
-        fields = ('mainCategory', 'subCategory',
-                  'style_code', 'material', 'product_price', 'product_detail',
-                  'product_created', 'product_mainImage', 'product_subImage', 'product_subImage2',
+        fields = ('styleCode', 'mainCategory', 'subCategory',
+                  'title', 'subtitle', 'price', 'color', 'size', 'material', 'detail', 'created',
+                  'mainImage', 'subImage', 'subImage2', 'subImage3', 'subImage4'
                   )
