@@ -1,17 +1,29 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {AppBar, Toolbar, Typography, List, ListItem, withStyles, Grid, SwipeableDrawer} from '@material-ui/core';
+import {
+    AppBar,
+    Toolbar,
+    Typography,
+    List,
+    ListItem,
+    withStyles,
+    Grid,
+    SwipeableDrawer,
+    Button,
+    Dialog,
+} from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import {connect} from 'react-redux'
 
-// import Modal from '@material-ui/core/Modal';
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
 
 import logo from '../../factory/images/theSalt.png'
 import './Nav.css'
-import {useSelector} from "react-redux";
 import {signOut} from "../../modules/actions/authAction";
-
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import {persistConfig} from "../../modules/reducers";
+import ShoppingCart from "../ShoppingCart/ShoppingCart";
 
 const styleSheet = {
     padding: {
@@ -44,21 +56,19 @@ const mapStateToProps = state => ({
     isLoggedIn: state.signIn
 });
 const mapDispatchToProps = {
-  signOut: signOut
+    signOut: signOut
 };
 
-
 class Nav extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
             drawerActivate: false, drawer: false, color: 'transparent', height: '13%', imgHeight: 80,
-            isModalOpen: false,
+            isModalOpen: false, anchorEl: null, cartItem: ['a', 'b']
         };
+
         this.createDrawer = this.createDrawer.bind(this);
         this.destroyDrawer = this.destroyDrawer.bind(this);
-        // this.isLoggedIn = props.isLoggedIn
         // console.log(props.isLoggedIn)
     }
 
@@ -144,9 +154,8 @@ class Nav extends Component {
     destroyDrawer() {
         const {classes} = this.props
         const pathname = window.location.pathname
-        const { isLoggedIn } = this.props.isLoggedIn
+        const {isLoggedIn} = this.props.isLoggedIn
         const signOut = this.props.signOut
-        // const [dummy, reload] = useState(false);
 
         return (
             <AppBar style={{
@@ -164,8 +173,20 @@ class Nav extends Component {
                             }}></img>
                         </a>
                     </Typography>
-
-
+                    <Typography className={classes.padding} color="inherit"
+                                style={{display: pathname == '/' || pathname == '/login' ? 'none' : null}}>
+                        <Button onClick={this.openModal} className={classes.navLink}>
+                            <ShoppingCartIcon style={{color: 'white'}}/>
+                        </Button>
+                        <Dialog
+                            open={this.state.isModalOpen}
+                            onClose={this.closeModal}
+                            aria-labelledby="shoppingCart"
+                            aria-describedby="shoppingCart"
+                        >
+                            <ShoppingCart/>
+                        </Dialog>
+                    </Typography>
                     <Typography variant="" className={classes.padding} color="inherit"
                                 style={{display: pathname == '/' || pathname == '/login' ? 'none' : null}}>
                         <Link to="/home" className={classes.navLink} activeClassName="selected">home</Link>
@@ -175,18 +196,24 @@ class Nav extends Component {
                         <Link to="/product" className={classes.navLink}>product</Link>
                     </Typography>
                     <Typography variant="" className={classes.padding} color="inherit"
-                                style={{display: pathname == '/' || pathname == '/login' ? 'none' : null}}>
-                        <Link to="/contact" className={classes.navLink}>contact</Link>
-                    </Typography>
-                    <Typography variant="" className={classes.padding} color="inherit"
                                 style={{display: pathname == '/' ? 'none' : null}}>
                         {isLoggedIn ?
-                            (<Link to="/login" className={classes.navLink} onClick={signOut}>logout</Link>)
+                            (
+                                <Link to="/login" className={classes.navLink} onClick={signOut}>logout</Link>
+                            )
                             :
                             (<a href="/login" className={classes.navLink}>login</a>)
                         }
                     </Typography>
-
+                    {isLoggedIn ? (
+                        <Typography variant="" className={classes.padding} color="inherit"
+                                    style={{display: pathname == '/' || pathname == '/login' ? 'none' : null}}>
+                            <Link to="/profile" className={classes.navLink}>
+                                <AccountCircleIcon className="fa-account-circle-icon"
+                                                   style={{marginTop: 5}}></AccountCircleIcon>
+                            </Link>
+                        </Typography>) : (<div></div>)
+                    }
                 </Toolbar>
             </AppBar>
 
@@ -194,7 +221,7 @@ class Nav extends Component {
     }
 
     listenScrollEvent = e => {
-        if (window.scrollY > 400) {
+        if (window.scrollY > 80) {
             this.setState({color: 'rgb(25,25,25)', height: '10%', imgHeight: 70})
         } else {
             this.setState({color: 'transparent', height: '13%', imgHeight: 80})
