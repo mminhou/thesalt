@@ -1,10 +1,7 @@
 import React from 'react';
-import UserService from '../../service/UserService';
 import './SignIn.sass';
 
-
 const SignUp = () =>{
-  const service = new UserService();
 
   const signUpEvent = (e) =>{
     e.preventDefault();
@@ -14,12 +11,6 @@ const SignUp = () =>{
       password: e.target.password.value,
       username: e.target.name.value
     }
-
-    service.createUser(signUpData);
-    /* TODO
-    1) 비밀번호, 확인 일치하지 않으면 넘아가지 않기
-    2) 페이지 이동(컴포넌트 unmount인지 ??)
-    */
   }
 
   return (
