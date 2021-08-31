@@ -10,8 +10,15 @@ class MainCategory(models.Model):
 class SubCategory(models.Model):
     id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=20, unique=True)
-    mainCategory = models.ForeignKey(MainCategory, related_name="SubCategory", on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
+
+# class SubCategory(models.Model):
+#     id = models.IntegerField(primary_key=True)
+#     name = models.CharField(max_length=20, unique=True)
+#     mainCategory = models.ForeignKey(MainCategory, related_name="SubCategory", on_delete=models.CASCADE)
+#
+#     def __str__(self):
+#         return self.name
 
