@@ -10,7 +10,7 @@ const signIn = (state = initialState, action) => {
         case SIGN_IN_FAIL:
             return [...state, action.error];
         case SIGN_OUT:
-            persistConfig.storage.removeItem("token")
+            // persistConfig.storage.removeItem("token")
             return {...state, isLoggedIn: false};
         default:
             return state;
