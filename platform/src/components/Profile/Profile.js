@@ -22,20 +22,14 @@ const Profile = () => {
             <div style={{backgroundColor: '#483D8B', height: 120}}></div>
             {account ? (
                 <Grid container direction="row" justify="center" alignItems="center" style={{textAlign: "center"}}>
-                    <Grid item xs={12} style={{marginTop: 20}}>
+                    <Grid item xs={12} style={{marginTop: 35}}>
                         <img src={avatar} width='15%' style={{borderRadius: '50%'}}/>
-                        <Typography variant="h6">{account.email}</Typography>
-                        <Typography variant="h6">{account.id}</Typography>
+                        <Typography variant="h6">Welcome!</Typography>
+                        <Typography variant="h6">Hope you will have a great time working with us</Typography>
+                        <br/>
+                        <Typography variant="body1">{account.email}</Typography>
                     </Grid>
-                    <Grid item xs={4}>
-                        정보수정하기
-                    </Grid>
-                    <Grid item xs={4}>
-                        장바구니
-                    </Grid>
-                    <Grid item xs={4}>
-                        주문목록
-                    </Grid>
+
                     {/*<Grid item xs={12} style={{marginTop: 50}}>*/}
                     {/*    <img src={avatar} width='25%' style={{borderRadius: '50%'}}/>*/}
 
