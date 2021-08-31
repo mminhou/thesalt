@@ -48,22 +48,15 @@ export function Screen() {
                     <Grid container direction="row" justify="center" alignItems="center" style={{textAlign: "center"}}>
                         <Grid item xs={12} style={{}}>
                             <div style={{height: 120}}></div>
-                            <Typography variant="h4" style={{fontWeight: 900, marginBottom: '3%'}}>CREATOR</Typography>
+                            <Typography variant="h4" style={{fontWeight: 900, marginBottom: '2%'}}>CREATOR</Typography>
                             <img src={min} width='25%' style={{borderRadius: '50%'}}/>
                             <Typography variant="h4" style={{fontVariant: 'small-caps'}}>minho
                                 choi</Typography>
                             <Typography variant="h5" style={{fontVariant: 'small-caps'}}>computer
                                 science</Typography>
-                            <br/>
-                            <Typography variant="h5" style={{fontSize: 17}}>exit19093@gmail.com</Typography>
-                            <br/>
-                            <Typography variant="h5" style={{fontSize: 17}}>010-2895-1359</Typography>
-                        {/*    <Typography variant="h5" style={{color: 'black', fontVariant: 'small-caps'}}>email:*/}
-                        {/*        exit<span style={{fontSize: 17}}>19093</span><span style={{fontSize: 18}}>@</span>gmail.com*/}
-                        {/*    </Typography>*/}
-                        {/*    <Typography variant="h5" style={{color: 'black', fontVariant: 'small-caps'}}>phone &taps*/}
-                        {/*        <span style={{fontSize: 17}}>010-2895-1359</span>*/}
-                        {/*    </Typography>*/}
+                            <Typography variant="h5" style={{fontSize: 15, letterSpacing: 1, marginTop: 7, marginBottom: 10}}><a href='https://github.com/mminhou/cntex'>https://github.com/mminhou/cntex</a></Typography>
+                            <Typography variant="h5" style={{fontSize: 15, letterSpacing: 1, marginTop: 7, marginBottom: 10}}>exit19093@gmail.com</Typography>
+                            <Typography variant="h5" style={{fontSize: 15, letterSpacing: 1}}>010-2895-1359</Typography>
                         </Grid>
 
                     </Grid>
