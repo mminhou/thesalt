@@ -82,10 +82,10 @@ const ProductCardDetail = (props) => {
                             </List>
                             <br/><br/>
                             <Typography variant="body1">{data.detail}</Typography>
-                        </Grid>
-                        <Grid item xs={12}>
-                            <Button onClick={() => props.addProduct(data)}>Add to cart</Button>
-
+                            <br/><br/>
+                            <Button variant="outlined" color="secondary" onClick={() => {props.addProduct(data); alert("Item Successfully added to your cart")}}
+                                style={{width: '80%'}}
+                            >Add cart</Button>
                         </Grid>
                         <Grid item xs={12} style={{marginTop: '5%'}}>
                             <Footer/>
