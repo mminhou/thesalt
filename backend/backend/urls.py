@@ -32,9 +32,11 @@ from products.views import ProductViewSet
 
 router = routers.DefaultRouter()
 router.register(r'accounts', UserViewSet)
+# router.register(r'accounts/(?P<email>.+)/', UserViewSet)
 router.register(r'maincategory', MainCategoryViewSet)
 router.register(r'subcategory', SubCategoryViewSet)
 router.register(r'products', ProductViewSet)
+
 
 # Authentication credentials were not provided
 # http -a email:password GET http://127.0.0.1:8000/api/
