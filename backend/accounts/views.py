@@ -1,15 +1,11 @@
 from rest_framework import viewsets, status
 from rest_framework.response import Response
-
+from rest_framework import generics
+from rest_framework.filters import SearchFilter
 from django.contrib.auth.hashers import make_password
-
 from .models import User
 from .serializers import UserSerializer
-# from .serializers import UserLoginSerializer
 
-# Login
-# from rest_framework.decorators import api_view, permission_classes
-# from rest_framework.permissions import AllowAny
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
@@ -21,10 +17,9 @@ class UserViewSet(viewsets.ModelViewSet):
         serializer.validated_data['password'] = hashed_password
         user = super(UserViewSet, self).perform_create(serializer)  # create user
 
-
     def update(self, request, *args, **kwargs):
         user = self.request.data
-        User.objects.filter(id=user['id']).update(
+        User.objects.filter(email=user['email']).update(
             first_name=user['first_name'],
             last_name=user['last_name'],
             city=user['city'],
@@ -35,6 +30,28 @@ class UserViewSet(viewsets.ModelViewSet):
         )
         return Response(status=status.HTTP_201_CREATED)
 
+    def get_queryset(self):
+        queryset = User.objects.all()
+        email = self.request.query_params.get('email', None)
+        if email is not None:
+            queryset = queryset.filter(email=email)
+        return queryset
+
+
+
+#
+# class UserViewSetByEmail(viewsets.ModelViewSet):
+#     serializer_class = UserSerializer
+#
+#     def get(self, request):
+#         print(request.GET['email'])
+
+    # def get_queryset(self):
+    #     queryset = User.objects.all()
+    #     email = self.request.query_params.get(email, None)
+    #     if email:
+    #         queryset = queryset.filter(email=email)
+    #     return queryset.id
 
 # @api_view(['POST'])
 # @permission_classes([AllowAny])
