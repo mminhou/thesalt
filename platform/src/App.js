@@ -6,7 +6,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Products from "./components/Products/Products";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import Login from "./components/Login/Login";
-import MediaCardDetail from "./components/MediaCard/MediaCardDetail";
+import MediaCardDetail from "./components/ProductCard/ProductCardDetail";
 import Home from "./components/Home/Home";
 import Profile from "./components/Profile/Profile";
 import AuthRoute from "./AuthRoute";
