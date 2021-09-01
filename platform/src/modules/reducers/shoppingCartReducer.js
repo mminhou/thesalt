@@ -1,9 +1,5 @@
 import allAction from "../actions";
 
-const initialProductState = {
-    products: []
-}
-
 const updateQuantity = p =>
     p.quantity ? {...p, quantity: p.quantity + 1} : {...p, quantity: 2};
 
