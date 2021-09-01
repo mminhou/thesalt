@@ -1,4 +1,3 @@
-// type
 export const SIGN_IN_REQUEST = "SIGN_IN_REQUEST";
 export const SIGN_IN_SUCCESS = "SIGN_IN_REQUEST_SUCCESS";
 export const SIGN_IN_FAIL = "SIGN_IN_REQUEST_FAIL";
@@ -36,9 +35,6 @@ export const signInSuccess = (token) => {
 export const signInFail = error => {
     return{
         type: SIGN_IN_FAIL,
-        // payload: {
-        //     error: error,
-        // },
     };
 };
 
