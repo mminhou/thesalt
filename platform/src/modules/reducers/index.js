@@ -11,10 +11,9 @@ import {categoriesIsLoading, categories} from "./shoppingCartReducer";
 
 export const persistConfig = {
   key: "root",
-  // localStorage에 저장합니다.
   storage: storage,
   whitelist: ['signIn', 'shoppingCart', 'categories']
-  // blacklist -> 그것만 제외합니다
+  // blacklist
 };
 
 const rootReducer = combineReducers({
@@ -27,6 +26,4 @@ const rootReducer = combineReducers({
     form: formReducer
 });
 
-
-// export default rootReducer;
 export default persistReducer(persistConfig, rootReducer);
