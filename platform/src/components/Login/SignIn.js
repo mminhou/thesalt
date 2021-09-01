@@ -1,14 +1,13 @@
 import React, {useEffect} from "react";
 import './SignIn.sass';
 import {useDispatch, useSelector} from "react-redux";
-import {signIn, signOut} from "../../modules/actions/authAction";
 import {useHistory} from "react-router-dom";
-import {persistConfig} from "../../modules/reducers";
+import {signIn, signOut} from "../../modules/actions/authAction";
 
 const SignIn = () => {
     const history = useHistory();
     const dispatch = useDispatch();
-    const { isLoggedIn } = useSelector(state => state.signIn)
+    const {isLoggedIn} = useSelector(state => state.signIn)
 
     const signInEvent = (e) => {
         e.preventDefault();
@@ -21,7 +20,6 @@ const SignIn = () => {
     useEffect(() => {
         if (isLoggedIn) {
             history.push('/');
-            console.log("성공")
         }
     })
     // signOut test
