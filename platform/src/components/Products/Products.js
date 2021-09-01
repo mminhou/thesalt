@@ -46,14 +46,14 @@ const Products = () => {
     const productsTemplate = (category) => {
         return (data && data.map(item =>
             item.mainCategory === category ? (
-                    <Grid xs={3} className="products-item">
+                    <Grid xs={3} className="products-item" style={{marginRight: 20}}>
                         <ProductCard item={item}></ProductCard>
                     </Grid>) :
                 (category === 'ALL' ? (
-                    <Grid key={item.styleCode} xs={3} className="products-item">
+                    <Grid key={item.styleCode} xs={3} className="products-item" style={{marginRight: 20}}>
                         <ProductCard item={item}></ProductCard>
                     </Grid>
-                ) : (<div>sold out</div>))
+                ) : (<div></div>))
         ))
     }
 
