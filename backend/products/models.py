@@ -2,7 +2,8 @@ from django.db import models
 from category.models import MainCategory, SubCategory
 
 class Product(models.Model):
-    styleCode = models.CharField(max_length=30, primary_key=True)
+    id = models.AutoField(primary_key=True)
+    styleCode = models.CharField(max_length=30)
     mainCategory = models.ForeignKey(MainCategory, related_name="Products", on_delete=models.CASCADE)
     subCategory = models.ForeignKey(SubCategory, related_name="Products", on_delete=models.CASCADE)
     title = models.CharField(max_length=30)
