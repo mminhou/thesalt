@@ -1,9 +1,9 @@
 import allAction from "../actions";
-
+const products = []
 const updateQuantity = p =>
     p.quantity ? {...p, quantity: p.quantity + 1} : {...p, quantity: 2};
 
-const shoppingCart = (state = [], action) => {
+const shoppingCart = (state = products, action) => {
     switch (action.type) {
         case allAction.ADD_PRODUCT_TO_CART:
             const productInCart = state.find(p => p.id === action.product.id);
@@ -22,24 +22,6 @@ const shoppingCart = (state = [], action) => {
         default:
             return state;
     }
-};
-
-export const categoriesIsLoading = (state = false, action) => {
-  switch (action.type) {
-    case allAction.CATEGORIES_IS_LOADING:
-      return action.isLoading;
-    default:
-      return state;
-  }
-};
-
-export const categories = (state = [], action) => {
-  switch (action.type) {
-    case allAction.CATEGORIES_FETCH_DATA_SUCCESS:
-      return action.categories;
-    default:
-      return state;
-  }
 };
 
 export default shoppingCart;

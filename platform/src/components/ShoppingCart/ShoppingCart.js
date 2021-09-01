@@ -5,12 +5,12 @@ import {removeProductFromCart} from "../../modules/actions/shoppingCartAction";
 
 const ShoppingCart = (props) => {
     const calculateTotal = (total, currentItem) =>
-        parseFloat(total + currentItem.price * (currentItem.quantity || 1));
+        parseFloat(total + currentItem.price * (currentItem.quantity ? currentItem.quantity : 1));
 
     const countItems = () =>
         props.shoppingCart
             .reduce((acc, cur) => {
-                return parseFloat(acc + (cur.quantity || 1));
+                return parseFloat(acc + (cur.quantity ? cur.quantity : 1));
             }, 0)
             .toFixed(0);
 

@@ -1,7 +1,7 @@
 import { getProducts, GET_PRODUCTS, GET_PRODUCTS_SUCCESS, GET_PRODUCTS_ERROR, getProduct, GET_PRODUCT, GET_PRODUCT_SUCCESS, GET_PRODUCT_ERROR} from './productAction';
 import { signIn, signInFail, signInSuccess } from "./authAction";
 import { GET_ACCOUNT, GET_ACCOUNT_SUCCESS, GET_ACCOUNT_ERROR, getAccount } from "./accountAction"
-import { ADD_PRODUCT_TO_CART, REMOVE_PRODUCT_FROM_CART, CATEGORIES_IS_LOADING, CATEGORIES_FETCH_DATA_SUCCESS } from "./shoppingCartAction";
+import { ADD_PRODUCT_TO_CART, REMOVE_PRODUCT_FROM_CART } from "./shoppingCartAction";
 
 const allAction = {
     // products
@@ -22,8 +22,6 @@ const allAction = {
     // cart
     ADD_PRODUCT_TO_CART,
     REMOVE_PRODUCT_FROM_CART,
-    CATEGORIES_IS_LOADING,
-    CATEGORIES_FETCH_DATA_SUCCESS,
     // signIn
     signIn,
     signInFail,
