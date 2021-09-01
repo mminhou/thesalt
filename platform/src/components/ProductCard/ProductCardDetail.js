@@ -6,7 +6,6 @@ import allAction from "../../modules/actions";
 import {Button, Grid, List, ListItem, ListItemText, Typography} from "@material-ui/core";
 import Footer from "../Footer/Footer";
 
-
 const ProductCardDetail = (props) => {
     const params = props.match.params.path;
     const dispatch = useDispatch();
