@@ -4,7 +4,6 @@
   flex-direction: column;
   align-items: center;
 }
-
 .flex-container > div {
   padding-top:10px;
 }
@@ -14,7 +13,6 @@
 .round-effect {
   color:#00a2a2;
   cursor:pointer;
-/*   border:1px solid red; */
   font-size:16px;
   text-align:center;
   padding-left:10px;
@@ -27,7 +25,6 @@
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   text-decoration: none;
 }
-
 .round-effect:hover {
   text-decoration: none;
   background:#00a2a2;
@@ -37,12 +34,31 @@
   text-decoration: none;
   color:#FFF;
 }
-
 .active_p {
   background:#00a2a2;
   color:#FFF;
 }
-a:link {
-  text-decoration: none;
-  color:#00a2a2;
+.title-container {
+  margin-bottom: 20px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #787878;
+}
+.pagination-title {
+  float: left;
+  font-size: 50px;
+  font-weight: 900 !important;
+  font-variant: small-caps;
+  color: #404040;
+}
+.pagination-card {
+  margin-right: 10px;
+  border: none !important;
+  box-shadow: none !important;
+}
+.pagination-card-action {
+  background-color: rgb(235, 234, 229) !important;
+  border: none !important;
+}
+.pagination-card-content {
+  padding: 10px 0 10px 0 !important;
 }
