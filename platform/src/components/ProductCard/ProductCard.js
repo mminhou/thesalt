@@ -6,7 +6,7 @@ import {Card, CardActionArea, CardMedia} from '@material-ui/core';
 export default function ProductCard({item}) {
   const history = useHistory();
   const handleOnClick = useCallback(() => history.push(
-      '/productDetail/' + item.styleCode), [history]);
+      '/productDetail/' + item.id), [history]);
 
   return (
     <Card>
