@@ -1,29 +1,15 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-import {
-    AppBar,
-    Toolbar,
-    Typography,
-    List,
-    ListItem,
-    withStyles,
-    Grid,
-    SwipeableDrawer,
-    Button,
-    Dialog,
-} from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
-import {connect} from 'react-redux'
-
-import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
-
-import logo from '../../factory/images/theSalt.png'
 import './Nav.css'
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux'
+import ShoppingCart from "../ShoppingCart/ShoppingCart";
 import {signOut} from "../../modules/actions/authAction";
+import {Link} from 'react-router-dom';
+import {AppBar, Toolbar, Typography, List, ListItem, withStyles, Grid, SwipeableDrawer, Button, Dialog,} from '@material-ui/core';
+import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import {persistConfig} from "../../modules/reducers";
-import ShoppingCart from "../ShoppingCart/ShoppingCart";
+import logo from '../../factory/images/theSalt.png'
 
 const styleSheet = {
     padding: {
@@ -52,13 +38,6 @@ const styleSheet = {
     }
 }
 
-const mapStateToProps = state => ({
-    isLoggedIn: state.signIn
-});
-const mapDispatchToProps = {
-    signOut: signOut
-};
-
 class Nav extends Component {
     constructor(props) {
         super(props);
@@ -66,10 +45,8 @@ class Nav extends Component {
             drawerActivate: false, drawer: false, color: 'transparent', height: '13%', imgHeight: 80,
             isModalOpen: false, anchorEl: null, cartItem: ['a', 'b']
         };
-
         this.createDrawer = this.createDrawer.bind(this);
         this.destroyDrawer = this.destroyDrawer.bind(this);
-        // console.log(props.isLoggedIn)
     }
 
     componentWillMount() {
@@ -87,11 +64,22 @@ class Nav extends Component {
 
     }
 
+    componentDidMount() {
+        window.addEventListener('scroll', this.listenScrollEvent)
+    }
+
+    listenScrollEvent = e => {
+        if (window.scrollY > 80) {
+            this.setState({color: 'rgb(25,25,25)', height: '10%', imgHeight: 70})
+        } else {
+            this.setState({color: 'transparent', height: '13%', imgHeight: 80})
+        }
+    }
+
     // Modal
     openModal = () => {
         this.setState({isModalOpen: true});
     };
-
     closeModal = () => {
         this.setState({isModalOpen: false});
     };
@@ -108,7 +96,6 @@ class Nav extends Component {
                                 onClick={() => {
                                     this.setState({drawer: true})
                                 }}/>
-
                             <Typography color="inherit" variant="headline">
                                 <img src={logo} height={50}></img>
                             </Typography>
@@ -116,7 +103,6 @@ class Nav extends Component {
                         </Grid>
                     </Toolbar>
                 </AppBar>
-
                 <SwipeableDrawer
                     open={this.state.drawer}
                     onClose={() => {
@@ -125,17 +111,14 @@ class Nav extends Component {
                     onOpen={() => {
                         this.setState({drawer: true})
                     }}>
-
-                    <div
-                        tabIndex={0}
-                        role="button"
-                        onClick={() => {
-                            this.setState({drawer: false})
-                        }}
-                        onKeyDown={() => {
-                            this.setState({drawer: false})
-                        }}>
-
+                    <div tabIndex={0}
+                         role="button"
+                         onClick={() => {
+                             this.setState({drawer: false})
+                         }}
+                         onKeyDown={() => {
+                             this.setState({drawer: false})
+                         }}>
                         <List className={this.props.classes.list} style={{width: 500}}>
                             <ListItem key={1} button divider>HOME</ListItem>
                             <ListItem key={2} button divider>PRODUCT</ListItem>
@@ -220,18 +203,6 @@ class Nav extends Component {
         )
     }
 
-    listenScrollEvent = e => {
-        if (window.scrollY > 80) {
-            this.setState({color: 'rgb(25,25,25)', height: '10%', imgHeight: 70})
-        } else {
-            this.setState({color: 'transparent', height: '13%', imgHeight: 80})
-        }
-    }
-
-    componentDidMount() {
-        window.addEventListener('scroll', this.listenScrollEvent)
-    }
-
     render() {
         return (
             <div>
@@ -244,5 +215,10 @@ class Nav extends Component {
 Nav.propTypes = {
     classes: PropTypes.object.isRequired
 };
-
+const mapStateToProps = state => ({
+    isLoggedIn: state.signIn
+});
+const mapDispatchToProps = {
+    signOut: signOut
+};
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styleSheet)(Nav));
