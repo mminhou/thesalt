@@ -45,7 +45,7 @@ const ProductCardDetail = (props) => {
                             <Typography variant="h5">{data.title}</Typography>
                             <Typography variant="subtitle1">{data.detail}</Typography>
                             <br/><br/>
-                            <Typography variant="h6">₩ {data.price}<span className="price-tax"> (included tax) </span></Typography>
+                            <Typography variant="h6">₩ {data.price.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}<span className="price-tax"> (included tax) </span></Typography>
                             <br/><br/>
                             <List className="product-info">
                                 <ListItem style={{textAlign: 'center'}}>
