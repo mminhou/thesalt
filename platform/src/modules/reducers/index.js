@@ -8,7 +8,6 @@ import signIn from "./authReducer";
 import shoppingCart from "./shoppingCartReducer";
 import {categoriesIsLoading, categories} from "./shoppingCartReducer";
 
-
 export const persistConfig = {
   key: "root",
   storage: storage,
