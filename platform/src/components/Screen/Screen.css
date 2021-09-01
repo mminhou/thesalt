@@ -8,6 +8,8 @@
     left: 0px;
     min-width: 100%;
     min-height: 100%;
+    filter: brightness(30%);
+    position: relative;
 }
 .content {
     position: absolute;
@@ -18,3 +20,39 @@
     height: 80%;
     width: 100%;
 }
+.title {
+    color: white;
+    font-size: 80px;
+    margin: 0;
+    float: right
+}
+.subtitle {
+    color: white;
+    font-size: 40px;
+    margin: 0;
+    float: right
+}
+.buttonText {
+    color: white;
+    font-size: 40px;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-variant: small-caps;
+    float: right;
+}
+.introduce {
+    font-weight: 900;
+    margin-bottom: 2%;
+}
+.avatar {
+    border-radius: 50%;
+}
+.smallCaps {
+    font-variant: small-caps;
+}
+.info {
+    font-size: 15px !important;
+    letter-spacing: 1px;
+    marginBottom: 15px;
+}
+
