@@ -74,7 +74,7 @@ export function HomePagination() {
                         <Grid item lg={2} md={3} sm={4}>
                             <Card className="pagination-card">
                                 <CardActionArea className="pagination-card-action">
-                                    <Link to={'/productDetail/'+ele.styleCode}>
+                                    <Link to={'/productDetail/'+ele.id}>
                                         <CardMedia image={ele.mainImage} style={{height: 150}}
                                                    title="Contemplative Reptile"/>
                                         <CardContent className="pagination-card-content">
