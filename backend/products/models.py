@@ -20,5 +20,5 @@ class Product(models.Model):
     subImage4 = models.ImageField('SubImage2', null=True, blank=True)
 
     def __str__(self):
-        return self.style_code
+        return self.styleCode
 
