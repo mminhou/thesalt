@@ -1,0 +1,12 @@
+.home-container {
+    background-color: rgb(235, 234, 229);
+}
+.banner-image {
+    position: relative;
+    height: 30%;
+    marginBottom: 30px;
+}
+.banner-image > img {
+    filter: brightness(60%);
+    width: 100%;
+}
