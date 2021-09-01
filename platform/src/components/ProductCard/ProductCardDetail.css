@@ -1,0 +1,19 @@
+.padding-left {
+    padding-left: 0.5%;
+}
+.padding-right {
+    padding-right: 0.5%;
+}
+.padding {
+    padding-right: 0.5%;
+    padding-left: 0.5%;
+}
+.product-title {
+    font-weight: 900;
+}
+.price-tax {
+    font-size: 15px;
+}
+.cart-button {
+    width: 80%;
+}
