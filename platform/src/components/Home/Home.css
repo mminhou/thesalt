@@ -4,7 +4,7 @@
 .banner-image {
     position: relative;
     height: 30%;
-    marginBottom: 30px;
+    margin-bottom: 15px;
 }
 .banner-image > img {
     filter: brightness(60%);
