@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// create store & rootReducer
+// Create store & rootReducer
 import { createStore, applyMiddleware, compose } from 'redux'
 import rootReducer from "./modules/reducers";
 // Provider
@@ -12,7 +12,7 @@ import { PersistGate } from "redux-persist/integration/react";
 // Saga
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './modules/sagas';
-
+// ServiceWorker
 import * as serviceWorker from './serviceWorker';
 import App from './App';
 import './index.css';
@@ -41,5 +41,4 @@ ReactDOM.render(
 );
 
 // if you want your app to work offline and load faster, unregister -> register
-// PWA service
 serviceWorker.unregister();
