@@ -1,14 +1,16 @@
 import React, {useEffect, useState} from 'react';
-
-import {Screen} from "./components/Screen/Screen";
-import Nav from "./components/Nav/Nav";
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import Products from "./components/Products/Products";
-import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
-import Login from "./components/Login/Login";
+// Component
+import Nav from "./components/Nav/Nav";
 import MediaCardDetail from "./components/ProductCard/ProductCardDetail";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+// Pages
+import {Screen} from "./components/Screen/Screen";
 import Home from "./components/Home/Home";
+import Products from "./components/Products/Products";
 import Profile from "./components/Profile/Profile";
+import Login from "./components/Login/Login";
+// AuthRoute
 import AuthRoute from "./AuthRoute";
 
 const App = () => {
@@ -20,7 +22,7 @@ const App = () => {
         <Router>
             <Switch>
                 <div>
-                    {deviceSize == 'lg' | deviceSize == 'md' | deviceSize == 'xl' ?
+                    {deviceSize == 'lg' | deviceSize == 'md' | deviceSize == 'xl' | deviceSize == 'sm' ?
                         (
                             <div>
                                 <ScrollToTop/>
@@ -38,7 +40,6 @@ const App = () => {
                             <div></div>
                         )
                     }
-
                 </div>
             </Switch>
         </Router>
@@ -53,24 +54,16 @@ function useWindowSize() {
     });
 
     useEffect(() => {
-        // Handler to call on window resize
         function handleResize() {
-            // Set window width/height to state
             setWindowSize({
                 width: window.innerWidth,
                 height: window.innerHeight,
             });
         }
-
-        // Add event listener
         window.addEventListener("resize", handleResize);
-
-        // Call handler right away so state gets updated with initial window size
         handleResize();
-
-        // Remove event listener on cleanup
         return () => window.removeEventListener("resize", handleResize);
-    }, []); // Empty array ensures that effect is only run on mount
+    }, []);
 
     return windowSize;
 }
