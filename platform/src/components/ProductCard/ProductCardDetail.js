@@ -29,21 +29,21 @@ const ProductCardDetail = (props) => {
                                 <img src={data.mainImage} width="100%" alt={data.title}/>
                             </Grid>
                             <Grid item xs={6} className="padding-left">
-                                <img src={data.mainImage} width="100%" alt={data.title}/>
+                                <img src={data.subImage} width="100%" alt={data.title}/>
                             </Grid>
                             <Grid item xs={4} className="padding-right">
-                                <img src={data.mainImage} width="100%" alt={data.title}/>
+                                <img src={data.subImage2} width="100%" alt={data.title}/>
                             </Grid>
                             <Grid item xs={4} className="padding">
-                                <img src={data.mainImage} width="100%" alt={data.title}/>
+                                <img src={data.subImage3} width="100%" alt={data.title}/>
                             </Grid>
                             <Grid item xs={4} className="padding-left">
-                                <img src={data.mainImage} width="100%" alt={data.title}/>
+                                <img src={data.subImage4} width="100%" alt={data.title}/>
                             </Grid>
                         </Grid>
                         <Grid item xs={4} className="paddingRight">
                             <Typography variant="h5">{data.title}</Typography>
-                            <Typography variant="subtitle1">{data.detail}</Typography>
+                            <Typography variant="subtitle1">{data.subtitle}</Typography>
                             <br/><br/>
                             <Typography variant="h6">₩ {data.price.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}<span className="price-tax"> (included tax) </span></Typography>
                             <br/><br/>
