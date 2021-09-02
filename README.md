@@ -20,9 +20,8 @@
 - Front - React, Redux-saga 
 - UI - Material UI
 - Codedeploy - (AWS) EC2, S3
-<br/>
 
-### 
+<br/>
 
 ### Backend ###
 ```
@@ -37,6 +36,8 @@ $ cd backend
 $ python manage.py runserver
 ```
 
+<br/>
+
 ### Frontend ###
 #### / Based on ReactJS /
 ```angular2html
@@ -44,6 +45,8 @@ $ cd platform
 
 $ npm start
 ```
+
+<br/>
 
 ### Feature ###
 * Fix: 버그 수정 및 오류 개선
@@ -53,6 +56,8 @@ $ npm start
 * Init: Initializing
 * Build: Build 작업
 * Dependency: 의존성 추가 
+
+<br/>
 
 
 ### Version ###
