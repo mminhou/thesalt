@@ -1,6 +1,6 @@
 </br>
 
-# *CNTEX -> THE SALT* Project #
+# *CNTEX -> THE SALT* #
 ![logo](./platform/src/factory/images/theSalt.png)
 
 ### What is this project site? ###
@@ -9,20 +9,22 @@
 <br/>
 
 ## Services ### 
-- site url ==> updating
+- site url ==> http://the-salt.co.uk/
 - test id >> test@gmail.com
 - test password >> test1234 
 
 <br/>
 
 ### Architecture ###
-
+- Backend - Djangorestframework RestAPI
+- Front - React, Redux-saga 
+- UI - Material UI
+- Codedeploy - (AWS) EC2, S3
 <br/>
 
 ### 
 
 ### Backend ###
-#### / Based on django, djangorestframework /
 ```
 $ python -m venv venv
 
@@ -35,9 +37,15 @@ $ cd backend
 $ python manage.py runserver
 ```
 
-### Frontend
+### Frontend ###
 #### / Based on ReactJS /
+```angular2html
+$ cd platform
 
+$ npm start
+```
+
+### Feature ###
 * Fix: 버그 수정 및 오류 개선
 * Feat: 기능 추가, 라인 정리
 * Refactor: 함수 재정의
@@ -45,3 +53,10 @@ $ python manage.py runserver
 * Init: Initializing
 * Build: Build 작업
 * Dependency: 의존성 추가 
+
+
+### Version ###
+#### v 1.0
+```angular2html
+    Deploy the-salt.co.uk 
+```
