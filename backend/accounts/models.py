@@ -54,3 +54,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         "Is the user a member of staff?"
         # Simplest possible answer: All admins are staff
         return self.is_superuser
+
+    def save(self, *args, **kwargs):
+        super(User, self).save(*args, **kwargs)
+

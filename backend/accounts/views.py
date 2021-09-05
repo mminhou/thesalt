@@ -6,7 +6,6 @@ from django.contrib.auth.hashers import make_password
 from .models import User
 from .serializers import UserSerializer
 
-
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
@@ -16,10 +15,13 @@ class UserViewSet(viewsets.ModelViewSet):
         hashed_password = make_password(serializer.validated_data['password'])  # get the hashed password
         serializer.validated_data['password'] = hashed_password
         user = super(UserViewSet, self).perform_create(serializer)  # create user
+        return user
 
     def update(self, request, *args, **kwargs):
+        user = User.objects.get(pk=self.request.META['HTTP_AUTHORIZATION'])
+        serializer.save(user=user)
         user = self.request.data
-        User.objects.filter(email=user['email']).update(
+        User.objects.filter(id=user['id']).update(
             first_name=user['first_name'],
             last_name=user['last_name'],
             city=user['city'],
