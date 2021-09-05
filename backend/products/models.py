@@ -1,8 +1,12 @@
 from django.db import models
 from category.models import MainCategory, SubCategory
+import random
+
+def genKey():
+    return random.randrange(10000,99999)
 
 class Product(models.Model):
-    id = models.AutoField(primary_key=True)
+    id = models.IntegerField(primary_key=True, editable=False, auto_created=True, verbose_name='Id', default=genKey)
     styleCode = models.CharField(max_length=30)
     mainCategory = models.ForeignKey(MainCategory, related_name="Products", on_delete=models.CASCADE)
     subCategory = models.ForeignKey(SubCategory, related_name="Products", on_delete=models.CASCADE)
@@ -22,4 +26,8 @@ class Product(models.Model):
 
     def __str__(self):
         return self.styleCode
+
+    class Meta:
+        verbose_name = 'product'
+        verbose_name_plural = 'products'
 

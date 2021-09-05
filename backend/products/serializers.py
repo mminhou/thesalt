@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import Product
 from category.models import MainCategory, SubCategory
+from order.models import OrderProduct
 from override.slug import SlugRelatedModuleField
 # from mall.override.pkRelatedField import MyPrimaryKeyRelatedField
 
@@ -18,7 +19,6 @@ class ProductSerializer(serializers.ModelSerializer):
     subImage2 = serializers.ImageField(required=False)
     subImage3 = serializers.ImageField(required=False)
     subImage4 = serializers.ImageField(required=False)
-
 
     class Meta:
         model = Product
