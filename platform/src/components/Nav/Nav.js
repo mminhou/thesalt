@@ -86,6 +86,8 @@ class Nav extends Component {
 
     //Small Screens
     createDrawer() {
+        const {isLoggedIn} = this.props.isLoggedIn
+        const signOut = this.props.signOut
         return (
             <div>
                 <AppBar style={{backgroundColor: 'rgb(25,25,25)'}}>
@@ -120,10 +122,15 @@ class Nav extends Component {
                              this.setState({drawer: false})
                          }}>
                         <List className={this.props.classes.list} style={{width: 500}}>
-                            <ListItem key={1} button divider>HOME</ListItem>
-                            <ListItem key={2} button divider>PRODUCT</ListItem>
-                            <ListItem key={3} button divider>CONTACT</ListItem>
-                            <ListItem key={4} button divider>LOGIN</ListItem>
+                            <ListItem key={1} button divider><Link to="/home">HOME</Link></ListItem>
+                            <ListItem key={2} button divider><Link to="/product">PRODUCT</Link></ListItem>
+                            {isLoggedIn ?
+                                <div>
+                                    <ListItem key={3} button divider><Link to="/profile">PROFILE</Link></ListItem>
+                                    <ListItem key={3} button divider><Link to="/login" onClick={signOut}>LOGOUT</Link>
+                                    </ListItem>
+                                </div>
+                            : <ListItem key={4} button divider><Link to="/login">LOGIN</Link></ListItem>}
                         </List>
 
                     </div>
@@ -156,20 +163,6 @@ class Nav extends Component {
                             }}></img>
                         </a>
                     </Typography>
-                    <Typography className={classes.padding} color="inherit"
-                                style={{display: pathname == '/' || pathname == '/login' ? 'none' : null}}>
-                        <Button onClick={this.openModal} className={classes.navLink}>
-                            <ShoppingCartIcon style={{color: 'white'}}/>
-                        </Button>
-                        <Dialog
-                            open={this.state.isModalOpen}
-                            onClose={this.closeModal}
-                            aria-labelledby="shoppingCart"
-                            aria-describedby="shoppingCart"
-                        >
-                            <ShoppingCart/>
-                        </Dialog>
-                    </Typography>
                     <Typography variant="" className={classes.padding} color="inherit"
                                 style={{display: pathname == '/' || pathname == '/login' ? 'none' : null}}>
                         <Link to="/home" className={classes.navLink} activeClassName="selected">home</Link>
@@ -197,6 +190,20 @@ class Nav extends Component {
                             </Link>
                         </Typography>) : (<div></div>)
                     }
+                    <Typography className={classes.padding} color="inherit"
+                                style={{display: pathname == '/' || pathname == '/login' ? 'none' : null}}>
+                        <Button onClick={this.openModal} className={classes.navLink}>
+                            <ShoppingCartIcon style={{color: 'white'}}/>
+                        </Button>
+                        <Dialog
+                            open={this.state.isModalOpen}
+                            onClose={this.closeModal}
+                            aria-labelledby="shoppingCart"
+                            aria-describedby="shoppingCart"
+                        >
+                            <ShoppingCart/>
+                        </Dialog>
+                    </Typography>
                 </Toolbar>
             </AppBar>
 
