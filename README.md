@@ -74,17 +74,23 @@ $ npm start
 <br/>
 
 ### Report ###
-#### 21. 9. 3
+
+
+#### * 21. 9. 3.
 
 - Deploy demo version
-
-#### 21. 9. 7
+---
+#### * 21. 9. 7.
 
 - DRF permission, token authentication 기능 추가
 - Account 관련 action, reducers, saga 업데이트 
 - update 1.. Token headers를 활용한 Authentication
 - update 2.. DRF의 user model view -> permission allow
+---
+#### * 21. 9. 8.
 
+- Backend Order 모델 정의 및 업데이트
+- Order component 업데이트
 
 
 ### Version ###
