@@ -2,28 +2,24 @@ import React, {useState, useEffect} from 'react';
 import {persistConfig} from "../../modules/reducers";
 import {useForm} from "react-hook-form";
 import {Button, FormControl, Grid, Input, InputLabel, TextField} from "@material-ui/core";
+import {useDispatch, useSelector} from "react-redux";
+import allAction from "../../modules/actions";
+import {useHistory} from "react-router-dom";
 
 const Account = () => {
-    const [account, setAccount] = useState(null);
+    const {account, loading, error} = useSelector(state => state.account)|| {
+        loading: false, data: null, error: null};
     const {register, handleSubmit, reset, errors} = useForm();
-    useEffect(() => {
-        persistConfig.storage.getItem("account").then(res => {
-            if (res && !account) {
-                setAccount(JSON.parse(res))
-            }
-            ;
-        });
-    })
-    const handleChange = (e) => {
-        setAccount({
-            ...account,
-            [e.target.name]: e.target.value
-        })
-    }
-    const onSubmit = (data, e) => {
+    const dispatch = useDispatch()
+    const history = useHistory();
 
-        console.log(account)
+    const onSubmit = (data, e) => {
+        data['email'] = account['email']
+        data['id'] = account['id']
+        dispatch(allAction.updateAccount(data));
+        history.push('/home')
     };
+    
     return (
         <div>
             <div style={{backgroundColor: '#483D8B', height: 120}}></div>
@@ -36,14 +32,13 @@ const Account = () => {
                                 <TextField name="email"
                                            defaultValue={account.email}
                                            label="Email" margin="normal"
-                                           disabled="true"
+                                           disabled = {true}
                                            inputRef={register}
                                            fullWidth/>
                             </Grid>
                             <Grid item xs={6}>
                                 <TextField name="last_name"
-                                           value={account.last_name}
-                                           onChange={handleChange}
+                                           // onChange={handleChange}
                                            defaultValue={account.last_name}
                                            label="Last Name"
                                            margin="normal"
@@ -51,19 +46,17 @@ const Account = () => {
                                            fullWidth/>
                             </Grid>
                             <Grid item xs={6}>
-                                <TextField name="fitst_name"
-                                           value={account.first_name}
-                                           onChange={handleChange}
+                                <TextField name="first_name"
+                                           // onChange={handleChange}
                                            defaultValue={account.first_name}
-                                           label="Fitst Name"
+                                           label="First Name"
                                            margin="normal"
                                            inputRef={register}
                                            fullWidth/>
                             </Grid>
                             <Grid item xs={6}>
                                 <TextField name="city"
-                                           value={account.city}
-                                           onChange={handleChange}
+                                           // onChange={handleChange}
                                            defaultValue={account.city}
                                            label="City"
                                            margin="normal"
@@ -72,8 +65,8 @@ const Account = () => {
                             </Grid>
                             <Grid item xs={6}>
                                 <TextField name="zip_code"
-                                           value={account.zip_code}
-                                           onChange={handleChange}
+                                           // value={account.zip_code}
+                                           // onChange={handleChange}
                                            defaultValue={account.zip_code}
                                            label="Zip code"
                                            margin="normal"
@@ -82,8 +75,8 @@ const Account = () => {
                             </Grid>
                             <Grid item xs={12}>
                                 <TextField name="address1"
-                                           value={account.address1}
-                                           onChange={handleChange}
+                                           // value={account.address1}
+                                           // onChange={handleChange}
                                            defaultValue={account.address1}
                                            label="Address Line 1"
                                            margin="normal"
@@ -92,8 +85,8 @@ const Account = () => {
                             </Grid>
                             <Grid item xs={12}>
                                 <TextField name="address2"
-                                           value={account.address2}
-                                           onChange={handleChange}
+                                           // value={account.address2}
+                                           // onChange={handleChange}
                                            defaultValue={account.address2}
                                            label="Address Line 2(Optional)"
                                            margin="normal"
