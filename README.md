@@ -73,16 +73,22 @@ $ npm start
 
 <br/>
 
+### Report ###
+#### 21. 9. 3
+
+- Deploy demo version
+
+#### 21. 9. 7
+
+- DRF permission, token authentication 기능 추가
+- Account 관련 action, reducers, saga 업데이트 
+- update 1.. Token headers를 활용한 Authentication
+- update 2.. DRF의 user model view -> permission allow
+
+
 
 ### Version ###
 #### v 1.0
 ```
     Deploy the-salt.co.uk 
 ```
-
-### Report ###
-#### 21. 9. 7
-
-- Token, id, email info SignIn State 에 저장
-- Account State 액션, 리듀서 초기화
-- Profile 상태에 적용
