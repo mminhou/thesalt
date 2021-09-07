@@ -26,9 +26,9 @@ from rest_framework_jwt.views import obtain_jwt_token
 
 # Viewsets
 from accounts.views import UserViewSet
-# from accounts.views import login
 from category.views import MainCategoryViewSet, SubCategoryViewSet
 from products.views import ProductViewSet
+from order.views import OrderViewSet, OrderProductViewSet
 
 router = routers.DefaultRouter()
 router.register(r'accounts', UserViewSet)
@@ -36,7 +36,8 @@ router.register(r'accounts', UserViewSet)
 router.register(r'maincategory', MainCategoryViewSet)
 router.register(r'subcategory', SubCategoryViewSet)
 router.register(r'products', ProductViewSet)
-
+router.register(r'order', OrderViewSet)
+router.register(r'orderProduct', OrderProductViewSet)
 
 # Authentication credentials were not provided
 # http -a email:password GET http://127.0.0.1:8000/api/
@@ -44,6 +45,7 @@ router.register(r'products', ProductViewSet)
 urlpatterns = [
     path('api/', include(router.urls)),
     # curl -X POST -d "email=...&password=..." http://localhost:8000/api-token-auth/
+    # curl -X POST -d "email=alsgh1003@hanmail.net&password=minho2736" http://localhost:8000/api-token-auth/
     path('api-token-auth/', obtain_jwt_token),
     # path('login/', login),
     # Editor summernote
