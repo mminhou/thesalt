@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 import {Grid, Typography, Card, CardActionArea, CardContent, CardMedia} from "@material-ui/core";
 import allAction from "../../modules/actions";
 
-export function HomePagination() {
+const HomePagination = () => {
     const {data, loading, error} = useSelector(state => state.products.products);
     const dispatch = useDispatch();
     const [currentPage, setCurrentPage] = React.useState(1);
@@ -14,10 +14,8 @@ export function HomePagination() {
     useEffect(() => {
         if (data) {
             setContents(data)
-            console.log(contents)
             return
-        }
-        ;
+        };
         dispatch(allAction.getProducts());
     }, [data, contents, dispatch]);
 
@@ -57,7 +55,7 @@ export function HomePagination() {
         <div style={{paddingLeft: '10%', paddingRight: '10%'}}>
             <Grid container direction="column" alignItems="center">
                 <Grid container className="title-container"  direction="row" alignItems="center">
-                    <Grid item xs={6} justify="flex-start">
+                    <Grid item xs={6}>
                         <Typography variant="h3" className="pagination-title">new arrivals</Typography>
                     </Grid>
                     <Grid item xs={6}>
@@ -69,16 +67,16 @@ export function HomePagination() {
                     </Grid>
                 </Grid>
 
-                <Grid container direction="row" justify="center" alignItems="center" justifyContent="center">
+                <Grid container direction="row" justify="center" alignItems="center">
                     {currentLists.map((ele) => ele.subCategory === 'new' ?
-                        <Grid item lg={2} md={3} sm={4}>
+                        <Grid item lg={2} md={3} sm={4} key={ele.id}>
                             <Card className="pagination-card">
                                 <CardActionArea className="pagination-card-action">
                                     <Link to={'/productDetail/'+ele.id}>
                                         <CardMedia image={ele.mainImage} style={{height: 150}}
                                                    title="Contemplative Reptile"/>
                                         <CardContent className="pagination-card-content">
-                                            <Typography gutterBottom variant="body2" noWrap='True'>
+                                            <Typography gutterBottom variant="body2">
                                                 {ele.subCategory}
                                             </Typography>
                                             <Typography gutterBottom variant="body2">
@@ -97,3 +95,5 @@ export function HomePagination() {
     );
     return (paginationRender);
 }
+
+export default HomePagination;
