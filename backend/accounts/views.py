@@ -5,8 +5,15 @@ from rest_framework.filters import SearchFilter
 from django.contrib.auth.hashers import make_password
 from .models import User
 from .serializers import UserSerializer
+from rest_framework.permissions import IsAuthenticated
+from rest_framework_jwt.authentication import JSONWebTokenAuthentication
+from rest_framework.decorators import api_view, permission_classes
 
+
+@permission_classes([IsAuthenticated])
 class UserViewSet(viewsets.ModelViewSet):
+    authentication_classes = [JSONWebTokenAuthentication]
+
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
@@ -18,8 +25,9 @@ class UserViewSet(viewsets.ModelViewSet):
         return user
 
     def update(self, request, *args, **kwargs):
-        user = User.objects.get(pk=self.request.META['HTTP_AUTHORIZATION'])
-        serializer.save(user=user)
+        # user = User.objects.get(pk=self.request.META['HTTP_AUTHORIZATION'])
+        # user = User.objects.get(pk=self.request.data['id'])
+        # serializer.save(user=user)
         user = self.request.data
         User.objects.filter(id=user['id']).update(
             first_name=user['first_name'],
@@ -39,36 +47,3 @@ class UserViewSet(viewsets.ModelViewSet):
             queryset = queryset.filter(email=email)
         return queryset
 
-
-
-#
-# class UserViewSetByEmail(viewsets.ModelViewSet):
-#     serializer_class = UserSerializer
-#
-#     def get(self, request):
-#         print(request.GET['email'])
-
-    # def get_queryset(self):
-    #     queryset = User.objects.all()
-    #     email = self.request.query_params.get(email, None)
-    #     if email:
-    #         queryset = queryset.filter(email=email)
-    #     return queryset.id
-
-# @api_view(['POST'])
-# @permission_classes([AllowAny])
-# def login(request):
-#     if request.method == 'POST':
-#         serializer = UserLoginSerializer(data=request.data)
-#
-#         if not serializer.is_valid(raise_exception=True):
-#             return Response({"message": "Request Body Error."}, status=status.HTTP_409_CONFLICT)
-#         if serializer.validated_data['email'] == "None":
-#             return Response({'message': 'fail'}, status=status.HTTP_200_OK)
-#
-#         response = {
-#             'success': 'True',
-#             'user': UserSerializer(user, context={'request': request}, ).data,
-#             'token': serializer.data['token']
-#         }
-#         return Response(response, status=status.HTTP_200_OK)
