@@ -79,13 +79,13 @@ $ npm start
 #### * 21. 9. 3.
 
 - Deploy demo version
----
 #### * 21. 9. 7.
-
+```
 - DRF permission, token authentication 기능 추가
 - Account 관련 action, reducers, saga 업데이트 
 - update 1.. Token headers를 활용한 Authentication
 - update 2.. DRF의 user model view -> permission allow
+```
 ---
 #### * 21. 9. 8.
 
