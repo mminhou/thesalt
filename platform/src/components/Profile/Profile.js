@@ -1,40 +1,52 @@
-import React, {useState, useEffect} from 'react';
-import {persistConfig} from "../../modules/reducers";
-import {Button, Grid, Typography} from "@material-ui/core";
-import avatar from "../../factory/images/avatar.jpg";
-import {BuildTwoTone} from "@material-ui/icons";
+import React, {useEffect} from 'react';
 import {Link} from "react-router-dom";
+import {useSelector, useDispatch} from "react-redux";
+import allAction from "../../modules/actions";
+import {Button, Grid, Typography} from "@material-ui/core";
+import avatar from "../../factory/images/min.png";
+import PersonIcon from '@material-ui/icons/Person';
+import LocalMallIcon from '@material-ui/icons/LocalMall';
 
 const Profile = () => {
-    const [account, setAccount] = useState("")
-
+    const email = useSelector(state => state.signIn.email)
+    const {account, loading, error} = useSelector(state => state.account) || {
+        loading: false, data: null, error: null
+    };
+    const dispatch = useDispatch();
     useEffect(() => {
-        persistConfig.storage.getItem("account").then(res => {
-            if (res && !account) {
-                setAccount(JSON.parse(res))
-            }
-            ;
-        });
-    })
+        dispatch(allAction.getAccount(email));
+    }, [dispatch]);
 
     return (
         <div>
             <div style={{backgroundColor: '#483D8B', height: 120}}></div>
             {account ? (
                 <Grid container direction="row" justify="center" alignItems="center" style={{textAlign: "center"}}>
-                    <Grid item xs={12} style={{marginTop: 35}}>
+                    <Grid item xs={12} style={{marginTop: 35, marginBottom: 50}}>
                         <img src={avatar} width="15%" className="avatar"/>
-                        <Typography variant="h6">Welcome! {account.fitst_name}</Typography>
-                        <Typography variant="h6">Hope you will have a great shopping time with us</Typography>
+                        <Typography variant="h6">Welcome! <span
+                            style={{color: '#E9967A'}}>{account.last_name} {account.first_name}</span></Typography>
+                        <Typography variant="h6">Hope you will have a great shopping time with us.</Typography>
                         <br/>
                         <Typography variant="body1">{account.email}</Typography>
                     </Grid>
-                    <Grid item xs={6}>
-                        <Link to='/myAccount'><Button>내정보 수정하기</Button></Link>
+
+                    <Grid item xs={3}></Grid>
+                    <Grid item xs={3}>
+                        <Link to={`myAccount/${account.id}`}>
+                            <Button variant="outlined" color="primary" size="large" startIcon={<PersonIcon/>}
+                                    style={{width: '90%', height: 100}}>
+                                My Account
+                            </Button>
+                        </Link>
                     </Grid>
-                    <Grid item xs={6}>
-                        주문 조회
+                    <Grid item xs={3}>
+                        <Button variant="outlined" color="primary" size="large" startIcon={<LocalMallIcon/>}
+                                style={{width: '90%', height: 100}}>
+                            Orders
+                        </Button>
                     </Grid>
+                    <Grid item xs={3}></Grid>
                 </Grid>
             ) : (
                 <Grid container direction="row" justify="center" alignItems="center" style={{textAlign: "center"}}>
