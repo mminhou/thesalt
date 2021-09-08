@@ -19,11 +19,11 @@ const Profile = () => {
 
     return (
         <div>
-            <div style={{backgroundColor: '#483D8B', height: 120}}></div>
+            <div style={{backgroundColor: '#483D8B', height: window.innerWidth <= 850 ? 55 : 120}}></div>
             {account ? (
-                <Grid container direction="row" justify="center" alignItems="center" style={{textAlign: "center"}}>
+                <Grid container direction="row" justify="center" alignItems="center" spacing={1} style={{textAlign: "center"}}>
                     <Grid item xs={12} style={{marginTop: 35, marginBottom: 50}}>
-                        <img src={avatar} width="15%" className="avatar"/>
+                        <img src={avatar} width="200px" className="avatar"/>
                         <Typography variant="h6">Welcome! <span
                             style={{color: '#E9967A'}}>{account.last_name} {account.first_name}</span></Typography>
                         <Typography variant="h6">Hope you will have a great shopping time with us.</Typography>
@@ -31,8 +31,8 @@ const Profile = () => {
                         <Typography variant="body1">{account.email}</Typography>
                     </Grid>
 
-                    <Grid item xs={3}></Grid>
-                    <Grid item xs={3}>
+                    <Grid item md={3}></Grid>
+                    <Grid item md={3} xs={12}>
                         <Link to={`myAccount/${account.id}`}>
                             <Button variant="outlined" color="primary" size="large" startIcon={<PersonIcon/>}
                                     style={{width: '90%', height: 100}}>
@@ -40,13 +40,13 @@ const Profile = () => {
                             </Button>
                         </Link>
                     </Grid>
-                    <Grid item xs={3}>
+                    <Grid item md={3} xs={12}>
                         <Button variant="outlined" color="primary" size="large" startIcon={<LocalMallIcon/>}
                                 style={{width: '90%', height: 100}}>
                             Orders
                         </Button>
                     </Grid>
-                    <Grid item xs={3}></Grid>
+                    <Grid item md={3}></Grid>
                 </Grid>
             ) : (
                 <Grid container direction="row" justify="center" alignItems="center" style={{textAlign: "center"}}>
