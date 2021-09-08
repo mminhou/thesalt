@@ -3,40 +3,55 @@ import './SignIn.sass';
 import {useDispatch, useSelector} from "react-redux";
 import {useHistory} from "react-router-dom";
 import {signIn, signOut} from "../../modules/actions/authAction";
+import {Grid, TextField} from "@material-ui/core";
+import {useForm} from "react-hook-form";
 
 const SignIn = () => {
     const history = useHistory();
     const dispatch = useDispatch();
     const {isLoggedIn} = useSelector(state => state.signIn)
+    const {register, handleSubmit} = useForm();
 
-    const signInEvent = (e) => {
-        e.preventDefault();
-        const signInData = {
-            email: e.target.email.value,
-            password: e.target.password.value
-        };
-        dispatch(signIn(signInData));
-    }
+    const onSubmit = (data) => {
+        dispatch(signIn(data));
+    };
+
     useEffect(() => {
         if (isLoggedIn) {
             history.push('/');
         }
     })
-    // signOut test
-    const signOutEvent = (e) => {
-        dispatch(signOut());
-        history.push('/login');
-    }
 
     return (
-        <form className='account-from' onSubmit={signInEvent}>
-            {/*{isLoggedIn? <p>true</p> : <p>false</p>}*/}
-            {/*<button onClick={signOutEvent}>logout</button>*/}
-            <div className='account-form-fields sign-in'>
-                <input id='email' name='email' type='email' placeholder='E-mail' required/>
-                <input id='password' name='password' type='password' placeholder='Password' required/>
-            </div>
-            <button className='btn-submit-form' type='submit' style={{marginTop: -5}}>Sign in</button>
+        <form className='account-form' onSubmit={handleSubmit(onSubmit)}>
+            <Grid container direction="row" spacing={1} className='account-form-fields sign-in'>
+                <Grid item xs={12}>
+                     <TextField
+                        id="email" name="email" type="email"
+                        label="E-mail"
+                        variant="filled"
+                        InputProps={{style: {backgroundColor: 'whitesmoke'}}}
+                        fullWidth
+                        required
+                        {...register('email')}
+                     />
+                </Grid>
+                <Grid item xs={12}>
+                    <TextField
+                        id="password" name="password" type="password"
+                        label="Password"
+                        variant="filled"
+                        InputProps={{style: {backgroundColor: 'whitesmoke'}}}
+                        fullWidth
+                        required
+                        {...register('password')}
+                     />
+                </Grid>
+                <Grid item xs={12}>
+                    <button className='btn-submit-form' type='submit'>Sign in</button>
+                </Grid>
+            </Grid>
+
         </form>
     )
 }

@@ -33,7 +33,7 @@ const Account = () => {
                                            defaultValue={account.email}
                                            label="Email" margin="normal"
                                            disabled = {true}
-                                           inputRef={register}
+                                           {...register('email')}
                                            fullWidth/>
                             </Grid>
                             <Grid item xs={6}>
@@ -42,7 +42,7 @@ const Account = () => {
                                            defaultValue={account.last_name}
                                            label="Last Name"
                                            margin="normal"
-                                           inputRef={register}
+                                           {...register('last_name')}
                                            fullWidth/>
                             </Grid>
                             <Grid item xs={6}>
@@ -51,7 +51,7 @@ const Account = () => {
                                            defaultValue={account.first_name}
                                            label="First Name"
                                            margin="normal"
-                                           inputRef={register}
+                                           {...register('first_name')}
                                            fullWidth/>
                             </Grid>
                             <Grid item xs={6}>
@@ -60,7 +60,7 @@ const Account = () => {
                                            defaultValue={account.city}
                                            label="City"
                                            margin="normal"
-                                           inputRef={register}
+                                           {...register('city')}
                                            fullWidth/>
                             </Grid>
                             <Grid item xs={6}>
@@ -70,7 +70,7 @@ const Account = () => {
                                            defaultValue={account.zip_code}
                                            label="Zip code"
                                            margin="normal"
-                                           inputRef={register}
+                                           {...register('zip_code')}
                                            fullWidth/>
                             </Grid>
                             <Grid item xs={12}>
@@ -80,7 +80,7 @@ const Account = () => {
                                            defaultValue={account.address1}
                                            label="Address Line 1"
                                            margin="normal"
-                                           inputRef={register}
+                                           {...register('address1')}
                                            fullWidth/>
                             </Grid>
                             <Grid item xs={12}>
@@ -90,7 +90,7 @@ const Account = () => {
                                            defaultValue={account.address2}
                                            label="Address Line 2(Optional)"
                                            margin="normal"
-                                           inputRef={register}
+                                           {...register('address2')}
                                            fullWidth/>
                             </Grid>
                             <Grid item xs={12}>
@@ -98,7 +98,7 @@ const Account = () => {
                                            defaultValue={account.contact_num}
                                            label="Contact Number"
                                            margin="normal"
-                                           inputRef={register}
+                                           {...register('contact_num')}
                                            fullWidth/>
                             </Grid>
                             <Grid item xs={12} style={{marginTop: 30}}>
