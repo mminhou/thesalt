@@ -24,13 +24,15 @@
     color: white;
     font-size: 80px;
     margin: 0;
-    float: right
+    float: right;
+    font-weight: 900 !important;
 }
 .subtitle {
     color: white;
     font-size: 40px;
     margin: 0;
-    float: right
+    float: right;
+    font-weight: 900 !important;
 }
 .buttonText {
     color: white;
@@ -42,17 +44,19 @@
 }
 .introduce {
     font-weight: 900;
-    margin-bottom: 2%;
+    margin-bottom: 1% !important;
 }
 .avatar {
     border-radius: 50%;
 }
 .smallCaps {
     font-variant: small-caps;
+    font-weight: 900 !important;
 }
 .info {
     font-size: 15px !important;
     letter-spacing: 1px;
-    marginBottom: 15px;
+    margin-bottom: 5px !important;
+    margin-top: 5px !important;
 }
 
