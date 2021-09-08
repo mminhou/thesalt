@@ -2,15 +2,21 @@ import { reducerUtils, handleAsyncActions, handleAsyncActionsById} from '../../l
 import allAction from '../actions/index';
 
 const initialAccountState = {
-  account: reducerUtils.initial()
+     account: {}
 };
 
 const account = (state = initialAccountState, action) => {
   switch (action.type) {
     case allAction.GET_ACCOUNT:
     case allAction.GET_ACCOUNT_SUCCESS:
+      return {...state, account: action.payload}
     case allAction.GET_ACCOUNT_ERROR:
-      return handleAsyncActionsById("GET_ACCOUNT", 'account', true)(state, action);
+      return {...state}
+    case allAction.UPDATE_ACCOUNT:
+    case allAction.UPDATE_ACCOUNT_SUCCESS:
+      return {...state, account: action.payload}
+    case allAction.UPDATE_ACCOUNT_ERROR:
+      return {...state}
     default:
       return state;
   }
