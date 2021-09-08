@@ -1,9 +1,11 @@
 import allAction from "../actions";
-const products = []
+
+const initialCartState = []
+
 const updateQuantity = p =>
     p.quantity ? {...p, quantity: p.quantity + 1} : {...p, quantity: 2};
 
-const shoppingCart = (state = products, action) => {
+const shoppingCart = (state = initialCartState, action) => {
     switch (action.type) {
         case allAction.ADD_PRODUCT_TO_CART:
             const productInCart = state.find(p => p.id === action.product.id);
@@ -11,7 +13,7 @@ const shoppingCart = (state = products, action) => {
             return state.map(p => {
                 if (p.id === action.product.id) {
                     return updateQuantity(p);
-                }
+                }s
                 return p;
             });
         case allAction.REMOVE_PRODUCT_FROM_CART:
