@@ -1,33 +1,26 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./ShowMoreButton.css";
+import {useHistory} from "react-router-dom";
 
-export default function ShowMoreButton(props) {
-    const {className, label, isDisabled} = props;
+const ShowMoreButton = () => {
+    const history = useHistory()
+    const handleClick = () => {
+        history.push("/home")
+    }
 
     return (
         <button onClick={() => window.location.replace("/home")}>
-            <span className={className} disabled={isDisabled}>
-                <span style={{color: 'ghostwhite'}}>{label}</span>
+            <span className="cta">
+                <span style={{color: 'ghostwhite'}}>show more</span>
                 <svg width="13px" height="10px" viewBox="0 0 13 10">
                     <path d="M1,5 L11,5"></path>
                     <polyline points="8 1 12 5 8 9"></polyline>
                 </svg>
             </span>
         </button>
+
     )
 };
 
-ShowMoreButton.propTypes = {
-    className: PropTypes.string,
-    onClick: PropTypes.func,
-    label: PropTypes.string,
-    isDisabled: PropTypes.bool
-};
 
-ShowMoreButton.defaultProps = {
-    className: "cta",
-    onClick: null,
-    label: "Click Me",
-    isDisabled: false
-};
+export default ShowMoreButton;

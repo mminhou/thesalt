@@ -1,24 +1,25 @@
 button {
-    border:none;
+    border: none;
     background: transparent;
-  }
+}
 
-  button:focus{
+button:focus {
     outline-color: transparent;
-  }
+}
 
-  a {
+a {
     text-decoration: none;
     color: inherit;
-  }
+}
 
-  .cta {
+.cta {
     position: relative;
     margin: auto;
     padding: 19px 22px;
     transition: all 0.2s ease;
-  }
-  .cta:before {
+}
+
+.cta:before {
     content: "";
     position: absolute;
     top: 0;
@@ -29,8 +30,9 @@ button {
     width: 56px;
     height: 56px;
     transition: all 0.3s ease;
-  }
-  .cta span {
+}
+
+.cta span {
     position: relative;
     font-size: 16px;
     line-height: 18px;
@@ -38,8 +40,9 @@ button {
     letter-spacing: 0.25em;
     text-transform: uppercase;
     vertical-align: middle;
-  }
-  .cta svg {
+}
+
+.cta svg {
     position: relative;
     top: 0;
     margin-left: 10px;
@@ -50,15 +53,18 @@ button {
     stroke-width: 2;
     transform: translateX(-5px);
     transition: all 0.3s ease;
-  }
-  .cta:hover:before {
+}
+
+.cta:hover:before {
     width: 100%;
     background: #ffab9d;
-    cursor:pointer;
-  }
-  .cta:hover svg {
+    cursor: pointer;
+}
+
+.cta:hover svg {
     transform: translateX(0);
-  }
-  .cta:active {
+}
+
+.cta:active {
     transform: scale(0.96);
-  }
+}
