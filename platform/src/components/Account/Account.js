@@ -19,15 +19,15 @@ const Account = () => {
         dispatch(allAction.updateAccount(data));
         history.push('/home')
     };
-    
+
     return (
         <div>
-            <div style={{backgroundColor: '#483D8B', height: 120}}></div>
+            <div style={{backgroundColor: '#483D8B', height: window.innerWidth <= 850 ? 55 : 120}}></div>
             {account ?
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <Grid container direction="column" alignItems="center"
                           style={{textAlign: "center", paddingTop: 30}}>
-                        <Grid item xs={4} container>
+                        <Grid item md={5} xs={10} container>
                             <Grid item xs={12}>
                                 <TextField name="email"
                                            defaultValue={account.email}
@@ -101,8 +101,10 @@ const Account = () => {
                                            inputRef={register}
                                            fullWidth/>
                             </Grid>
-                            <Grid item xs={12}>
-                                <Button type="submit" color="primary" fullWidth>SUBMIT</Button>
+                            <Grid item xs={12} style={{marginTop: 30}}>
+                                <Button type="submit" color="primary" fullWidth variant="contained" size="large">
+                                    SUBMIT
+                                </Button>
                             </Grid>
                         </Grid>
 
