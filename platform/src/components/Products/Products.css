@@ -2,15 +2,17 @@
     width: 300px;
 }
 .products-title {
-    margin-top: 30px;
-    margin-bottom: 5px;
+    font-weight: 900 !important;
+    margin-top: 30px !important;
 }
 .products-subtitle {
-    font-size: 17px;
-    margin-top: 0;
-    margin-bottom: 30px;
+    font-weight: 900 !important;
 }
 .products-item {
     margin-right: 30px;
     margin-bottom: 20px;
+}
+
+.MuiTab-root {
+    min-width: 150px !important;
 }
