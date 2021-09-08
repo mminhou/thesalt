@@ -3,22 +3,17 @@ import './SignIn.sass';
 import {useForm} from "react-hook-form";
 import allAction from "../../modules/actions";
 import {Grid, TextField} from "@material-ui/core";
+import {useDispatch} from "react-redux";
 
 const SignUp = () => {
-
-
     const {register, handleSubmit, watch, formState: {errors}} = useForm();
     const password = useRef({});
     password.current = watch("password", "");
+    const dispatch = useDispatch()
 
     const onSubmit = (data, e) => {
-        console.log(data)
-        // data['email'] = account['email']
-        // data['id'] = account['id']
-        // dispatch(allAction.updateAccount(data));
-        // history.push('/home')
+        dispatch(allAction.signUp(data));
     };
-
 
     return (
         <form className='account-form' onSubmit={handleSubmit(onSubmit)}>
