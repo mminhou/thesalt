@@ -1,6 +1,6 @@
 import React from 'react';
 import './Home.css';
-import {HomePagination} from "../Pagination/HomePagination";
+import HomePagination from "../Pagination/HomePagination";
 import Footer from "../Footer/Footer";
 import {Grid} from "@material-ui/core";
 import introduce from "../../factory/images/introduce2.jpeg";
