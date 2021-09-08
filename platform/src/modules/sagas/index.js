@@ -1,22 +1,21 @@
-import {takeEvery, put, call, delay} from 'redux-saga/effects';
+import {call, delay, put, takeEvery, select} from 'redux-saga/effects';
 import api from '../../api/index';
 import allAction from '../actions/index';
 import {persistConfig} from "../reducers";
 
-
 function* getProductsSaga() {
     try {
-        const products = yield call(api.getProducts); // call 을 사용하면 특정 함수를 호출하고, 결과물이 반환 될 때까지 기다려줄 수 있습니다.
+        const products = yield call(api.getProducts);
         yield put({
             type: allAction.GET_PRODUCTS_SUCCESS,
             payload: products.data
-        }); // 성공 액션 디스패치
+        });
     } catch (e) {
         yield put({
             type: allAction.GET_PRODUCTS_ERROR,
             error: true,
             payload: e
-        }); // 실패 액션 디스패치
+        });
     }
 }
 
@@ -24,7 +23,7 @@ function* getProductSaga(action) {
     const param = action.payload;
     const id = action.meta;
     try {
-        const product = yield call(api.getProduct, param); // API 함수에 넣어주고 싶은 인자는 call 함수의 두번째 인자부터 순서대로 넣어주면 됩니다.
+        const product = yield call(api.getProduct, param);
         yield put({
             type: allAction.GET_PRODUCT_SUCCESS,
             payload: product.data,
@@ -40,54 +39,90 @@ function* getProductSaga(action) {
     }
 }
 
-function* getAccount(action) {
+function* getAccountSaga(action) {
     const param = action.payload;
-    const email = action.meta;
+    const token = yield select(state => state.signIn.token)
+    const headerParams = {
+        Authorization: `Token ${token}`
+    };
     try {
-        const account = yield call(api.getAccount, param)
+        const account = yield call(api.getAccount, param, headerParams);
         yield put({
             type: allAction.GET_ACCOUNT_SUCCESS,
-            payload: account.data,
-            meta: email
+            payload: account.data[0],
         });
-    } catch (error) {
+    } catch (e) {
         yield put({
             type: allAction.GET_ACCOUNT_ERROR,
             error: true,
-            meta: email
+            payload: e,
         });
     }
 }
+
+function* updateAccountSaga(action) {
+    const param = action.payload;
+    const token = yield select(state => state.signIn.token)
+    const headerParams = {
+        Authorization: `Token ${token}`
+    };
+    try {
+        const account = yield call(api.updateAccount, param, headerParams);
+        yield put({
+            type: allAction.UPDATE_ACCOUNT_SUCCESS,
+            payload: account.data,
+        });
+        alert("Your account has been successfully updated");
+    } catch (e) {
+        yield put({
+            type: allAction.UPDATE_ACCOUNT_ERROR,
+            error: true,
+            payload: e,
+        });
+    }
+}
+
 
 function* signIn({payload}) {
     try {
         const result = yield call(api.signIn, payload.signInData);
-        // tokens
-        persistConfig.storage.setItem("token", JSON.stringify(result.data))
-
         yield put(allAction.signInSuccess(result.data));
         yield delay(500)
-        alert("환영합니다.");
-
-        // call getAccount
-        const account = yield call(api.getAccount, payload.signInData.email);
-        persistConfig.storage.setItem("account", JSON.stringify(account.data[0]))
-        persistConfig.storage.getItem("account").then(res => {
-            // console.log(JSON.parse(res))
-        })
-
-    } catch (error) {
-        // console.log("login 실패");
-        alert("로그인에 실패하셨습니다. 다시 입력해주시기 바랍니다.");
+        alert("Welcome to The Salt of the future.");
+    } catch (e) {
+        alert("Failed logged in. Please check on your email, password");
         window.location.reload();
-        yield put(allAction.signInFail(error));
+        yield put(allAction.signInFail(e));
     }
 }
+
+function* signUp({payload}) {
+    try {
+        const result = yield call(api.createAccount, payload.signUpData);
+        yield delay(300)
+        alert("Welcome to oue membership");
+        window.location.reload();
+
+    } catch (e) {
+        yield put({
+            type: allAction.SIGN_UP_FAIL,
+            error: true,
+            payload: e,
+        });
+        alert("Sorry, this username(email) already taken");
+        window.location.reload();
+    }
+}
+
 
 function* rootSaga() {
     yield takeEvery("GET_PRODUCTS", getProductsSaga);
     yield takeEvery("GET_PRODUCT", getProductSaga);
     yield takeEvery("SIGN_IN_REQUEST", signIn);
+    // yield takeEvery("SIGN_OUT", signOut);
+    yield takeEvery("SIGN_UP", signUp);
+    yield takeEvery("GET_ACCOUNT", getAccountSaga);
+    yield takeEvery("UPDATE_ACCOUNT", updateAccountSaga);
 }
 
 export default rootSaga;
