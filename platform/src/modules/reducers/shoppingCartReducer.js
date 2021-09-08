@@ -13,7 +13,7 @@ const shoppingCart = (state = initialCartState, action) => {
             return state.map(p => {
                 if (p.id === action.product.id) {
                     return updateQuantity(p);
-                }s
+                }
                 return p;
             });
         case allAction.REMOVE_PRODUCT_FROM_CART:
