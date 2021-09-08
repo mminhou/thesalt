@@ -25,7 +25,7 @@ from django.conf.urls.static import static
 from rest_framework_jwt.views import obtain_jwt_token
 
 # Viewsets
-from accounts.views import UserViewSet
+from accounts.views import UserViewSet, UserCreateView
 from category.views import MainCategoryViewSet, SubCategoryViewSet
 from products.views import ProductViewSet
 from order.views import OrderViewSet, OrderProductViewSet
@@ -47,7 +47,7 @@ urlpatterns = [
     # curl -X POST -d "email=...&password=..." http://localhost:8000/api-token-auth/
     # curl -X POST -d "email=alsgh1003@hanmail.net&password=minho2736" http://localhost:8000/api-token-auth/
     path('api-token-auth/', obtain_jwt_token),
-    # path('login/', login),
+    path('register/', UserCreateView.as_view()),
     # Editor summernote
     path('summernote/', include('django_summernote.urls')),
     path('admin/', admin.site.urls),
