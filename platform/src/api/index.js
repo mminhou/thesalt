@@ -1,21 +1,26 @@
 import axios from 'axios';
-// import { BASE_URL } from '../../config/config.json';
-// const BASE_URL = 'http://localhost:8000/api';
-// const AUTH_URL = 'http://localhost:8000/api-token-auth';
-const BASE_URL = 'http://ec2-3-36-116-59.ap-northeast-2.compute.amazonaws.com/api';
-const AUTH_URL = 'http://ec2-3-36-116-59.ap-northeast-2.compute.amazonaws.com/api-token-auth';
+import {getJWT} from "../modules/sagas";
+const REGISTER_URL = 'http://localhost:8000/register';
+const BASE_URL = 'http://localhost:8000/api';
+const AUTH_URL = 'http://localhost:8000/api-token-auth';
+// const BASE_URL = 'http://ec2-3-36-116-59.ap-northeast-2.compute.amazonaws.com/api';
+// const AUTH_URL = 'http://ec2-3-36-116-59.ap-northeast-2.compute.amazonaws.com/api-token-auth';
 
 const getProducts = () => {
     return axios.get(`${BASE_URL}/products/`);
 };
 const getProduct = (id) => {
     return axios.get(`${BASE_URL}/products/${id}/`);
-}
-
-const getAccount = (email) => {
-    return axios.get(`${BASE_URL}/accounts/?email=${email}`)
-}
-
+};
+const getAccount = (email, token) => {
+    return axios.get(`${BASE_URL}/accounts/?email=${email}`, { headers: token })
+};
+const createAccount = async (data) => {
+    return await axios.post(`${REGISTER_URL}/`,  data)
+};
+const updateAccount = async (data, token) => {
+    return await axios.put(`${BASE_URL}/accounts/${data.id}/`, data, { headers: token })
+};
 const signIn = (signInData) => {
     return axios.post(`${AUTH_URL}/`, signInData);
 };
@@ -24,7 +29,9 @@ const api = {
     getProducts,
     getProduct,
     getAccount,
-    signIn
+    createAccount,
+    updateAccount,
+    signIn,
 };
 
 export default api;
