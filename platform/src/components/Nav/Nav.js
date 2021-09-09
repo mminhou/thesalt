@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import './Nav.css'
-import {connect} from 'react-redux'
-import ShoppingCart from "../ShoppingCart/ShoppingCart";
-import {signOut} from "../../modules/actions/authAction";
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux'
+import {signOut} from "../../modules/actions/authAction";
+import ShoppingCart from "../ShoppingCart/ShoppingCart";
 import {AppBar, Toolbar, Typography, List, ListItem, Grid, SwipeableDrawer, Button, Dialog,} from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
@@ -66,9 +66,7 @@ class Nav extends Component {
                         <Grid container direction="row" justifyContent="space-between" alignItems="center">
                             <MenuIcon
                                 className="sideBarIcon"
-                                onClick={() => {
-                                    this.setState({drawer: true})
-                                }}/>
+                                onClick={() => {this.setState({drawer: true})}}/>
                             <div color="inherit">
                                 <Link to='/'>
                                     <img src={logo} height={50}></img>
@@ -94,6 +92,7 @@ class Nav extends Component {
                                     </ListItem></Link>
                                 </div>
                                 : <Link to="/login"><ListItem key={4} button divider>LOGIN</ListItem></Link>}
+                            <Link to="/order"><ListItem key={2} button divider>ORDER</ListItem></Link>
                             <ListItem key={5} button divider><CloseIcon fontSize="small"/></ListItem>
                         </List>
                     </div>
@@ -135,12 +134,8 @@ class Nav extends Component {
                     <Typography variant="body2" className="padding" color="inherit"
                                 style={{display: pathname == '/' ? 'none' : null}}>
                         {isLoggedIn ?
-                            (
-                                <Link to="/login" onClick={signOut}>logout</Link>
-                            )
-                            :
-                            (<a href="/login">login</a>)
-                        }
+                            (<Link to="/login" onClick={signOut}>logout</Link>)
+                            : (<a href="/login">login</a>)}
                     </Typography>
                     {isLoggedIn ? (
                         <Typography variant="body2" className="padding" color="inherit"
@@ -151,20 +146,19 @@ class Nav extends Component {
                             </Link>
                         </Typography>) : (<div></div>)
                     }
-                    <Typography variant="body2" className="padding" color="inherit"
+                    <div className="padding" color="inherit"
                                 style={{display: pathname == '/' || pathname == '/login' ? 'none' : null}}>
                         <Button onClick={this.openModal}>
                             <ShoppingCartIcon style={{color: 'white'}}/>
                         </Button>
-                        <Dialog
-                            open={this.state.isModalOpen}
-                            onClose={this.closeModal}
-                            aria-labelledby="shoppingCart"
-                            aria-describedby="shoppingCart"
-                        >
-                            <ShoppingCart/>
+                        <Dialog maxWidth="sm"
+                                open={this.state.isModalOpen}
+                                onClose={this.closeModal}
+                                aria-labelledby="shoppingCart"
+                                aria-describedby="shoppingCart">
+                            <ShoppingCart onCloseModal={this.closeModal}/>
                         </Dialog>
-                    </Typography>
+                    </div>
                 </Toolbar>
             </AppBar>
         )
