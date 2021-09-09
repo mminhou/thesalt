@@ -116,6 +116,7 @@ Deploy demo version 1.0
     <li> # 2. Grid issues justify -> justifyContent </li>
     <li> # 3. Typography descendant issues </li>
 </ul>
+
 ```
 Version 2.0 Update
 ```
