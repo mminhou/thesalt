@@ -73,7 +73,8 @@ $ npm start
 <br/>
 
 ### Report ###
-
+👌 Backend - BE
+👌 Frontend - FE
 
 #### ⏱ 21. 9. 3.
 ```
@@ -81,33 +82,40 @@ Deploy demo version 1.0
 ```
 #### ⏱ 21. 9. 7.
 <ul>
-    <li>DRF permission, token authentication 기능 추가</li>
-    <li>Account 관련 action, reducers, saga 업데이트</li>
-    <li>update 1.. Token headers를 활용한 Authentication</li>
-    <li>update 2.. DRF의 user model view -> permission allow</li>
-
+    <li>BE. DRF permission, token authentication 기능 추가</li>
+    <li>update.. Token headers를 활용한 Authentication</li>
+    <li>FE. Account 관련 action, reducers, saga 업데이트</li>
+    <li>update.. DRF의 user model view -> permission allow</li>
 </ul>
 
 #### ⏱ 21. 9. 8.
 <ul>
-    <li>Backend account 생성 view => /register 업데이트</li>
-    <li>Backend Order 모델 정의 및 업데이트</li>
-    <li>Order component 정의 및 업데이트</li>
-    <li>Screen, Profile, Account compoent responsible UI 업데이트</li>
-    <li>react-hook-form version 업데이트에 따른 수정사항 적용</li>
+    <li>BE. account 생성 view => /register 업데이트</li>
+    <li>BE. Order 모델 정의 및 업데이트</li>
+    <li>FE. Order component 정의 및 업데이트</li>
+    <li>FE. Screen, Profile, Account compoent responsible UI 업데이트</li>
+    <li>FE. react-hook-form version 업데이트에 따른 수정사항 적용</li>
     <li>// input={register(...)} => {...register('...')}</li>
 </ul>
 
 #### ⏱ 21. 9. 9.
 <ul>
-    <li>회원가입 기능 update // signUp action, reducers(with signIn), singUp saga</li>
-    <li>TextField validation 처리 추가 // react-hook-form</li>
-    <li>Home, HomePagination, Products, Footer, Order component responsible UI 업데이트</li>
-    <li>HomePagination hover effect 적용</li>
-    
+    <li>FE. 회원가입 기능 update // signUp action, reducers(with signIn), singUp saga</li>
+    <li>FE. TextField validation 처리 추가 // react-hook-form</li>
+    <li>FE. Home, HomePagination, Products, Footer, Order component responsible UI 업데이트</li>
+    <li>FE. HomePagination hover effect 적용</li> 
 </ul>
 
 #### ⏱ 21. 9. 10.
+<ul>
+    <li>BE. Order, OrderProduct 모델 재정의</li>
+    <li>FE. Order, Shipping Component 정의 및 기능 업데이트</li>
+    <li>BE. Order request에 따른 backend create method 정의</li>
+    <li>FE. Error Handling (Console Err)</li>
+    <li> # 1. Strict Mode Issues -> Delete `React.strictMode>` tag in App.js</li>
+    <li> # 2. Grid issues justify -> justifyContent </li>
+    <li> # 3. Typography descendant issues </li>
+</ul>
 ```
 Version 2.0 Update
 ```
