@@ -1,6 +1,6 @@
 import React from 'react';
 import './Footer.css';
-import {Divider, Grid, Icon, List, Typography, ListItem, ListItemText} from "@material-ui/core";
+import {Divider, Grid, List, Typography, ListItem, ListItemText} from "@material-ui/core";
 import {Facebook, Instagram, LinkedIn, Twitter} from "@material-ui/icons";
 
 function ListItemLink(props) {
@@ -31,7 +31,7 @@ const Footer = () => {
                     </Grid>
 
                     <Grid item md={3} sm={6} xs={6}>
-                        <Typography variant="h6">Contact Us</Typography>
+                        <Typography variant="h6" align="center">Contact Us</Typography>
                         <List>
                             <ListItem button style={{padding: 0, textAlign: 'center'}}><ListItemText
                                 primary="010-2895-1359"/></ListItem>
