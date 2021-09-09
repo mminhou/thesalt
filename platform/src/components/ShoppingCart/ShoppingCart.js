@@ -54,10 +54,11 @@ const ShoppingCart = () => {
     return (
         <Grid container>
             <DialogContent style={{width: '100%'}} id="alert-dialog-description">
-                <Typography variant="overline" style={{fontSize: 20}}> {countItems()},</Typography>
                 <Grid item xs={12}>
-                    <Typography variant="h4" style={{fontVariant: 'small-caps'}}>
-                        items in bag</Typography>
+                    <Typography variant="h5" display="inline"> {countItems()} </Typography>
+                    <Typography variant="h4" style={{fontVariant: 'small-caps'}} display="inline">
+                        item in bag
+                    </Typography>
                 </Grid>
                 <Divider style={{marginTop: 10, marginBottom: 10}}/>
                 <Grid item xs={12}>
@@ -71,13 +72,12 @@ const ShoppingCart = () => {
                 </Grid>
                 <Grid item xs={12}>
                     {shoppingCart.length ? (
-                        <Grid container>
+                        <Grid container alignItems="center">
                             <Grid item xs={12}><Divider style={{marginTop: 10, marginBottom: 10}}/></Grid>
                             <Grid item xs={6}>
-                                <Typography variant="body1" style={{
-                                    fontVariant: 'small-caps',
-                                    fontSize: 20
-                                }}>subtotal</Typography>
+                                <Typography variant="h6" style={{fontWeight: 400}} >
+                                    Subtotal
+                                </Typography>
                             </Grid>
                             <Grid item xs={6}>
                                 <Typography variant="h6" style={{float: 'right'}}>
