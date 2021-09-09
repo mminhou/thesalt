@@ -10,7 +10,7 @@ const Login = () => {
     const classes = useStyles();
     const [mode, setMode] = useState(0);
     return (
-        <Grid className={classes.root} container direction='column' alignItems="center" justify="center">
+        <Grid className={classes.root} container direction='column' alignItems="center" justifyContent="center">
             <div className='container'>
                 <header>
                     {mode === 0 ? (<span>Sign in to your account</span>) :

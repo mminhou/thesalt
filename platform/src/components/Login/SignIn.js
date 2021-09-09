@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import './SignIn.sass';
 import {useDispatch, useSelector} from "react-redux";
 import {useHistory} from "react-router-dom";
-import {signIn, signOut} from "../../modules/actions/authAction";
+import {signIn} from "../../modules/actions/authAction";
 import {Grid, TextField} from "@material-ui/core";
 import {useForm} from "react-hook-form";
 
@@ -51,7 +51,6 @@ const SignIn = () => {
                     <button className='btn-submit-form' type='submit'>Sign in</button>
                 </Grid>
             </Grid>
-
         </form>
     )
 }
