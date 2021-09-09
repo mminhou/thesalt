@@ -30,7 +30,7 @@ export function Screen() {
                     </Grid>
                 </FullpageSection>
                 <FullpageSection style={{backgroundColor: 'white', padding: '1em',}}>
-                    <Grid container direction="row" justify="center" alignItems="center" style={{textAlign: "center"}}>
+                    <Grid container direction="row" justifyContent="center" alignItems="center" style={{textAlign: "center"}}>
                         <Grid item xs={12}>
                             <div style={{height: 120}}></div>
                             <Typography variant="h3" className="introduce">CREATOR</Typography>
