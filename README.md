@@ -83,25 +83,25 @@ Deploy demo version 1.0
 #### ⏱ 21. 9. 7.
 <ul>
     <li>BE. DRF permission, token authentication 기능 추가</li>
-    <li>update.. Token headers를 활용한 Authentication</li>
-    <li>FE. Account 관련 action, reducers, saga 업데이트</li>
+    <li>FE. Account component 정의 및 업데이트 (action, reducers, saga)</li>
     <li>update.. DRF의 user model view -> permission allow</li>
+    <li>update.. Token headers를 활용한 Authentication</li>
 </ul>
 
 #### ⏱ 21. 9. 8.
 <ul>
-    <li>BE. account 생성 view => /register 업데이트</li>
-    <li>BE. Order 모델 정의 및 업데이트</li>
-    <li>FE. Order component 정의 및 업데이트</li>
-    <li>FE. Screen, Profile, Account compoent responsible UI 업데이트</li>
+    <li>BE. Create Account view 생성 => http://.../register </li>
+    <li>BE. Order 모델 정의 및 업데이트 (id, user, orderProducts)</li>
+    <li>FE. Order component 정의 및 업데이트 (페이지 구성 및 cart item 처리)</li>
+    <li>FE. Screen, Profile, Account component responsible UI 업데이트</li>
     <li>FE. react-hook-form version 업데이트에 따른 수정사항 적용</li>
-    <li>// input={register(...)} => {...register('...')}</li>
+    <li>----> input={register(...)} => {...register('...')}</li>
 </ul>
 
 #### ⏱ 21. 9. 9.
 <ul>
-    <li>FE. 회원가입 기능 update // signUp action, reducers(with signIn), singUp saga</li>
-    <li>FE. TextField validation 처리 추가 // react-hook-form</li>
+    <li>FE. SignUp 기능 업데이트 (signUp action, reducers(with signIn), signUp saga, signUp api)</li>
+    <li>FE. TextField validation 처리 in SignUp component -> react-hook-form</li>
     <li>FE. Home, HomePagination, Products, Footer, Order component responsible UI 업데이트</li>
     <li>FE. HomePagination hover effect 적용</li> 
 </ul>
@@ -109,7 +109,7 @@ Deploy demo version 1.0
 #### ⏱ 21. 9. 10.
 <ul>
     <li>BE. Order, OrderProduct 모델 재정의</li>
-    <li>FE. Order, Shipping Component 정의 및 기능 업데이트</li>
+    <li>FE. Order, Shipping Component 정의 및 기능 업데이트 (pusOrder action, order reducers, orderSaga, order api)</li>
     <li>BE. Order request에 따른 backend create method 정의</li>
     <li>FE. Error Handling (Console Err)</li>
     <li> # 1. Strict Mode Issues -> Delete `React.strictMode>` tag in App.js</li>
