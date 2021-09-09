@@ -21,6 +21,8 @@ const shoppingCart = (state = initialCartState, action) => {
                 ...state.slice(0, action.index),
                 ...state.slice(action.index + 1)
             ];
+        case allAction.REMOVE_ALL_PRODUCT_FROM_CART:
+            return initialCartState
         default:
             return state;
     }
