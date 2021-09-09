@@ -55,11 +55,11 @@ const Products = (props) => {
     const productsTemplate = (category) => {
         return (data && data.map(item =>
             item.mainCategory === category ? (
-                    <Grid key={item.id} item xs={8} md={3} className="products-item" spacing={5}>
+                    <Grid key={item.id} item xs={8} md={4} className="products-item" spacing={5}>
                         <ProductCard item={item}></ProductCard>
                     </Grid>) :
                 (category === 'ALL' ? (
-                    <Grid key={item.id} item xs={8} md={3} className="products-item" spacing={5}>
+                    <Grid key={item.id} item xs={8} md={4} className="products-item" spacing={5}>
                         <ProductCard item={item}></ProductCard>
                     </Grid>
                 ) : (<div></div>))
@@ -67,7 +67,7 @@ const Products = (props) => {
     }
 
     return (
-        <Grid container justify="center" style={{textAlign: 'center'}}>
+        <Grid container justify="center" style={{textAlign: 'center'}} spacing={2}>
             <Grid item xs={12}>
                 <div style={{backgroundColor: 'rgb(25, 25, 25)', height: window.innerWidth <= 850 ? 55 : 120}}></div>
                 <Typography variant="h3" paragraph className="products-title" >Sales / Collection</Typography>
@@ -85,7 +85,7 @@ const Products = (props) => {
                     <Tab label="ACC" {...a11yProps(5)} />
                 </Tabs>
             </Grid>
-            <Grid item md={10} xs={12}>
+            <Grid item md={9} xs={12}>
                 <TabPanel value={value} index={0}>
                     <Grid container spacing={2} direction="row" justify="center" alignItems="center" style={{marginTop: 30}}>
                         {productsTemplate('ALL')}
