@@ -3,6 +3,7 @@ import './Order.css'
 import {useSelector} from "react-redux";
 import {Button, Divider, Grid, TextField, Typography} from "@material-ui/core";
 import Footer from "../Footer/Footer";
+import {Link} from "react-router-dom";
 
 const Order = () => {
     const shoppingCart = useSelector(state => state.shoppingCart);
@@ -24,14 +25,14 @@ const Order = () => {
         <div>
             <div style={{backgroundColor: 'rgb(25, 25, 25)', height: window.innerWidth <= 850 ? 55 : 120}}></div>
             <Grid container>
-                <Grid container item xs={12} direction="row" justify="center" alignItems="center" spacing={5}
+                <Grid container item xs={12} direction="row" justifyContent="center" alignItems="center" spacing={5}
                       style={{paddingLeft: '10%', paddingRight: '10%', marginTop: 10}}>
                     <Grid item md={8} xs={12}>
-                        <Typography variant="h4" style={{fontVariant: 'small-caps'}}>shopping bag
-                            <Typography variant="h6" display="inline"> ( {countItems()} )</Typography></Typography>
+                        <Typography variant="h5" display="inline">Shopping Bag</Typography>
+                        <Typography variant="h6" display="inline"> ( {countItems()} )</Typography>
                         <Divider style={{marginTop: 10, marginBottom: 10}}/>
                         {shoppingCart.map(product =>
-                            <Grid item xs={12} container alignItems="center">
+                            <Grid key={product.id} item xs={12} container alignItems="center">
                                 <Grid item xs={5}>
                                     <img src={product.mainImage} width="80%" alt={product.title}/>
                                 </Grid>
@@ -55,7 +56,7 @@ const Order = () => {
                             </Grid>
                         )}
                     </Grid>
-                    <Grid item container md={4} xs={12} justify="center" alignItems="center"
+                    <Grid item container md={4} xs={12} justifyContent="center" alignItems="center"
                           style={{textAlign: "center"}} spacing={1}>
                         <Grid item xs={12}><Divider/></Grid>
                         <Grid item xs={12}>
@@ -106,8 +107,10 @@ const Order = () => {
                                 shipping</Typography>
                         </Grid>
                         <Grid item xs={12}>
+                            <Link to="/shipping">
                             <Button variant="contained" color="primary" size="large" fullWidth
                                     style={{backgroundColor: 'rgb(25, 25, 25)'}}>Proceed to Checkout</Button>
+                                </Link>
                         </Grid>
                         <Grid item xs={12}><Divider style={{marginTop: 10}}/></Grid>
                         <Grid item xs={12}>
