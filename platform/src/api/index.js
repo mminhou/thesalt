@@ -1,5 +1,4 @@
 import axios from 'axios';
-import {getJWT} from "../modules/sagas";
 const REGISTER_URL = 'http://localhost:8000/register';
 const BASE_URL = 'http://localhost:8000/api';
 const AUTH_URL = 'http://localhost:8000/api-token-auth';
@@ -24,7 +23,9 @@ const updateAccount = async (data, token) => {
 const signIn = (signInData) => {
     return axios.post(`${AUTH_URL}/`, signInData);
 };
-
+const order = async (data, token) => {
+    return axios.post(`${BASE_URL}/order/`, data, { headers: token })
+}
 const api = {
     getProducts,
     getProduct,
@@ -32,6 +33,7 @@ const api = {
     createAccount,
     updateAccount,
     signIn,
+    order,
 };
 
 export default api;
