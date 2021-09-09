@@ -21,7 +21,7 @@ const Profile = () => {
         <div>
             <div style={{backgroundColor: '#483D8B', height: window.innerWidth <= 850 ? 55 : 120}}></div>
             {account ? (
-                <Grid container direction="row" justify="center" alignItems="center" spacing={1} style={{textAlign: "center"}}>
+                <Grid container direction="row" justifyContent="center" alignItems="center" spacing={1} style={{textAlign: "center"}}>
                     <Grid item xs={12} style={{marginTop: 35, marginBottom: 50}}>
                         <img src={avatar} width="200px" className="avatar"/>
                         <Typography variant="h6">Welcome! <span
