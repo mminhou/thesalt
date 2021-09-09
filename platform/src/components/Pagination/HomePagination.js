@@ -72,7 +72,7 @@ const HomePagination = () => {
                     </Grid>
                 </Grid>
 
-                <Grid container direction="row" justify="center" alignItems="center">
+                <Grid container direction="row" justifyContent="center" alignItems="center">
                     {currentLists.map((ele, index) => ele.subCategory === 'new' ?
                         <Grid item lg={2} md={3} sm={4} xs={6} key={ele.id}>
                             <Card className="pagination-card">
