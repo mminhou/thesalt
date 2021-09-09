@@ -16,22 +16,19 @@ const HomePagination = () => {
         if (data) {
             setContents(data)
             return
-        }
-        ;
+        };
         dispatch(allAction.getProducts());
     }, [data, contents, dispatch]);
 
-    let listsPerPage = window.innerWidth <= 1280 ?
-        (window.innerWidth <= 960 ?
-            (window.innerWidth <= 600 ?
-                2 : 3) : 4) : 6
+    let listsPerPage = window.innerWidth <= 1280 ? (window.innerWidth <= 960 ?
+                        (window.innerWidth <= 600 ? 2 : 3) : 4) : 6
+
     let maxPages = Math.ceil(contents.length / listsPerPage);
     let items = [];
     let leftSide = currentPage - 2;
     if (leftSide <= 0) leftSide = 1;
     let rightSide = currentPage + 2;
     if (rightSide > maxPages) rightSide = maxPages;
-
     for (let number = leftSide; number <= rightSide; number++) {
         items.push(
             <div key={number} className={(number === currentPage ? 'round-effect active_p' : 'round-effect')}
@@ -56,22 +53,21 @@ const HomePagination = () => {
     const indexOfFirstList = indexOfLastList - listsPerPage;
     const currentLists = contents.slice(indexOfFirstList, indexOfLastList);
 
-    const paginationRender = (
-        <div style={{paddingLeft: '10%', paddingRight: '10%'}}>
+    return (
+        <div className="pagination-container">
             <Grid container direction="column" alignItems="center">
                 <Grid container className="title-container" direction="row" alignItems="center">
                     <Grid item xs={6}>
                         <Typography variant="h3" className="pagination-title">new arrivals</Typography>
                     </Grid>
                     <Grid item xs={6}>
-                        <div className="paginate-ctn" style={{float: 'right'}}>
+                        <div className="paginate-ctn">
                             <div className="round-effect" onClick={prevPage}> &lsaquo; </div>
                             {items}
                             <div className="round-effect" onClick={nextPage}> &rsaquo; </div>
                         </div>
                     </Grid>
                 </Grid>
-
                 <Grid container direction="row" justifyContent="center" alignItems="center">
                     {currentLists.map((ele, index) => ele.subCategory === 'new' ?
                         <Grid item lg={2} md={3} sm={4} xs={6} key={ele.id}>
@@ -99,11 +95,9 @@ const HomePagination = () => {
                         </Grid> : <div>nothing</div>
                     )}
                 </Grid>
-
             </Grid>
         </div>
     );
-    return (paginationRender);
 }
 
 export default HomePagination;

@@ -9,6 +9,7 @@
 }
 .paginate-ctn {
   display: flex;
+  float: right;
 }
 .round-effect {
   color:#00a2a2;
@@ -42,6 +43,10 @@
   margin-bottom: 20px;
   padding-bottom: 5px;
   border-bottom: 2px solid #787878;
+}
+.pagination-container {
+  padding-left: 10%;
+  padding-right: 10%;
 }
 .pagination-title {
   float: left;
