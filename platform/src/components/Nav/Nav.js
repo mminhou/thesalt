@@ -69,12 +69,12 @@ class Nav extends Component {
                                 onClick={() => {
                                     this.setState({drawer: true})
                                 }}/>
-                            <Typography color="inherit" variant="headline">
+                            <div color="inherit">
                                 <Link to='/'>
                                     <img src={logo} height={50}></img>
                                 </Link>
-                            </Typography>
-                            <Typography color="inherit" variant="headline"></Typography>
+                            </div>
+                            <div color="inherit"></div>
                         </Grid>
                     </Toolbar>
                 </AppBar>
@@ -115,24 +115,24 @@ class Nav extends Component {
                 justifyContent: 'center', marginTop: 10
             }}>
                 <Toolbar>
-                    <Typography style={{flexGrow: 1}}>
-                        <Link onClick={() => {window.location.href="/"}}>
+                    <div style={{flexGrow: 1}}>
+                        <Link to="/" onClick={() => {window.location.href="/"}}>
                             <img src={logo} height={this.state.imgHeight} style={{
                                 WebkitTransition: 'all 0.7s ease-in-out',
                                 transition: 'all 0.7s ease-in-out',
                                 verticalAlign: "middle"
                             }}/>
                         </Link>
-                    </Typography>
-                    <Typography variant="" className="padding" color="inherit"
+                    </div>
+                    <Typography variant="body2" className="padding" color="inherit"
                                 style={{display: pathname == '/' || pathname == '/login' ? 'none' : null}}>
                         <Link to="/home">home</Link>
                     </Typography>
-                    <Typography variant="" className="padding" color="inherit"
+                    <Typography variant="body2" className="padding" color="inherit"
                                 style={{display: pathname == '/' || pathname == '/login' ? 'none' : null}}>
                         <Link to="/product">product</Link>
                     </Typography>
-                    <Typography variant="" className="padding" color="inherit"
+                    <Typography variant="body2" className="padding" color="inherit"
                                 style={{display: pathname == '/' ? 'none' : null}}>
                         {isLoggedIn ?
                             (
@@ -143,7 +143,7 @@ class Nav extends Component {
                         }
                     </Typography>
                     {isLoggedIn ? (
-                        <Typography variant="" className="padding" color="inherit"
+                        <Typography variant="body2" className="padding" color="inherit"
                                     style={{display: pathname == '/' || pathname == '/login' ? 'none' : null}}>
                             <Link to="/profile">
                                 <AccountCircleIcon className="fa-account-circle-icon"
@@ -151,7 +151,7 @@ class Nav extends Component {
                             </Link>
                         </Typography>) : (<div></div>)
                     }
-                    <Typography className="padding" color="inherit" variant="div"
+                    <Typography variant="body2" className="padding" color="inherit"
                                 style={{display: pathname == '/' || pathname == '/login' ? 'none' : null}}>
                         <Button onClick={this.openModal}>
                             <ShoppingCartIcon style={{color: 'white'}}/>

@@ -21,8 +21,9 @@
     marginRight: 20px;
     padding: 5px 12px 5px 12px;
     cursor: pointer;
-    font-variant: small-caps;
-    letter-spacing: 2px;
+    font-variant: small-caps !important;
+    font-size: 18px !important;
+    letter-spacing: 2px !important;
     width: 120px;
     text-align: center;
 }
