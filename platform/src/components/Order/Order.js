@@ -10,7 +10,7 @@ const Order = () => {
     const [total, setTotal] = useState('')
 
     useEffect(() => {
-        setTotal(shoppingCart.reduce(calculateTotal, 0))
+        setTotal(shoppingCart.reduce(calculateTotal, 0).toFixed(2))
     },)
 
     const calculateTotal = (total, currentItem) =>
@@ -24,13 +24,12 @@ const Order = () => {
     return (
         <div>
             <div style={{backgroundColor: 'rgb(25, 25, 25)', height: window.innerWidth <= 850 ? 55 : 120}}></div>
-            <Grid container>
-                <Grid container item xs={12} direction="row" justifyContent="center" alignItems="center" spacing={5}
-                      style={{paddingLeft: '10%', paddingRight: '10%', marginTop: 10}}>
-                    <Grid item md={8} xs={12}>
+            <Grid container spacing={5}>
+                <Grid container item xs={12} direction="row" justifyContent="center" alignItems="center" className="container-page">
+                    <Grid item md={7} xs={12}>
                         <Typography variant="h5" display="inline">Shopping Bag</Typography>
                         <Typography variant="h6" display="inline"> ( {countItems()} )</Typography>
-                        <Divider style={{marginTop: 10, marginBottom: 10}}/>
+                        <Divider className="margin-divider"/>
                         {shoppingCart.map(product =>
                             <Grid key={product.id} item xs={12} container alignItems="center">
                                 <Grid item xs={5}>
@@ -42,22 +41,21 @@ const Order = () => {
                                     <Typography variant="caption" display="block">Size: {product.size}</Typography>
                                     <Typography variant="caption" display="block">Style
                                         Code: {product.styleCode}</Typography>
-                                    <Typography variant="caption"
-                                                display="block">Quantity: {product.quantity ? product.quantity : 1}</Typography>
+                                    <Typography variant="caption" display="block">
+                                        Quantity: {product.quantity ? product.quantity : 1}
+                                    </Typography>
                                 </Grid>
                                 <Grid item xs={2}>
-                                    <Typography
-                                        variant="body1">{(product.price * (product.quantity ? product.quantity : 1)).toLocaleString('en-US', {
-                                        style: 'currency',
-                                        currency: 'USD',
-                                    })}
+                                    <Typography variant="body1">
+                                        {(product.price * (product.quantity ? product.quantity : 1))
+                                            .toLocaleString('en-US', {style: 'currency', currency: 'USD',})}
                                     </Typography>
                                 </Grid>
                             </Grid>
                         )}
                     </Grid>
-                    <Grid item container md={4} xs={12} justifyContent="center" alignItems="center"
-                          style={{textAlign: "center"}} spacing={1}>
+                    <Grid item md={1}></Grid>
+                    <Grid item container md={4} xs={12} justifyContent="center" alignItems="center" style={{textAlign: "center"}} spacing={1}>
                         <Grid item xs={12}><Divider/></Grid>
                         <Grid item xs={12}>
                             <Typography variant="subtitle1">
@@ -70,13 +68,13 @@ const Order = () => {
                         <Grid item xs={6}>
                             <Button variant="outlined" size="large" fullWidth>Apply</Button>
                         </Grid>
-                        <Grid item xs={12}><Divider style={{marginTop: 10, marginBottom: 10}}/></Grid>
+                        <Grid item xs={12}><Divider className="margin-divider"/></Grid>
                         <Grid item xs={6}>
                             <Typography variant="body1" align="left">Subtotal</Typography>
                         </Grid>
                         <Grid item xs={6}>
                             <Typography variant="body1"
-                                        align="right">$ {shoppingCart.reduce(calculateTotal, 0).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</Typography>
+                                        align="right">$ {total.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</Typography>
                         </Grid>
                         <Grid item xs={6}>
                             <Typography variant="body1" align="left">Shipping</Typography>
@@ -96,11 +94,13 @@ const Order = () => {
                         </Grid>
                         <Grid item xs={12}><Divider/></Grid>
                         <Grid item xs={6}>
-                            <Typography variant="h6" align="left">Estimated Total</Typography>
+                            <Typography variant="h6" paragraph align="left">Estimated Total</Typography>
                         </Grid>
                         <Grid item xs={6}>
-                            <Typography variant="h6" paragraph
-                                        align="right">$ {total >= 150 ? total.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') : total}</Typography>
+                            <Typography variant="h6" paragraph align="right">
+                                $ {total >= 150 ? total.replace(/\B(?=(\d{3})+(?!\d))/g, ',') :
+                                String(Number(total)+25).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                            </Typography>
                         </Grid>
                         <Grid item xs={12}>
                             <Typography variant="body2" paragraph>You have qualified for complimentary
@@ -108,11 +108,12 @@ const Order = () => {
                         </Grid>
                         <Grid item xs={12}>
                             <Link to="/shipping">
-                            <Button variant="contained" color="primary" size="large" fullWidth
-                                    style={{backgroundColor: 'rgb(25, 25, 25)'}}>Proceed to Checkout</Button>
-                                </Link>
+                                <Button variant="contained" color="primary" size="large" style={{backgroundColor: 'rgb(25, 25, 25)'}} fullWidth >
+                                Proceed to Checkout
+                                </Button>
+                            </Link>
                         </Grid>
-                        <Grid item xs={12}><Divider style={{marginTop: 10}}/></Grid>
+                        <Grid item xs={12}><Divider className="margin-divider"/></Grid>
                         <Grid item xs={12}>
                             <Typography variant="overline">or</Typography>
                         </Grid>
@@ -123,7 +124,7 @@ const Order = () => {
                                     alt="Check out with PayPal"/>
                             </a>
                         </Grid>
-                        <Grid item xs={12}><Divider style={{marginTop: 10}}/></Grid>
+                        <Grid item xs={12}><Divider className="margin-divider"/></Grid>
                         <Grid item xs={12}>
                             <Typography variant="body2" paragraph>Need Help? Call 010-2895-1359</Typography>
                         </Grid>
