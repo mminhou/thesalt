@@ -1,7 +1,6 @@
-import React, {useState, useEffect} from 'react';
-import {persistConfig} from "../../modules/reducers";
+import React from 'react';
 import {useForm} from "react-hook-form";
-import {Button, FormControl, Grid, Input, InputLabel, TextField} from "@material-ui/core";
+import {Button, Grid, TextField} from "@material-ui/core";
 import {useDispatch, useSelector} from "react-redux";
 import allAction from "../../modules/actions";
 import {useHistory} from "react-router-dom";
@@ -38,7 +37,6 @@ const Account = () => {
                             </Grid>
                             <Grid item xs={6}>
                                 <TextField name="last_name"
-                                           // onChange={handleChange}
                                            defaultValue={account.last_name}
                                            label="Last Name"
                                            margin="normal"
@@ -47,7 +45,6 @@ const Account = () => {
                             </Grid>
                             <Grid item xs={6}>
                                 <TextField name="first_name"
-                                           // onChange={handleChange}
                                            defaultValue={account.first_name}
                                            label="First Name"
                                            margin="normal"
@@ -56,7 +53,6 @@ const Account = () => {
                             </Grid>
                             <Grid item xs={6}>
                                 <TextField name="city"
-                                           // onChange={handleChange}
                                            defaultValue={account.city}
                                            label="City"
                                            margin="normal"
@@ -65,8 +61,6 @@ const Account = () => {
                             </Grid>
                             <Grid item xs={6}>
                                 <TextField name="zip_code"
-                                           // value={account.zip_code}
-                                           // onChange={handleChange}
                                            defaultValue={account.zip_code}
                                            label="Zip code"
                                            margin="normal"
@@ -75,8 +69,6 @@ const Account = () => {
                             </Grid>
                             <Grid item xs={12}>
                                 <TextField name="address1"
-                                           // value={account.address1}
-                                           // onChange={handleChange}
                                            defaultValue={account.address1}
                                            label="Address Line 1"
                                            margin="normal"
@@ -85,8 +77,6 @@ const Account = () => {
                             </Grid>
                             <Grid item xs={12}>
                                 <TextField name="address2"
-                                           // value={account.address2}
-                                           // onChange={handleChange}
                                            defaultValue={account.address2}
                                            label="Address Line 2(Optional)"
                                            margin="normal"
@@ -107,12 +97,10 @@ const Account = () => {
                                 </Button>
                             </Grid>
                         </Grid>
-
                     </Grid>
                 </form> : <div>no user info</div>}
         </div>
     )
 }
-
 
 export default Account;
