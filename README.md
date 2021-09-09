@@ -10,11 +10,10 @@
 
 <br/>
 
-## Services ### 
-- site url ==> http://the-salt.co.uk/
-- test id >> test@gmail.com
-- test password >> test1234 
-
+## Services ###
+```
+ http://the-salt.co.uk/
+```
 <br/>
 
 ### Tools
@@ -65,7 +64,7 @@ $ npm start
 ### Feature ###
 * Fix: 버그 수정 및 오류 개선
 * Feat: 기능 추가, 라인 정리
-* Refactor: 함수 재정의
+* Refactor: 함수, 컴포넌트 재정의
 * Style: CSS 업데이트
 * Init: Initializing
 * Build: Build 작업
@@ -78,23 +77,37 @@ $ npm start
 
 #### ⏱ 21. 9. 3.
 ```
-- Deploy demo version
+Deploy demo version 1.0
 ```
 #### ⏱ 21. 9. 7.
-```
-- DRF permission, token authentication 기능 추가
-- Account 관련 action, reducers, saga 업데이트 
-- update 1.. Token headers를 활용한 Authentication
-- update 2.. DRF의 user model view -> permission allow
-```
-#### ⏱ 21. 9. 8.
-```
-- Backend Order 모델 정의 및 업데이트
-- Order component 업데이트
-```
+<ul>
+    <li>DRF permission, token authentication 기능 추가</li>
+    <li>Account 관련 action, reducers, saga 업데이트</li>
+    <li>update 1.. Token headers를 활용한 Authentication</li>
+    <li>update 2.. DRF의 user model view -> permission allow</li>
 
-### Version ###
-#### v 1.0
+</ul>
+
+#### ⏱ 21. 9. 8.
+<ul>
+    <li>Backend account 생성 view => /register 업데이트</li>
+    <li>Backend Order 모델 정의 및 업데이트</li>
+    <li>Order component 정의 및 업데이트</li>
+    <li>Screen, Profile, Account compoent responsible UI 업데이트</li>
+    <li>react-hook-form version 업데이트에 따른 수정사항 적용</li>
+    <li>// input={register(...)} => {...register('...')}</li>
+</ul>
+
+#### ⏱ 21. 9. 9.
+<ul>
+    <li>회원가입 기능 update // signUp action, reducers(with signIn), singUp saga</li>
+    <li>TextField validation 처리 추가 // react-hook-form</li>
+    <li>Home, HomePagination, Products, Footer, Order component responsible UI 업데이트</li>
+    <li>HomePagination hover effect 적용</li>
+    
+</ul>
+
+#### ⏱ 21. 9. 10.
 ```
-    Deploy the-salt.co.uk 
+Version 2.0 Update
 ```
