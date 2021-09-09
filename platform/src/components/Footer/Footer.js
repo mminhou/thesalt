@@ -48,7 +48,7 @@ const Footer = () => {
                          height: 1,
                          backgroundColor: '#bbb'
                      }}/>
-            <Grid container style={{width: '80%', margin: "auto"}} alignItems="center" justify="center">
+            <Grid container style={{width: '80%', margin: "auto"}} alignItems="center" justifyContent="center">
                 <Grid item xs={12}>
                     <Typography variant="body1">Copyright &copy; 2021 All Rights Reserved by <a
                         href="#">CMM</a>.</Typography>
