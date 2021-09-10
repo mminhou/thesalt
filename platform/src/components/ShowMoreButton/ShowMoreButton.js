@@ -1,13 +1,7 @@
 import React from "react";
 import "./ShowMoreButton.css";
-import {useHistory} from "react-router-dom";
 
 const ShowMoreButton = () => {
-    const history = useHistory()
-    const handleClick = () => {
-        history.push("/home")
-    }
-
     return (
         <button onClick={() => window.location.replace("/home")}>
             <span className="cta">
