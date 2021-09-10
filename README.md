@@ -14,7 +14,7 @@
  http://the-salt.co.uk/
 <br/>
 
-### Tools
+## Tools ##
 <p align='center'>
     <img src="https://img.shields.io/badge/Django-v3.2.7-orange?logo=django"/>
     <img src="https://img.shields.io/badge/DjangoRestframework-v3.12.4-critical?logo=Django"/>
@@ -28,7 +28,7 @@
 </p>
 <br/>
 
-### Architecture ###
+## Architecture ##
 ![Architecture](./platform/src/factory/images/architecture.png)
 
 <br/>
