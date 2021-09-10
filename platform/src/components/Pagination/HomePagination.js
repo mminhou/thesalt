@@ -2,8 +2,8 @@ import React, {useEffect, useState} from 'react';
 import './HomePagination.css';
 import {useDispatch, useSelector} from "react-redux";
 import {Link} from 'react-router-dom';
-import {Grid, Typography, Card, CardActionArea, CardContent, CardMedia} from "@material-ui/core";
 import allAction from "../../modules/actions";
+import {Grid, Typography, Card, CardActionArea, CardContent, CardMedia} from "@material-ui/core";
 
 const HomePagination = () => {
     const {data, loading, error} = useSelector(state => state.products.products);
@@ -25,9 +25,10 @@ const HomePagination = () => {
 
     let maxPages = Math.ceil(contents.length / listsPerPage);
     let items = [];
-    let leftSide = currentPage - 2;
+    // leftSide <-> rightSide 보이고싶은 page length
+    let leftSide = currentPage;
     if (leftSide <= 0) leftSide = 1;
-    let rightSide = currentPage + 2;
+    let rightSide = currentPage;
     if (rightSide > maxPages) rightSide = maxPages;
     for (let number = leftSide; number <= rightSide; number++) {
         items.push(
@@ -76,8 +77,8 @@ const HomePagination = () => {
                                                 onMouseOver={() => setActiveImage(index)}
                                                 onMouseLeave={() => setActiveImage(-1)}>
                                     <Link to={'/productDetail/' + ele.id}>
-                                        <CardMedia image={index === activeImage ? ele.subImage : ele.mainImage} style={{height: 150}}
-                                                   title="Contemplative Reptile"/>
+                                        <CardMedia image={index === activeImage ? ele.subImage : ele.mainImage}
+                                                   className="pagination-card-media" title="Contemplative Reptile"/>
                                         <CardContent className="pagination-card-content">
                                             <Typography variant="body1" style={{fontVariant: "small-caps"}}>
                                                 {ele.subCategory}
