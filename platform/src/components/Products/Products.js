@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import './Products.css'
 import {useDispatch, useSelector} from 'react-redux';
 import allAction from '../../modules/actions';
@@ -6,35 +6,19 @@ import {Grid, Tabs, Tab, Typography} from "@material-ui/core";
 import ProductCard from "../ProductCard/ProductCard";
 import Footer from "../Footer/Footer";
 import withWidth, { isWidthUp } from "@material-ui/core/withWidth";
-
-function TabPanel(props) {
-    const {children, value, index, ...other} = props;
-    return (
-        <div
-            role="tabpanel"
-            hidden={value !== index}
-            id={`vertical-tabpanel-${index}`}
-            aria-labelledby={`vertical-tab-${index}`}
-            {...other}
-        >
-            {value === index && (
-                <Grid container>{children}</Grid>
-            )}
-        </div>
-    );
-};
-
-function a11yProps(index) {
-  return {
-    id: `scrollable-auto-tab-${index}`,
-    'aria-controls': `scrollable-auto-tabpanel-${index}`,
-  };
-}
+import NavWallpaper from "../NavWallpaper/NavWallpaper";
 
 const Products = (props) => {
     const {data, loading, error} = useSelector(state => state.products.products);
-    const [value, setValue] = React.useState(0);
+    const [value, setValue] = useState(0);
     const dispatch = useDispatch();
+    let condTabOrientation;
+
+    if (isWidthUp("md", props.width)) {
+        condTabOrientation = "vertical";
+    } else {
+        condTabOrientation = "horizontal";
+    }
 
     useEffect(() => {
         if (data) return;
@@ -44,13 +28,6 @@ const Products = (props) => {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
-
-    let condTabOrientation;
-      if (isWidthUp("md", props.width)) {
-        condTabOrientation = "vertical";
-      } else {
-        condTabOrientation = "horizontal";
-      }
 
     const productsTemplate = (category) => {
         return (data && data.map((item, key) =>
@@ -69,14 +46,14 @@ const Products = (props) => {
     return (
         <Grid container justifyContent="center" style={{textAlign: 'center'}}>
             <Grid item xs={12}>
-                <div style={{backgroundColor: 'rgb(25, 25, 25)', height: window.innerWidth <= 850 ? 55 : 120}}></div>
+                <NavWallpaper color="rgb(25, 25, 25)"/>
                 <Typography variant="h3" paragraph className="products-title" >Sales / Collection</Typography>
                 <Typography variant="subtitle1" paragraph className="products-subtitle">New in: hand-picked daily from the world’s best goods and boutiques</Typography>
             </Grid>
             <Grid item md={2} xs={12}>
                 <Typography variant="subtitle1">CATEGORY</Typography>
                 <Tabs orientation={condTabOrientation} variant="scrollable"
-                      value={value} onChange={handleChange} style={{width: '100%'}}>
+                      value={value} onChange={handleChange} style={{width: '95%'}}>
                     <Tab label="ALL" {...a11yProps(0)} />
                     <Tab label="OUTER" {...a11yProps(1)} />
                     <Tab label="TOP" {...a11yProps(2)} />
@@ -124,5 +101,29 @@ const Products = (props) => {
         </Grid>
     );
 };
+
+function TabPanel(props) {
+    const {children, value, index, ...other} = props;
+    return (
+        <div
+            role="tabpanel"
+            hidden={value !== index}
+            id={`vertical-tabpanel-${index}`}
+            aria-labelledby={`vertical-tab-${index}`}
+            {...other}
+        >
+            {value === index && (
+                <Grid container>{children}</Grid>
+            )}
+        </div>
+    );
+};
+
+function a11yProps(index) {
+  return {
+    id: `scrollable-auto-tab-${index}`,
+    'aria-controls': `scrollable-auto-tabpanel-${index}`,
+  };
+}
 
 export default withWidth()(Products);
