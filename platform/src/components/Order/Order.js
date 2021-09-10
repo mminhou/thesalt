@@ -4,6 +4,7 @@ import {useSelector} from "react-redux";
 import {Button, Divider, Grid, TextField, Typography} from "@material-ui/core";
 import Footer from "../Footer/Footer";
 import {Link} from "react-router-dom";
+import NavWallpaper from "../NavWallpaper/NavWallpaper";
 
 const Order = () => {
     const shoppingCart = useSelector(state => state.shoppingCart);
@@ -20,12 +21,11 @@ const Order = () => {
         return parseFloat(acc + (cur.quantity ? cur.quantity : 1));
     }, 0).toFixed(0);
 
-
     return (
         <div>
-            <div style={{backgroundColor: 'rgb(25, 25, 25)', height: window.innerWidth <= 850 ? 55 : 120}}></div>
+            <NavWallpaper color="rgb(25, 25, 25)"/>
             <Grid container spacing={5}>
-                <Grid container item xs={12} direction="row" justifyContent="center" alignItems="center" className="container-page">
+                <Grid item container xs={12} direction="row" className="container-page">
                     <Grid item md={7} xs={12}>
                         <Typography variant="h5" display="inline">Shopping Bag</Typography>
                         <Typography variant="h6" display="inline"> ( {countItems()} )</Typography>
@@ -39,8 +39,9 @@ const Order = () => {
                                     <Typography variant="body1">{product.title}</Typography>
                                     <Typography variant="caption" display="block">Color: {product.color}</Typography>
                                     <Typography variant="caption" display="block">Size: {product.size}</Typography>
-                                    <Typography variant="caption" display="block">Style
-                                        Code: {product.styleCode}</Typography>
+                                    <Typography variant="caption" display="block">
+                                        Style Code: {product.styleCode}
+                                    </Typography>
                                     <Typography variant="caption" display="block">
                                         Quantity: {product.quantity ? product.quantity : 1}
                                     </Typography>
@@ -73,8 +74,9 @@ const Order = () => {
                             <Typography variant="body1" align="left">Subtotal</Typography>
                         </Grid>
                         <Grid item xs={6}>
-                            <Typography variant="body1"
-                                        align="right">$ {total.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</Typography>
+                            <Typography variant="body1" align="right">
+                                $ {total.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                            </Typography>
                         </Grid>
                         <Grid item xs={6}>
                             <Typography variant="body1" align="left">Shipping</Typography>
@@ -89,8 +91,9 @@ const Order = () => {
                             <Typography variant="body1" align="right">included</Typography>
                         </Grid>
                         <Grid item xs={12}>
-                            <Typography variant="overline" display="block" align="left">Free Shipping on all orders over
-                                $150</Typography>
+                            <Typography variant="overline" display="block" align="left">
+                                Free Shipping on all orders over $150
+                            </Typography>
                         </Grid>
                         <Grid item xs={12}><Divider/></Grid>
                         <Grid item xs={6}>
@@ -103,12 +106,13 @@ const Order = () => {
                             </Typography>
                         </Grid>
                         <Grid item xs={12}>
-                            <Typography variant="body2" paragraph>You have qualified for complimentary
-                                shipping</Typography>
+                            <Typography variant="body2" paragraph>
+                                You have qualified for complimentary shipping
+                            </Typography>
                         </Grid>
                         <Grid item xs={12}>
                             <Link to="/shipping">
-                                <Button variant="contained" color="primary" size="large" style={{backgroundColor: 'rgb(25, 25, 25)'}} fullWidth >
+                                <Button className="submit-btn" variant="contained" color="primary" size="large" fullWidth >
                                 Proceed to Checkout
                                 </Button>
                             </Link>
