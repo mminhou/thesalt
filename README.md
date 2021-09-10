@@ -27,12 +27,10 @@
     <img src="https://img.shields.io/badge/graphql-v15.4.0-pink?logo=graphql">
     <img src="https://img.shields.io/badge/apollo/client-v3.3.6-violet?">
 </p>
+<br/>
 
 ### Architecture ###
-- Backend - Djangorestframework RestAPI
-- Front - React, Redux-saga 
-- UI - Material UI
-- Codedeploy - (AWS) EC2, S3
+![Architecture](./platform/src/factory/images/architecture.png)
 
 <br/>
 
@@ -111,6 +109,7 @@ Deploy demo version 1.0
     <li>BE. Order, OrderProduct 모델 재정의</li>
     <li>FE. Order, Shipping Component 정의 및 기능 업데이트 (pusOrder action, order reducers, orderSaga, order api)</li>
     <li>BE. Order request에 따른 backend create method 정의</li>
+    <li>FE. Order request 후 cart initialized action 업데이트 (REMOVE_PRODUCT_FROM_CART)</li>
     <li>FE. Error Handling (Console Err)</li>
     <li> # 1. Strict Mode Issues -> Delete `React.strictMode>` tag in App.js</li>
     <li> # 2. Grid issues justify -> justifyContent </li>
@@ -120,3 +119,11 @@ Deploy demo version 1.0
 ```
 Version 2.0 Update
 ```
+#### ⏱ 21. 9. 11.
+<ul>
+    <li>FE. Apply webkit line clamp -> Products, Screen </li>
+    <li>FE. Appending status in Order request data</li>
+    <li>FE. Fixed computedMatch Err -> App.js</li>
+    <li>FE. Fixed pagination length</li>
+    <li>BE. Apply authentication, permission class to OrderView </li>
+</ul>
