@@ -67,7 +67,7 @@ const Products = (props) => {
     }
 
     return (
-        <Grid container justifyContent="center" style={{textAlign: 'center'}} spacing={2}>
+        <Grid container justifyContent="center" style={{textAlign: 'center'}}>
             <Grid item xs={12}>
                 <div style={{backgroundColor: 'rgb(25, 25, 25)', height: window.innerWidth <= 850 ? 55 : 120}}></div>
                 <Typography variant="h3" paragraph className="products-title" >Sales / Collection</Typography>
@@ -118,7 +118,7 @@ const Products = (props) => {
                 </TabPanel>
 
             </Grid>
-            <Grid item xs={12} style={{marginTop: '5%'}}>
+            <Grid item xs={12}>
                 <Footer/>
             </Grid>
         </Grid>

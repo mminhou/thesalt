@@ -7,6 +7,10 @@
 }
 .products-subtitle {
     font-weight: 900 !important;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
 }
 .products-item {
     margin-right: 30px;
