@@ -21,11 +21,10 @@ const SignUp = () => {
                 <Grid item xs={12}>
                     <TextField
                         id="email" name="email" type="email"
-                        label="Example@gmail.com)"
+                        label="Email(example@gmail.com) *"
                         variant="filled"
                         InputProps={{style: {backgroundColor: 'whitesmoke'}}}
                         fullWidth
-                        required
                         {...register("email", {
                             required: true,
                             pattern: {
@@ -40,11 +39,10 @@ const SignUp = () => {
                 <Grid item xs={12}>
                     <TextField
                         id="password" name="password" type="password"
-                        label="Password"
+                        label="Password *"
                         variant="filled"
                         InputProps={{style: {backgroundColor: 'whitesmoke'}}}
                         fullWidth
-                        required
                         {...register("password", {
                             required: true,
                             minLength: {
