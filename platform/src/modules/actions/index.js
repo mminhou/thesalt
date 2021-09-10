@@ -2,7 +2,7 @@ import { getProducts, GET_PRODUCTS, GET_PRODUCTS_SUCCESS, GET_PRODUCTS_ERROR, ge
 import { signIn, signInFail, signInSuccess, signOut, SIGN_UP, SIGN_UP_SUCCESS, SIGN_UP_FAIL, signUp } from "./authAction";
 import { GET_ACCOUNT, GET_ACCOUNT_SUCCESS, GET_ACCOUNT_ERROR, getAccount,
          UPDATE_ACCOUNT, UPDATE_ACCOUNT_SUCCESS, UPDATE_ACCOUNT_ERROR, updateAccount,} from "./accountAction"
-import { ADD_PRODUCT_TO_CART, REMOVE_PRODUCT_FROM_CART, REMOVE_ALL_PRODUCT_FROM_CART } from "./shoppingCartAction";
+import { ADD_PRODUCT_TO_CART, REMOVE_PRODUCT_FROM_CART, REMOVE_ALL_PRODUCT_FROM_CART, addProductToCart, removeProductFromCart } from "./shoppingCartAction";
 import { PUT_ORDER, PUT_ORDER_SUCCESS, PUT_ORDER_FAIL, putOrder } from "./orderAction";
 
 const allAction = {
@@ -27,6 +27,8 @@ const allAction = {
     UPDATE_ACCOUNT_SUCCESS,
     UPDATE_ACCOUNT_ERROR,
     // cart
+    addProductToCart,
+    removeProductFromCart,
     ADD_PRODUCT_TO_CART,
     REMOVE_PRODUCT_FROM_CART,
     REMOVE_ALL_PRODUCT_FROM_CART,
