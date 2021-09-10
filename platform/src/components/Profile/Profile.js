@@ -6,6 +6,7 @@ import {Button, Grid, Typography} from "@material-ui/core";
 import avatar from "../../factory/images/min.png";
 import PersonIcon from '@material-ui/icons/Person';
 import LocalMallIcon from '@material-ui/icons/LocalMall';
+import NavWallpaper from "../NavWallpaper/NavWallpaper";
 
 const Profile = () => {
     const email = useSelector(state => state.signIn.email)
@@ -19,7 +20,7 @@ const Profile = () => {
 
     return (
         <div>
-            <div style={{backgroundColor: '#483D8B', height: window.innerWidth <= 850 ? 55 : 120}}></div>
+            <NavWallpaper color="#483D8B"/>
             {account ? (
                 <Grid container direction="row" justifyContent="center" alignItems="center" spacing={1} style={{textAlign: "center"}}>
                     <Grid item xs={12} style={{marginTop: 35, marginBottom: 50}}>
