@@ -64,6 +64,9 @@
   background-color: rgb(235, 234, 229) !important;
   border: none !important;
 }
+.pagination-card-action .pagination-card-media {
+  height: 150px;
+}
 .pagination-card-content {
   padding: 10px 0 10px 0 !important;
 }
