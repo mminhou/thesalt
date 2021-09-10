@@ -24,8 +24,8 @@ class Product(models.Model):
     subImage3 = models.ImageField('SubImage2', null=True, blank=True)
     subImage4 = models.ImageField('SubImage2', null=True, blank=True)
 
-    def __str__(self):
-        return self.styleCode
+    # def __str__(self):
+    #     return self.id
 
     class Meta:
         verbose_name = 'product'

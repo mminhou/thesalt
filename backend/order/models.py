@@ -12,6 +12,7 @@ class Order(models.Model):
     user = models.ForeignKey(User, related_name="Order", on_delete=models.CASCADE)
     dateOrdered = models.DateField(auto_now_add=True)
     status = models.CharField(max_length=50)
+    total = models.CharField(max_length=50, null=True)
     firstName = models.CharField(max_length=30, blank=True)
     lastName = models.CharField(max_length=30, blank=True)
     city = models.CharField(max_length=30, blank=True)

@@ -3,7 +3,6 @@ from .models import Product
 from category.models import MainCategory, SubCategory
 from order.models import OrderProduct
 from override.slug import SlugRelatedModuleField
-# from mall.override.pkRelatedField import MyPrimaryKeyRelatedField
 
 class ProductSerializer(serializers.ModelSerializer):
     mainCategory = SlugRelatedModuleField(

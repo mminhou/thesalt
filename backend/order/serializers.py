@@ -14,7 +14,7 @@ class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
         fields = ('id', 'user','OrderProduct',
-                  'dateOrdered', 'firstName', 'lastName', 'city',
+                  'dateOrdered', 'status', 'total', 'firstName', 'lastName', 'city',
                   'address1', 'address2', 'zipCode', 'contactNum')
         # depth = 2
 
@@ -28,21 +28,3 @@ class OrderSerializer(serializers.ModelSerializer):
             products = Product.objects.get(id=product['products'])
             OrderProduct.objects.create(order=order, quantity=quantity, products=products)
         return order
-
-    # OrderProduct = OrderProductSerializer(many=True, read_only=True)
-    #
-    # class Meta:
-    #     model = Order
-    #     fields = ('id', 'user', 'OrderProduct')
-    #     # depth = 2
-    #
-    # def create(self, validated_data):
-    #     # user = self.data.get('user')
-    #     request = self.context['request']
-    #     orderProducts = request.data.get('orderProducts')
-    #     order = Order.objects.create(**validated_data)
-    #     for product in orderProducts:
-    #         quantity = product['quantity']
-    #         products = Product.objects.get(id=product['products'])
-    #         OrderProduct.objects.create(order=order, quantity=quantity, products=products)
-    #     return order
