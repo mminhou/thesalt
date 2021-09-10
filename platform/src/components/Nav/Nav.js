@@ -22,7 +22,7 @@ class Nav extends Component {
         this.destroyDrawer = this.destroyDrawer.bind(this);
     }
 
-    componentWillMount() {
+    componentDidMount() {
         if (window.innerWidth <= 850) {
             this.setState({drawerActivate: true});
         }
@@ -33,10 +33,7 @@ class Nav extends Component {
                 this.setState({drawerActivate: false})
             }
         });
-    }
-
-    componentDidMount() {
-        window.addEventListener('scroll', this.listenScrollEvent)
+        window.addEventListener('scroll', this.listenScrollEvent);
     }
 
     listenScrollEvent = e => {
@@ -85,6 +82,7 @@ class Nav extends Component {
                         <List style={{width: 500}}>
                             <Link to="/home"><ListItem key={1} button divider>HOME</ListItem></Link>
                             <Link to="/product"><ListItem key={2} button divider>PRODUCT</ListItem></Link>
+                            <Link to="/order"><ListItem key={2} button divider>ORDER</ListItem></Link>
                             {isLoggedIn ?
                                 <div>
                                     <Link to="/profile"><ListItem key={3} button divider>PROFILE</ListItem></Link>
@@ -92,7 +90,6 @@ class Nav extends Component {
                                     </ListItem></Link>
                                 </div>
                                 : <Link to="/login"><ListItem key={4} button divider>LOGIN</ListItem></Link>}
-                            <Link to="/order"><ListItem key={2} button divider>ORDER</ListItem></Link>
                             <ListItem key={5} button divider><CloseIcon fontSize="small"/></ListItem>
                         </List>
                     </div>
@@ -124,30 +121,29 @@ class Nav extends Component {
                         </Link>
                     </div>
                     <Typography variant="body2" className="padding" color="inherit"
-                                style={{display: pathname == '/' || pathname == '/login' ? 'none' : null}}>
+                                style={{display: pathname === '/' || pathname === '/login' ? 'none' : null}}>
                         <Link to="/home">home</Link>
                     </Typography>
                     <Typography variant="body2" className="padding" color="inherit"
-                                style={{display: pathname == '/' || pathname == '/login' ? 'none' : null}}>
+                                style={{display: pathname === '/' || pathname === '/login' ? 'none' : null}}>
                         <Link to="/product">product</Link>
                     </Typography>
                     <Typography variant="body2" className="padding" color="inherit"
-                                style={{display: pathname == '/' ? 'none' : null}}>
+                                style={{display: pathname === '/' ? 'none' : null}}>
                         {isLoggedIn ?
                             (<Link to="/login" onClick={signOut}>logout</Link>)
                             : (<a href="/login">login</a>)}
                     </Typography>
                     {isLoggedIn ? (
                         <Typography variant="body2" className="padding" color="inherit"
-                                    style={{display: pathname == '/' || pathname == '/login' ? 'none' : null}}>
+                                    style={{display: pathname === '/' || pathname === '/login' ? 'none' : null}}>
                             <Link to="/profile">
-                                <AccountCircleIcon className="fa-account-circle-icon"
-                                                   style={{marginTop: 5}}></AccountCircleIcon>
+                                <AccountCircleIcon className="fa-account-circle-icon" style={{marginTop: 5}}/>
                             </Link>
                         </Typography>) : (<div></div>)
                     }
                     <div className="padding" color="inherit"
-                                style={{display: pathname == '/' || pathname == '/login' ? 'none' : null}}>
+                                style={{display: pathname === '/' || pathname === '/login' ? 'none' : null}}>
                         <Button onClick={this.openModal}>
                             <ShoppingCartIcon style={{color: 'white'}}/>
                         </Button>
