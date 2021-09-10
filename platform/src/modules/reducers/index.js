@@ -6,11 +6,12 @@ import products  from "./productReducer";
 import account from "./accountReducer";
 import signIn from "./authReducer";
 import shoppingCart from "./shoppingCartReducer";
+import order from "./orderReducer";
 
 export const persistConfig = {
   key: "root",
   storage: storage,
-  whitelist: ['signIn', 'shoppingCart']
+  whitelist: ['signIn', 'shoppingCart', 'account']
   // blacklist
 };
 
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
     signIn,
     account,
     shoppingCart,
+    order,
     form: formReducer
 });
 
