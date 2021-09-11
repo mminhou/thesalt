@@ -1,7 +1,7 @@
 </br>
 
 # 🌟 CNTEX -> 🌟 THE SALT #
-![logo](./platform/src/factory/images/theSalt.png)
+![logo](./platform/src/factory/images/logo.png)
 
 
 
@@ -23,7 +23,7 @@
     <img src="https://img.shields.io/badge/React--redux-v7.2.1-yellowgreen?logo=Redux"/>
     <img src="https://img.shields.io/badge/Redux--saga-v.1.1.3-yellow?logo=Redux-saga"/>
     <img src="https://img.shields.io/badge/Material--UI-v4.12.3-blue?logo=material-ui"/>
-    <img src="https://img.shields.io/badge/AWS%20gEC2-v.1.5.3-blueviolet?logo=amazon"/>
+    <img src="https://img.shields.io/badge/AWS%20EC2-v.1.5.3-blueviolet?logo=amazon"/>
     <img src="https://img.shields.io/badge/AWS%20S3-v3.2.7-blueviolet?logo=amazon">
 </p>
 <br/>
