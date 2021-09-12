@@ -45,12 +45,10 @@ $ cd backend
 
 $ python manage.py runserver
 ```
-
 <br/>
 
 ### Frontend ###
-#### / Based on ReactJS /
-```angular2html
+```
 $ cd platform
 
 $ npm start
@@ -125,4 +123,9 @@ Version 2.0 Update
     <li>FE. Fixed computedMatch Err -> App.js</li>
     <li>FE. Fixed pagination length</li>
     <li>BE. Apply authentication, permission class to OrderView </li>
+</ul>
+
+#### ⏱ 21. 9. 12.
+<ul>
+    <li>FE. MyOrder component 정의 및 기능 업데이트 (show order, orderProducts list)</li>
 </ul>
