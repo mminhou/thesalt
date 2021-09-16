@@ -1,6 +1,6 @@
 </br>
 
-# 🌟 CNTEX -> 🌟 THE SALT #
+# 🌟 THE SALT #
 ![logo](./platform/src/factory/images/logo.png)
 
 
@@ -32,6 +32,13 @@
 ![Architecture](./platform/src/factory/images/architecture.png)
 
 <br/>
+
+## 🌟 Main Function
+
+### 👌 SignIn, SignUp
+![Login](./platform/src/factory/images/login.png)
+* Backend django rest api 와 JWT authentication 을 수행해 로그인, 회원가입을 할 수 있습니다.
+*  
 
 ### Backend ###
 ```
