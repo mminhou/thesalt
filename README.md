@@ -4,14 +4,13 @@
 ![logo](./platform/src/factory/images/logo.png)
 
 
-
 ### What is this project site? ###
 'The Salt' is a shopping mall that sells a selected high quality products.
 
-<br/>
 
 ## Services ###
  http://the-salt.co.uk/
+
 <br/>
 
 ## Tools ##
@@ -37,29 +36,57 @@
 
 ### 👌 SignIn, SignUp
 ![Login](./platform/src/factory/images/login.png)
-* Backend django rest api 와 JWT authentication 을 수행해 로그인, 회원가입을 할 수 있습니다.
-*  
+* Django REST API 와 JWT authentication 통신을 합니다.
+* 로그인 성공시 Token, user 정보를 받아와 store에 저장합니다.
+* store의 Token, user 정보 persist 하게 유지합니다.
+* login을 한 이후 navigation의 login 부분은 logout과 profile icon으로 변경됩니다.
+* 회원가입의 email, password repeat field는 validation 처리 되어있습니다.
 
-### Backend ###
-```
-$ python -m venv venv
+### 👌 MainPage
+![MainPage](./platform/src/factory/images/mainPage.png)
+* the-salt url을 입력후 가장 먼저 보게되는 페이지입니다.
+* show more button을 통해 home 페이지로 이동할 수 있습니다.
 
-$ source venv/bin/activate
+### 👌 HomePage
+![HomePage](./platform/src/factory/images/homePage.png)
+* navigation을 통해 플랫폼을 이용할 수 있습니다.
+* scrollable navigation으로 스크롤을 내릴시 shrink 됩니다.
 
-$ pip install -r requirements.txt
+### 👌 ProductPage, ProductDetailPage
+![ProductPage](./platform/src/factory/images/productPage.png)
+![ProductDetailPage](./platform/src/factory/images/productDetailPage.png)
+* product page는 category tab을 통해 원하고자 하는 의류를 분류해 볼 수 있습니다.
 
-$ cd backend
+### 👌 ShoppingCart
+![ShoppingCart](./platform/src/factory/images/shoppingCart.png)
+* 제품 상세 페이지 내에서 카트에 제품을 추가, 카트 내에서 제품 삭제가 가능합니다.
+* 동일한 제품의 추가는 수량으로 업데이트 됩니다.
+* 카트내의 버튼을 통해 주문서 작성 페이지로 넘어갈 수 있습니다.
 
-$ python manage.py runserver
-```
-<br/>
+### 👌 Order
+![OrderPage](./platform/src/factory/images/orderPage.png)
+* 주문서 작성페이지는 주문할 제품들의 총가격, 배송비(총 가격이 $150 미만일시 적용)를 확인합니다.
+* 이 후에 버튼을 통해 주문서 작성을 완료하기 위한 Shipping Page로 넘어갑니다.
 
-### Frontend ###
-```
-$ cd platform
+### 👌 Shipping
+![ShippingPage](./platform/src/factory/images/shippingPage.png)
+* 주문서 작성 완료 페이지(Shipping)는 로그인이 필요합니다. -> 로그인이 안되어있는 사용자는 로그인 페이지로 이동됩니다.
+* 주문서 작성 form의 field들은 모두 작성해야합니다.
+* 주문서 제출시 store안의 token을 사용해 REST API 접근권한을 얻어 해당 유저의 주문서를 create 합니다.
 
-$ npm start
-```
+### 👌 Profile
+![ProfilePage](./platform/src/factory/images/profilePage.png)
+* navigation의 얼굴 아이콘을 통해 Profile 페이지로 이동할 수 있습니다.
+* profile 페이지는 내정보 수정페이지와 주문확인 페이지로 이동하기 위한 버튼이 있습니다.
+* 내 정보 페이지는 로그인한 유저의 정보를 수정할 수 있습니다.
+* 주문확인 페이지는 유저의 주문내역을 확인할 수 있습니다. 
+
+
+
+
+
+
+
 
 <br/>
 
