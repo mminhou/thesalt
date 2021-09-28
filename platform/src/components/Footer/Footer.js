@@ -2,12 +2,25 @@ import React from 'react';
 import './Footer.css';
 import {Divider, Grid, List, Typography, ListItem, ListItemText} from "@material-ui/core";
 import {Facebook, Instagram, LinkedIn, Twitter} from "@material-ui/icons";
+import {useDispatch, useSelector} from "react-redux";
+import allAction from "../../modules/actions";
+import {useHistory} from "react-router";
 
 function ListItemLink(props) {
     return <ListItem button component="a" {...props} />;
 }
 
 const Footer = () => {
+    const {isLoggedIn} = useSelector(state => state.signIn);
+    const dispatch = useDispatch();
+    const history = useHistory();
+    const singOut = () => {
+        dispatch(allAction.signOut())
+        history.push("/login")
+    }
+    const login = () => {
+        history.push("/login")
+    }
     return (
         <div className="site-footer">
             <Grid container style={{width: '80%', margin: "auto"}}>
@@ -22,11 +35,11 @@ const Footer = () => {
                             <ListItemLink href="/home" style={{padding: 0}}><ListItemText
                                 primary="Home"/></ListItemLink>
                             <ListItemLink href="/product" style={{padding: 0}}><ListItemText
-                                primary="Products"/></ListItemLink>
-                            <ListItemLink href="/product" style={{padding: 0}}><ListItemText
-                                primary="Products"/></ListItemLink>
-                            <ListItemLink href="/product" style={{padding: 0}}><ListItemText
-                                primary="Products"/></ListItemLink>
+                                primary="Product"/></ListItemLink>
+                            <ListItemLink href="/order" style={{padding: 0}}><ListItemText
+                                primary="Order"/></ListItemLink>
+                            <ListItemLink onClick={isLoggedIn ? singOut : login} style={{padding: 0}}><ListItemText
+                                primary={isLoggedIn ? "Logout" : "Login"}/></ListItemLink>
                         </List>
                     </Grid>
 
@@ -39,9 +52,8 @@ const Footer = () => {
                     </Grid>
                 </Grid>
             </Grid>
-            <Divider variant="middle"
-                     style={{
-                         width: '82%',
+            <Divider variant="middle" style={{
+                        width: '82%',
                          margin: "auto",
                          marginTop: 20,
                          marginBottom: 20,
@@ -50,8 +62,8 @@ const Footer = () => {
                      }}/>
             <Grid container style={{width: '80%', margin: "auto"}} alignItems="center" justifyContent="center">
                 <Grid item xs={12}>
-                    <Typography variant="body1">Copyright &copy; 2021 All Rights Reserved by <a
-                        href="#">CMM</a>.</Typography>
+                    <a href="https://github.com/mminhou"><Typography variant="body1">
+                        Copyright &copy; 2021 All Rights Reserved by CMM.</Typography></a>
                 </Grid>
                 <Grid item xs={12}>
                     <ul className="social-icons">
