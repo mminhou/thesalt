@@ -40,7 +40,7 @@ class Nav extends Component {
         if (window.scrollY > 80) {
             this.setState({color: 'rgb(25,25,25)', height: '10%', imgHeight: 70})
         } else {
-            this.setState({color: 'transparent', height: '13%', imgHeight: 80})
+            this.setState({color: 'transparent', height: '13%', imgHeight: 70})
         }
     }
 
