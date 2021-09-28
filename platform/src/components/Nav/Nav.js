@@ -15,7 +15,7 @@ class Nav extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            drawerActivate: false, drawer: false, color: 'transparent', height: '13%', imgHeight: 80,
+            drawerActivate: false, drawer: false, color: 'transparent', height: '13%', imgHeight: 70,
             isModalOpen: false, anchorEl: null
         };
         this.createDrawer = this.createDrawer.bind(this);

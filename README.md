@@ -5,13 +5,19 @@
 
 
 ### What is this project site? ###
-'The Salt' is a shopping mall that sells a selected high quality products.
+<strong>'The Salt'</strong> is a shopping mall that sells a selected high quality products.
 
 
 ## Services ###
- http://the-salt.co.uk/
+[THE SALT](http://the-salt.co.uk/ "the salt url") or   http://the-salt.co.uk/ 
+<p>You can use the platform by registering as a member or through a test ID.
+</p>
+<strong> Test account </strong><br/>
+ID ► test@gmail.com<br/>
+PW ► test1234
 
-<br/>
+
+
 
 ## Tools ##
 <p align='center'>
@@ -22,8 +28,8 @@
     <img src="https://img.shields.io/badge/React--redux-v7.2.1-yellowgreen?logo=Redux"/>
     <img src="https://img.shields.io/badge/Redux--saga-v.1.1.3-yellow?logo=Redux-saga"/>
     <img src="https://img.shields.io/badge/Material--UI-v4.12.3-blue?logo=material-ui"/>
-    <img src="https://img.shields.io/badge/AWS%20EC2-v.1.5.3-blueviolet?logo=amazon"/>
-    <img src="https://img.shields.io/badge/AWS%20S3-v3.2.7-blueviolet?logo=amazon">
+    <img src="https://img.shields.io/badge/AWS%20-EC2-blueviolet?logo=amazon"/>
+    <img src="https://img.shields.io/badge/AWS%20-S3-blueviolet?logo=amazon">
 </p>
 <br/>
 
@@ -56,10 +62,11 @@
 ![ProductPage](./platform/src/factory/images/productPage.png)
 ![ProductDetailPage](./platform/src/factory/images/productDetailPage.png)
 * product page는 category tab을 통해 원하고자 하는 의류를 분류해 볼 수 있습니다.
+* product 상세 페이지에서 제품을 카트에 추가할 수 있습니다.
 
 ### 👌 ShoppingCart
 ![ShoppingCart](./platform/src/factory/images/shoppingCart.png)
-* 제품 상세 페이지 내에서 카트에 제품을 추가, 카트 내에서 제품 삭제가 가능합니다.
+* 카트 내의 'x'버튼을 통해 제품을 카트에서 삭제할 수 있습니다.
 * 동일한 제품의 추가는 수량으로 업데이트 됩니다.
 * 카트내의 버튼을 통해 주문서 작성 페이지로 넘어갈 수 있습니다.
 
