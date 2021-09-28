@@ -10,8 +10,7 @@
 
 ## Services ###
 [THE SALT](http://the-salt.co.uk/ "the salt url") or   http://the-salt.co.uk/ 
-<p>You can use the platform by registering as a member or through a test ID.
-</p>
+<p>회원가입 or 테스트 ID를 통해 서비스를 이용할 수 있습니다.</p>
 <strong> Test account </strong><br/>
 ID ► test@gmail.com<br/>
 PW ► test1234
@@ -169,4 +168,10 @@ Version 2.0 Update
 #### ⏱ 21. 9. 12.
 <ul>
     <li>FE. MyOrder component 정의 및 기능 업데이트 (show order, orderProducts list)</li>
+</ul>
+
+#### ⏱ 21. 9. 28.
+<ul>
+    <li>FE. Logo size 수정 </li>
+    <li>FE. Footer navigation isLoggedIn state 적용</li>
 </ul>
