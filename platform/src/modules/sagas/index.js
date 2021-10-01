@@ -19,20 +19,17 @@ function* getProductsSaga() {
 }
 
 function* getProductSaga({payload}) {
-    // const id = action.meta;
     try {
         const product = yield call(api.getProduct, payload);
         yield put({
             type: allAction.GET_PRODUCT_SUCCESS,
             payload: product.data,
-            // meta: id
         });
     } catch (e) {
         yield put({
             type: allAction.GET_PRODUCT_ERROR,
             error: true,
             payload: e,
-            // meta: id
         });
     }
 }
