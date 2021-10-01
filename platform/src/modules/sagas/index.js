@@ -18,34 +18,32 @@ function* getProductsSaga() {
     }
 }
 
-function* getProductSaga(action) {
-    const param = action.payload;
-    const id = action.meta;
+function* getProductSaga({payload}) {
+    // const id = action.meta;
     try {
-        const product = yield call(api.getProduct, param);
+        const product = yield call(api.getProduct, payload);
         yield put({
             type: allAction.GET_PRODUCT_SUCCESS,
             payload: product.data,
-            meta: id
+            // meta: id
         });
     } catch (e) {
         yield put({
             type: allAction.GET_PRODUCT_ERROR,
             error: true,
             payload: e,
-            meta: id
+            // meta: id
         });
     }
 }
 
-function* getAccountSaga(action) {
-    const param = action.payload;
+function* getAccountSaga({payload}) {
     const token = yield select(state => state.signIn.token);
     const headerParams = {
         Authorization: `Token ${token}`
     };
     try {
-        const account = yield call(api.getAccount, param, headerParams);
+        const account = yield call(api.getAccount, payload, headerParams);
         yield put({
             type: allAction.GET_ACCOUNT_SUCCESS,
             payload: account.data[0],
@@ -59,14 +57,13 @@ function* getAccountSaga(action) {
     }
 }
 
-function* updateAccountSaga(action) {
-    const param = action.payload;
+function* updateAccountSaga({payload}) {
     const token = yield select(state => state.signIn.token);
     const headerParams = {
         Authorization: `Token ${token}`
     };
     try {
-        const account = yield call(api.updateAccount, param, headerParams);
+        const account = yield call(api.updateAccount, payload, headerParams);
         yield put({
             type: allAction.UPDATE_ACCOUNT_SUCCESS,
             payload: account.data,
